@@ -79,7 +79,7 @@
   .foto img { position: relative; width: 100%; height: 100%; object-fit: contain; object-position: bottom; }
   .titulo-principal h1 {
     font-family: var(--titulo); font-weight: 400; text-transform: uppercase;
-    font-size: clamp(56px, 8.6vw, 124px); line-height: .9; margin: 0; padding-top: .16em; white-space: nowrap;
+    font-size: clamp(56px, 8.6vw, 124px); line-height: 1.15; margin: -.12em 0 -.08em; padding: .1em 0 0; white-space: nowrap;
     letter-spacing: .01em;
     background: linear-gradient(180deg, #FFFFFF 55%, #E3D4FF 100%);
     -webkit-background-clip: text; background-clip: text; color: transparent;
@@ -104,6 +104,7 @@
   section { padding: 72px 0; }
   .abertura .contentor > *, .exp-grelha > *, .sobre-grelha > * { min-width: 0; }
   .faixa-papel { max-width: 100%; }
+  @media (max-width: 600px) { .faixa-papel span { display: block; } .faixa-papel .ponto { display: none; } }
 
   /* Experiência e ferramentas */
   .exp-grelha { display: grid; grid-template-columns: 1fr 300px; gap: 40px; align-items: start; }
@@ -593,7 +594,7 @@
       </div>
       <div class="titulo-principal">
         <h1>Portefólio</h1>
-        <div class="faixa-papel">Designer gráfico · Desporto</div>
+        <div class="faixa-papel"><span>Designer gráfico</span><span class="ponto"> · </span><span>Desporto</span></div>
         <p>Estudante de Gestão na Católica Porto Business School. Crio a comunicação visual de clubes, marcas e instituições: cartazes de jogo, redes sociais e identidades visuais.</p>
       </div>
     </div>
