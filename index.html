@@ -460,10 +460,9 @@
 
   /* ===== Vídeos na grelha ===== */
   .grelha { grid-auto-flow: row dense; }
-  .peca.video { grid-column: span 2; aspect-ratio: auto; align-self: stretch; min-height: 100%; cursor: pointer; }
+  .peca.video { grid-column: span 2; aspect-ratio: 16 / 9; align-self: stretch; width: 100%; cursor: pointer; }
   .peca.video video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: #000; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
   .peca.video:hover video { transform: scale(1.04); }
-  .peca.video { min-height: 200px; }
   .peca .play {
     position: absolute; left: 50%; top: 50%; z-index: 3; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%;
     display: grid; place-content: center; color: #fff;
@@ -479,6 +478,28 @@
     .ampliar-caixa.com-video { grid-template-columns: 1fr; }
     .ampliar-caixa.com-video .ampliar-imagem { height: auto; width: 100%; }
   }
+
+
+  /* ===== Trabalhos largos e galerias ===== */
+  .peca.larga { grid-column: span 2; aspect-ratio: 16 / 9; align-self: stretch; width: 100%; }
+  .peca.larga img { position: absolute; inset: 0; }
+  .peca .contagem {
+    position: absolute; right: 52px; top: 14px; z-index: 3; padding: 4px 10px; border-radius: 999px;
+    font-size: 11px; font-weight: 700; background: rgba(0,0,0,.65); border: 1px solid rgba(255,255,255,.25);
+  }
+  .ampliar-caixa.com-video .ampliar-imagem img { object-fit: contain; }
+  .miniaturas { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; max-width: 30em; margin: -8px 0 26px; }
+  .miniaturas[hidden] { display: none; }
+  .miniaturas button {
+    width: 100%; aspect-ratio: 16 / 9; padding: 0; border-radius: 6px; overflow: hidden; cursor: pointer;
+    border: 2px solid transparent; background: #000; opacity: .55;
+    transition: opacity .3s, border-color .3s, transform .3s;
+  }
+  .miniaturas button img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .miniaturas button:hover { opacity: .9; transform: translateY(-2px); }
+  .miniaturas button.ativa { opacity: 1; border-color: var(--roxo); box-shadow: 0 0 14px rgba(139,61,255,.7); }
+  .miniaturas button:focus-visible { outline: 3px solid var(--lilas); outline-offset: 2px; }
+  .ampliar-imagem.galeria-ativa { cursor: e-resize; }
 
   /* Quem pediu menos movimento no sistema não vê animações */
   @media (prefers-reduced-motion: reduce) {
@@ -623,11 +644,19 @@
             data-descricao="Descrição por adicionar.">
             <div class="falta"><b>Cartaz de evento</b>images/cel-2.jpg</div><img src="images/cel-2.jpg" alt="Cartaz de evento da Ciência e Letras" onerror="this.remove()" loading="lazy"><figcaption>Ciência e Letras</figcaption><span class="ver" aria-hidden="true">+</span>
           </figure>
-          <figure class="peca" tabindex="0" role="button" aria-label="Ampliar: How to Start Saving"
+          <figure class="peca larga galeria" tabindex="0" role="button" aria-label="Ver projeto: Identidade visual do CIC"
+            data-tema="institucional branding"
+            data-titulo="Identidade visual do CIC"
+            data-descricao="Manual de marca e comunicação do Católica Porto Investment Club, pensado para a equipa de marketing: logótipo, cores, tipografia e regras de aplicação. Aqui ficam 6 dos 15 diapositivos."
+            data-galeria="images/cic/identidade-01.jpg,images/cic/identidade-02.jpg,images/cic/identidade-03.jpg,images/cic/identidade-04.jpg,images/cic/identidade-05.jpg,images/cic/identidade-06.jpg">
+            <img src="images/cic/identidade-01.jpg" alt="Capa do manual de identidade visual do CIC" loading="lazy"><figcaption>CIC · Branding</figcaption><span class="contagem" aria-hidden="true">6 imagens</span><span class="ver" aria-hidden="true">+</span>
+          </figure>
+          <figure class="peca video" tabindex="0" role="button" aria-label="Ver vídeo: Intro CIC"
             data-tema="institucional"
-            data-titulo="How to Start Saving"
-            data-descricao="Descrição por adicionar.">
-            <div class="falta"><b>How to Start Saving</b>images/cic-1.jpg</div><img src="images/cic-1.jpg" alt="Carrossel do Católica Investment Club" onerror="this.remove()" loading="lazy"><figcaption>CIC</figcaption><span class="ver" aria-hidden="true">+</span>
+            data-titulo="Intro CIC"
+            data-descricao="Animação de abertura com o emblema do CIC em dourado, que termina na assinatura «Your future. Your choice»."
+            data-video="videos/cic-intro.mp4">
+            <video src="videos/cic-intro.mp4" poster="videos/cic-intro.jpg" muted loop playsinline preload="none" aria-label="Vídeo de abertura do CIC"></video><figcaption>CIC · Vídeo</figcaption><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
           </figure>
           <figure class="peca video " tabindex="0" role="button" aria-label="Ver vídeo: Intro CIC Talks"
             data-tema="institucional"
@@ -635,6 +664,12 @@
             data-descricao="Animação de abertura do CIC Talks, o podcast do Católica Porto Investment Club: uma linha de gráfico em dourado dá lugar ao logótipo com o microfone."
             data-video="videos/cic-talks.mp4">
             <video src="videos/cic-talks.mp4" poster="videos/cic-talks.jpg" muted loop playsinline preload="none" aria-label="Vídeo de abertura do podcast CIC Talks"></video><figcaption>CIC · Vídeo</figcaption><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
+          </figure>
+          <figure class="peca larga" tabindex="0" role="button" aria-label="Ampliar: Destaques do Instagram"
+            data-tema="institucional"
+            data-titulo="Destaques do Instagram"
+            data-descricao="Doze capas para os destaques do Instagram do CIC, com ícones dourados para eventos, recrutamento, podcast, workshops, departamentos e cada época do clube.">
+            <img src="images/cic/destaques-instagram.jpg" alt="Capas dos destaques do Instagram do CIC" loading="lazy"><figcaption>CIC · Instagram</figcaption><span class="ver" aria-hidden="true">+</span>
           </figure>
           <figure class="peca" tabindex="0" role="button" aria-label="Ampliar: Identidade visual"
             data-tema="branding"
@@ -692,6 +727,7 @@
       <span class="categoria"></span>
       <h3 id="ampliar-titulo"></h3>
       <p></p>
+      <div class="miniaturas" hidden></div>
       <div class="ampliar-nav">
         <button type="button" class="anterior" aria-label="Trabalho anterior">←</button>
         <span class="ampliar-contador"></span>
@@ -755,10 +791,37 @@
     const peca = pecas[i];
     const img = peca.querySelector('img');
     const ehVideo = !!peca.dataset.video;
-    caixa.querySelector('.ampliar-caixa').classList.toggle('com-video', ehVideo);
+    caixa.querySelector('.ampliar-caixa').classList.toggle('com-video', ehVideo || peca.classList.contains('larga'));
+    const fotos = peca.dataset.galeria ? peca.dataset.galeria.split(',') : null;
+    const mini = zonaTexto.querySelector('.miniaturas');
+    mini.hidden = !fotos; mini.innerHTML = '';
+    zonaImg.classList.toggle('galeria-ativa', !!fotos);
+    zonaImg.onclick = null;
     if (ehVideo) {
       const v = peca.querySelector('video');
       zonaImg.innerHTML = `<video src="${peca.dataset.video}" poster="${v.getAttribute('poster')}" controls autoplay playsinline aria-label="${v.getAttribute('aria-label')}"></video>`;
+    } else if (fotos) {
+      let atual = 0;
+      zonaImg.innerHTML = `<img src="${fotos[0]}" alt="${peca.dataset.titulo}, imagem 1 de ${fotos.length}">`;
+      const mostrar = j => {
+        atual = (j + fotos.length) % fotos.length;
+        const el = zonaImg.querySelector('img');
+        const trocar = () => { el.src = fotos[atual]; el.alt = `${peca.dataset.titulo}, imagem ${atual + 1} de ${fotos.length}`; };
+        if (semMovimento) trocar();
+        else el.animate([{ opacity: 1 }, { opacity: 0, transform: 'scale(.98)' }], { duration: 160, easing: 'ease-in' }).onfinish = () => {
+          trocar(); el.animate([{ opacity: 0, transform: 'scale(1.02)' }, { opacity: 1, transform: 'none' }], { duration: 320, easing: suave });
+        };
+        [...mini.children].forEach((b, k) => { b.classList.toggle('ativa', k === atual); b.setAttribute('aria-current', k === atual); });
+      };
+      fotos.forEach((f, k) => {
+        const b = document.createElement('button');
+        b.type = 'button'; b.setAttribute('aria-label', `Ver imagem ${k + 1} de ${fotos.length}`);
+        b.innerHTML = `<img src="${f}" alt="" loading="lazy">`;
+        if (k === 0) b.classList.add('ativa');
+        b.addEventListener('click', () => mostrar(k));
+        mini.appendChild(b);
+      });
+      zonaImg.onclick = () => mostrar(atual + 1);
     } else {
       zonaImg.innerHTML = img
         ? `<img src="${img.getAttribute('src')}" alt="${img.alt}">`
@@ -834,7 +897,7 @@
     if (e.key === 'ArrowRight') mudar(1);
     if (e.key === 'ArrowLeft') mudar(-1);
     if (e.key === 'Tab') { // mantém o foco dentro da janela
-      const focaveis = [...caixa.querySelectorAll('button')];
+      const focaveis = [...caixa.querySelectorAll('button')].filter(b => !b.closest('[hidden]'));
       const i = focaveis.indexOf(document.activeElement);
       if (e.shiftKey && i <= 0) { e.preventDefault(); focaveis.at(-1).focus(); }
       else if (!e.shiftKey && i === focaveis.length - 1) { e.preventDefault(); focaveis[0].focus(); }
@@ -851,7 +914,7 @@
   }
   let aFiltrar = false;
   function filtrar(tema) {
-    const vaiMostrar = p => tema === 'todos' || p.dataset.tema === tema;
+    const vaiMostrar = p => tema === 'todos' || p.dataset.tema.split(' ').includes(tema);
     if (semMovimento) { pecas.forEach(p => p.classList.toggle('escondida', !vaiMostrar(p))); return; }
     const saem = pecas.filter(p => !p.classList.contains('escondida') && !vaiMostrar(p));
     const reorganizar = () => {
