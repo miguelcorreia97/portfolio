@@ -407,7 +407,7 @@
   }
   .ampliar-texto h3 {
     font-family: var(--titulo); font-weight: 400; text-transform: uppercase;
-    font-size: clamp(40px, 5vw, 68px); line-height: .95; margin: 18px 0 16px;
+    font-size: clamp(40px, 5vw, 68px); line-height: 1.06; margin: 18px 0 16px;
   }
   .ampliar-texto p { color: var(--suave); font-size: 17px; margin: 0 0 28px; max-width: 30em; }
   .ampliar-nav { display: flex; align-items: center; gap: 12px; }
@@ -512,8 +512,8 @@
   .projeto-bloco { border-top: 1px solid rgba(255,255,255,.16); padding-top: 28px; }
   .projeto-bloco.escondida { display: none; }
   .bloco-cabeca { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: end; margin-bottom: 24px; }
-  .bloco-tipo { display: block; color: var(--lilas); font-size: 13px; font-weight: 700; letter-spacing: .04em; margin-bottom: 6px; }
-  .bloco-cabeca h3 { font-family: var(--titulo); font-weight: 400; text-transform: uppercase; font-size: clamp(36px, 4.6vw, 58px); line-height: .95; margin: 0; }
+  .bloco-tipo { display: block; color: var(--lilas); font-size: 13px; font-weight: 700; letter-spacing: .04em; margin-bottom: 4px; }
+  .bloco-cabeca h3 { font-family: var(--titulo); font-weight: 400; text-transform: uppercase; font-size: clamp(36px, 4.6vw, 58px); line-height: 1.08; margin: 0; padding-top: .12em; }
   .bloco-cabeca p { margin: 0; color: var(--suave); max-width: 32em; justify-self: end; }
   .bloco-rotulo { margin: 28px 0 12px; font-size: 13px; font-weight: 700; color: var(--suave); }
   .bloco-destaque { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
@@ -527,6 +527,7 @@
   .blocos .peca { grid-column: auto; width: 100%; min-height: 0; }
   .bloco-destaque .peca { aspect-ratio: 16 / 9; }
   .bloco-fila .peca { aspect-ratio: 4 / 5; }
+  .peca.a4 img { object-position: top; }
   .bloco-fila .peca .falta b { font-size: 13px; }
   .bloco-fila .peca .falta { font-size: 10px; }
   @media (max-width: 900px) {
@@ -744,20 +745,34 @@
               <span class="bloco-tipo">Design gráfico e redes sociais · 2025–presente</span>
               <h3>Ciência e Letras</h3>
             </div>
-            <p>Cartazes e publicações para cursos de formação em inteligência artificial, programação e saúde digital.</p>
+            <p>Cartazes e publicações para cursos de inteligência artificial, saúde digital e formação técnica, incluindo parcerias com as associações de estudantes da FEUP e do ISEP.</p>
           </header>
           <div class="bloco-fila">
-            <figure class="peca" tabindex="0" role="button" aria-label="Ampliar: Cartaz de curso"
+            <figure class="peca" tabindex="0" role="button" aria-label="Ampliar: Chatbots em Saúde"
             data-tema="institucional"
-            data-titulo="Cartaz de curso"
-            data-descricao="Descrição por adicionar.">
-            <div class="falta"><b>Cartaz de curso</b>images/cel-1.jpg</div><img src="images/cel-1.jpg" alt="Cartaz de curso da Ciência e Letras" onerror="this.remove()" loading="lazy"><figcaption>Ciência e Letras</figcaption><span class="ver" aria-hidden="true">+</span>
+            data-titulo="Chatbots em Saúde"
+            data-descricao="Publicação de última chamada para um curso online, com as datas, o formato e o certificado destacados numa barra própria.">
+            <img src="images/cel/chatbots-saude.jpg" alt="Publicação de última chamada para o curso de Chatbots em Saúde" loading="lazy"><figcaption>Ciência e Letras</figcaption><span class="ver" aria-hidden="true">+</span>
           </figure>
-            <figure class="peca" tabindex="0" role="button" aria-label="Ampliar: Cartaz de evento"
+            <figure class="peca" tabindex="0" role="button" aria-label="Ampliar: GenAI para enfermeiros"
             data-tema="institucional"
-            data-titulo="Cartaz de evento"
-            data-descricao="Descrição por adicionar.">
-            <div class="falta"><b>Cartaz de evento</b>images/cel-2.jpg</div><img src="images/cel-2.jpg" alt="Cartaz de evento da Ciência e Letras" onerror="this.remove()" loading="lazy"><figcaption>Ciência e Letras</figcaption><span class="ver" aria-hidden="true">+</span>
+            data-titulo="GenAI para enfermeiros"
+            data-descricao="Anúncio de abertura de inscrições para um curso de inteligência artificial dirigido a profissionais de saúde.">
+            <img src="images/cel/genai-enfermeiros.jpg" alt="Anúncio do curso de GenAI para enfermeiros" loading="lazy"><figcaption>Ciência e Letras</figcaption><span class="ver" aria-hidden="true">+</span>
+          </figure>
+            <figure class="peca a4" tabindex="0" role="button" aria-label="Ampliar: Formação técnica · AEFEUP"
+            data-tema="institucional"
+            data-titulo="Formação técnica · AEFEUP"
+            data-descricao="Cartaz A4 da formação técnica em parceria com a associação de estudantes da FEUP, com a tabela de cursos, horários e preços."
+            data-proporcao="1200 / 1697">
+            <img src="images/cel/formacao-aefeup.jpg" alt="Cartaz de formação técnica em parceria com a AEFEUP" loading="lazy"><figcaption>Ciência e Letras</figcaption><span class="ver" aria-hidden="true">+</span>
+          </figure>
+            <figure class="peca a4" tabindex="0" role="button" aria-label="Ampliar: Formação técnica · AEISEP"
+            data-tema="institucional"
+            data-titulo="Formação técnica · AEISEP"
+            data-descricao="O mesmo cartaz adaptado à parceria com a associação de estudantes do ISEP, com outra cor e outros cursos."
+            data-proporcao="1200 / 1697">
+            <img src="images/cel/formacao-aeisep.jpg" alt="Cartaz de formação técnica em parceria com a AEISEP" loading="lazy"><figcaption>Ciência e Letras</figcaption><span class="ver" aria-hidden="true">+</span>
           </figure>
           </div>
         </article>
@@ -876,6 +891,7 @@
     if (fotos) mini.style.setProperty('--n', Math.min(fotos.length, 8));
     zonaImg.classList.toggle('galeria-ativa', !!fotos);
     zonaImg.onclick = null;
+    zonaImg.style.aspectRatio = peca.dataset.proporcao || '';
     if (ehVideo) {
       const v = peca.querySelector('video');
       zonaImg.innerHTML = `<video src="${peca.dataset.video}" poster="${v.getAttribute('poster')}" controls autoplay playsinline aria-label="${v.getAttribute('aria-label')}"></video>`;
