@@ -180,7 +180,14 @@
   /* Sobre */
   .sobre-grelha { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 28px; }
   .sobre-grelha p { margin: 0 0 16px; color: var(--suave); max-width: 36em; }
-  .sobre-grelha p:first-child { color: var(--branco); font-size: 19px; font-weight: 600; }
+  .sobre-abertura {
+    font-family: var(--titulo); font-weight: 400; text-transform: uppercase; color: var(--branco) !important;
+    font-size: clamp(36px, 4.4vw, 56px) !important; line-height: 1.08 !important; padding-top: .1em; margin-bottom: 28px !important;
+  }
+  .numeros { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; }
+  .numeros li { display: grid; grid-template-columns: 110px 1fr; gap: 18px; align-items: center; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.14); }
+  .numeros b { font-family: var(--titulo); font-weight: 400; font-size: 48px; line-height: 1; color: var(--lilas); }
+  .numeros span { color: var(--suave); line-height: 1.45; }
 
   /* Contacto */
   .contacto { text-align: center; }
@@ -635,8 +642,8 @@
           <div class="exp-grupo">
             <h3>Design</h3>
             <ul class="lista-exp">
-              <li><b>Ciência e Letras</b><span>Designer gráfico</span><small>2025–presente</small><em>Cartazes e publicações para cursos de IA, saúde digital e formação técnica.</em></li>
-              <li><b>Católica Porto Investment Club</b><span>Designer e gestor de projetos · Marketing</span><small>2025–presente</small><em>Manual de identidade, vídeos, destaques e conteúdo para as redes do clube.</em></li>
+              <li><b>Ciência e Letras</b><span>Designer gráfico</span><small>Setembro 2025–presente</small><em>Cartazes e publicações para cursos de IA, saúde digital e formação técnica.</em></li>
+              <li><b>Católica Porto Investment Club</b><span>Designer e gestor de projetos · Marketing</span><small>Março 2026–presente</small><em>Manual de identidade, vídeos, destaques e conteúdo para as redes do clube.</em></li>
               <li><b>Salgueiros SC</b><span>Proposta de identidade visual</span><small>2026</small><em>Sistema visual completo para a comunicação digital do clube.</em></li>
             </ul>
           </div>
@@ -746,7 +753,7 @@
         <article class="projeto-bloco" data-temas="institucional branding">
           <header class="bloco-cabeca">
             <div>
-              <span class="bloco-tipo">Marketing · 2025–presente</span>
+              <span class="bloco-tipo">Marketing · 2026–presente</span>
               <h3>Católica Porto Investment Club</h3>
             </div>
             <p>Manual de identidade, vídeos de abertura e capas de destaques para o clube de investimento da Católica Porto.</p>
@@ -827,11 +834,17 @@
       <span class="pilula">Sobre mim</span>
       <div class="sobre-grelha">
         <div>
-          <p>Estudo Gestão, mas foi no design que encontrei a forma de juntar as coisas de que mais gosto: comunicação, estratégia e futebol.</p>
+          <p class="sobre-abertura">Cresci dentro de clubes. Hoje desenho para eles.</p>
+          <ul class="numeros">
+            <li><b>8</b><span>anos de ginástica artística federada no Sport Club do Porto, com pódios nacionais</span></li>
+            <li><b>3</b><span>anos de futebol federado no Sport Clube Senhora da Hora</span></li>
+            <li><b>Sub-9</b><span>treinador adjunto no Senhora da Hora</span></li>
+          </ul>
         </div>
         <div>
-          <p>Trabalho como designer na Ciência e Letras e no Católica Investment Club, e desenvolvo propostas para clubes de futebol, como a proposta de identidade digital para o Salgueiros.</p>
-          <p>Por estudar Gestão, penso cada peça a partir do objetivo: mais adeptos no estádio, mais seguidores, mais visibilidade para patrocinadores.</p>
+          <p>Sou estudante de Gestão na Católica Porto Business School e designer gráfico. Na Ciência e Letras crio a comunicação visual dos cursos de formação. No Católica Porto Investment Club giro projetos de marketing e fiz o manual de identidade do clube.</p>
+          <p>O desporto acompanha-me desde criança. Passei por balneários, competições nacionais e um banco de treinador, e sei o que um adepto quer ver no Instagram cinco segundos depois de um golo.</p>
+          <p>A Gestão dá-me o resto: cada peça começa num objetivo, seja encher a bancada, fazer crescer as redes do clube ou dar visibilidade a um patrocinador.</p>
         </div>
       </div>
     </div>
@@ -877,7 +890,7 @@
   const semMovimento = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Elementos que aparecem ao fazer scroll, com pequeno atraso em cascata
-  const alvos = document.querySelectorAll('.pilula, .exp-grupo h3, .lista-exp li, .ferramenta, .peca, .sobre-grelha > div, .contacto h2, .contacto p, .botao-email, .redes');
+  const alvos = document.querySelectorAll('.pilula, .exp-grupo h3, .lista-exp li, .ferramenta, .peca, .sobre-grelha > div, .numeros li, .contacto h2, .contacto p, .botao-email, .redes');
   alvos.forEach(el => el.classList.add('revelar'));
   document.querySelectorAll('.bloco-destaque, .bloco-fila, .lista-exp, .caixa-ferramentas, .exp-colunas').forEach(grupo => {
     [...grupo.children].forEach((el, i) => el.style.setProperty('--atraso', (i % 5) * 0.08 + 's'));
