@@ -506,6 +506,40 @@
   .peca:hover figcaption, .peca:focus-visible figcaption { opacity: 1; transform: none; }
   @media (hover: none) { .peca figcaption { display: none; } }
 
+
+  /* ===== Trabalhos organizados por projeto ===== */
+  .blocos { display: grid; gap: 64px; }
+  .projeto-bloco { border-top: 1px solid rgba(255,255,255,.16); padding-top: 28px; }
+  .projeto-bloco.escondida { display: none; }
+  .bloco-cabeca { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: end; margin-bottom: 24px; }
+  .bloco-tipo { display: block; color: var(--lilas); font-size: 13px; font-weight: 700; letter-spacing: .04em; margin-bottom: 6px; }
+  .bloco-cabeca h3 { font-family: var(--titulo); font-weight: 400; text-transform: uppercase; font-size: clamp(36px, 4.6vw, 58px); line-height: .95; margin: 0; }
+  .bloco-cabeca p { margin: 0; color: var(--suave); max-width: 32em; justify-self: end; }
+  .bloco-rotulo { margin: 28px 0 12px; font-size: 13px; font-weight: 700; color: var(--suave); }
+  .bloco-destaque { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .bloco-fila {
+    display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 6 * 12px) / 7); gap: 12px;
+    overflow-x: auto; scroll-snap-type: x mandatory; padding: 12px 4px 14px; margin: -12px -4px -14px;
+    scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.25) transparent;
+  }
+  .bloco-fila > .peca { scroll-snap-align: start; }
+  .bloco-destaque > .escondida, .bloco-fila > .escondida, .bloco-rotulo.escondida, .bloco-destaque.escondida, .bloco-fila.escondida { display: none; }
+  .blocos .peca { grid-column: auto; width: 100%; min-height: 0; }
+  .bloco-destaque .peca { aspect-ratio: 16 / 9; }
+  .bloco-fila .peca { aspect-ratio: 4 / 5; }
+  .bloco-fila .peca .falta b { font-size: 13px; }
+  .bloco-fila .peca .falta { font-size: 10px; }
+  @media (max-width: 900px) {
+    .bloco-cabeca { grid-template-columns: 1fr; gap: 10px; }
+    .bloco-cabeca p { justify-self: start; }
+    .bloco-fila { grid-auto-columns: calc((100% - 2 * 12px) / 3.3); }
+  }
+  @media (max-width: 600px) {
+    .blocos { gap: 48px; }
+    .bloco-destaque { grid-template-columns: 1fr; gap: 12px; }
+    .bloco-fila { grid-auto-columns: 44%; gap: 10px; }
+  }
+
   /* Quem pediu menos movimento no sistema não vê animações */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -597,116 +631,173 @@
         <button type="button" class="filtro" data-filtro="institucional" aria-pressed="false">Institucional</button>
         <button type="button" class="filtro" data-filtro="branding" aria-pressed="false">Branding</button>
       </div>
-      <div class="moldura-grelha">
-        <div class="grelha">
-          <figure class="peca larga galeria futebol" tabindex="0" role="button" aria-label="Ver projeto: Proposta de identidade visual do Salgueiros"
+      <div class="blocos">
+        <article class="projeto-bloco" data-temas="futebol branding">
+          <header class="bloco-cabeca">
+            <div>
+              <span class="bloco-tipo">Proposta de identidade visual · 2026</span>
+              <h3>Salgueiros SC</h3>
+            </div>
+            <p>Um sistema visual para as redes sociais do clube, do manual de marca às publicações de cada jornada.</p>
+          </header>
+          <div class="bloco-destaque">
+            <figure class="peca larga galeria futebol" tabindex="0" role="button" aria-label="Ver projeto: Proposta de identidade visual do Salgueiros"
             data-tema="futebol branding"
             data-titulo="Identidade visual do Salgueiros"
             data-descricao="Proposta de identidade visual para a comunicação digital do Salgueiros SC na época 2026/27. Um sistema flexível, com a chama como textura, vermelho e amarelo mostarda e títulos em Bebas Neue, que funciona com fotografia, recorte de jogador ou só fundo gráfico. Aqui ficam 8 dos 11 diapositivos."
             data-galeria="images/salgueiros/identidade-01.jpg,images/salgueiros/identidade-02.jpg,images/salgueiros/identidade-03.jpg,images/salgueiros/identidade-04.jpg,images/salgueiros/identidade-05.jpg,images/salgueiros/identidade-06.jpg,images/salgueiros/identidade-07.jpg,images/salgueiros/identidade-08.jpg">
             <img src="images/salgueiros/identidade-01.jpg" alt="Capa da proposta de identidade visual do Salgueiros SC" loading="lazy"><figcaption>Futebol · Branding</figcaption><span class="contagem" aria-hidden="true">8 imagens</span><span class="ver" aria-hidden="true">+</span>
           </figure>
-          <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Dia de jogo"
-            data-tema="futebol"
-            data-titulo="Dia de jogo"
-            data-descricao="Anúncio do Salgueiros vs. Alpendorada, com recorte do jogador sobre o fundo de chamas e data, hora e local num rodapé discreto. Faz parte da proposta de identidade visual para o clube.">
-            <img src="images/salgueiros/dia-de-jogo.jpg" alt="Cartaz de dia de jogo Salgueiros vs. Alpendorada" loading="lazy"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
-          </figure>
-          <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Onze inicial"
-            data-tema="futebol"
-            data-titulo="Onze inicial"
-            data-descricao="A equipa titular e os suplentes alinhados à direita, com o capitão assinalado e uma fotografia de jogador a ocupar o lado esquerdo.">
-            <img src="images/salgueiros/onze-inicial.jpg" alt="Publicação com o onze inicial do Salgueiros" loading="lazy"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
-          </figure>
-          <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Golo"
-            data-tema="futebol"
-            data-titulo="Golo"
-            data-descricao="Publicação para o momento do golo: o marcador, o minuto e o resultado atualizado, pensada para sair poucos segundos depois do lance.">
-            <img src="images/salgueiros/golo.jpg" alt="Publicação de golo de Caio Ribas aos 75 minutos" loading="lazy"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
-          </figure>
-          <figure class="peca video futebol" tabindex="0" role="button" aria-label="Ver vídeo: Intro Salgueiros"
+            <figure class="peca video futebol" tabindex="0" role="button" aria-label="Ver vídeo: Intro Salgueiros"
             data-tema="futebol"
             data-titulo="Intro Salgueiros"
             data-descricao="Animação de abertura com o emblema do Sport Comércio e Salgueiros, que ganha forma em néon vermelho até revelar o lema «Na Alma do Nosso Povo»."
             data-video="videos/salgueiros.mp4">
             <video src="videos/salgueiros.mp4" poster="videos/salgueiros.jpg" muted loop playsinline preload="none" aria-label="Vídeo de abertura com o emblema do Salgueiros"></video><figcaption>Futebol · Vídeo</figcaption><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
           </figure>
-          <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Resultado final"
+          </div>
+          <p class="bloco-rotulo">Publicações para o Instagram</p>
+          <div class="bloco-fila">
+            <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Dia de jogo"
+            data-tema="futebol"
+            data-titulo="Dia de jogo"
+            data-descricao="Anúncio do Salgueiros vs. Alpendorada, com recorte do jogador sobre o fundo de chamas e data, hora e local num rodapé discreto. Faz parte da proposta de identidade visual para o clube.">
+            <img src="images/salgueiros/dia-de-jogo.jpg" alt="Cartaz de dia de jogo Salgueiros vs. Alpendorada" loading="lazy"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
+          </figure>
+            <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Onze inicial"
+            data-tema="futebol"
+            data-titulo="Onze inicial"
+            data-descricao="A equipa titular e os suplentes alinhados à direita, com o capitão assinalado e uma fotografia de jogador a ocupar o lado esquerdo.">
+            <img src="images/salgueiros/onze-inicial.jpg" alt="Publicação com o onze inicial do Salgueiros" loading="lazy"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
+          </figure>
+            <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Golo"
+            data-tema="futebol"
+            data-titulo="Golo"
+            data-descricao="Publicação para o momento do golo: o marcador, o minuto e o resultado atualizado, pensada para sair poucos segundos depois do lance.">
+            <img src="images/salgueiros/golo.jpg" alt="Publicação de golo de Caio Ribas aos 75 minutos" loading="lazy"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
+          </figure>
+            <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Resultado final"
             data-tema="futebol"
             data-titulo="Resultado final"
             data-descricao="Fotografia do jogo com o título em grande e o resultado numa barra com os emblemas dos dois clubes.">
             <img src="images/salgueiros/resultado-final.jpg" alt="Publicação com o resultado final Salgueiros 2-0 Alpendorada" loading="lazy"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
           </figure>
-          <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Calendário"
+            <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Calendário"
             data-tema="futebol"
             data-titulo="Calendário"
             data-descricao="Os jogos do mês sobre a fotografia de equipa, com local, dia, adversário e hora de cada jogo.">
             <img src="images/salgueiros/calendario.jpg" alt="Calendário dos jogos de abril do Salgueiros" loading="lazy"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
           </figure>
-          <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Contratação"
+            <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Contratação"
             data-tema="futebol"
             data-titulo="Contratação"
             data-descricao="Apresentação de um reforço, com o nome em grande sobre o jogador e a mensagem de boas-vindas.">
             <img src="images/salgueiros/contratacao.jpg" alt="Publicação de boas-vindas ao jogador Scottini" loading="lazy"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
           </figure>
-          <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Comunicado oficial"
+            <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Comunicado oficial"
             data-tema="futebol"
             data-titulo="Comunicado oficial"
             data-descricao="Peça só com fundo gráfico, para comunicados em que não há fotografia: emblema, título e a hashtag do clube.">
             <img src="images/salgueiros/comunicado.jpg" alt="Capa de comunicado oficial do Salgueiros" loading="lazy"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
           </figure>
-          <figure class="peca" tabindex="0" role="button" aria-label="Ampliar: Cartaz de curso"
-            data-tema="institucional"
-            data-titulo="Cartaz de curso"
-            data-descricao="Descrição por adicionar.">
-            <div class="falta"><b>Cartaz de curso</b>images/cel-1.jpg</div><img src="images/cel-1.jpg" alt="Cartaz de curso da Ciência e Letras" onerror="this.remove()" loading="lazy"><figcaption>Ciência e Letras</figcaption><span class="ver" aria-hidden="true">+</span>
-          </figure>
-          <figure class="peca" tabindex="0" role="button" aria-label="Ampliar: Cartaz de evento"
-            data-tema="institucional"
-            data-titulo="Cartaz de evento"
-            data-descricao="Descrição por adicionar.">
-            <div class="falta"><b>Cartaz de evento</b>images/cel-2.jpg</div><img src="images/cel-2.jpg" alt="Cartaz de evento da Ciência e Letras" onerror="this.remove()" loading="lazy"><figcaption>Ciência e Letras</figcaption><span class="ver" aria-hidden="true">+</span>
-          </figure>
-          <figure class="peca larga galeria" tabindex="0" role="button" aria-label="Ver projeto: Identidade visual do CIC"
+          </div>
+        </article>
+        <article class="projeto-bloco" data-temas="institucional branding">
+          <header class="bloco-cabeca">
+            <div>
+              <span class="bloco-tipo">Marketing · 2025–presente</span>
+              <h3>Católica Porto Investment Club</h3>
+            </div>
+            <p>Manual de identidade, vídeos de abertura e capas de destaques para o clube de investimento da Católica Porto.</p>
+          </header>
+          <div class="bloco-destaque">
+            <figure class="peca larga galeria" tabindex="0" role="button" aria-label="Ver projeto: Identidade visual do CIC"
             data-tema="institucional branding"
             data-titulo="Identidade visual do CIC"
             data-descricao="Manual de marca e comunicação do Católica Porto Investment Club, pensado para a equipa de marketing: logótipo, cores, tipografia e regras de aplicação. Aqui ficam 6 dos 15 diapositivos."
             data-galeria="images/cic/identidade-01.jpg,images/cic/identidade-02.jpg,images/cic/identidade-03.jpg,images/cic/identidade-04.jpg,images/cic/identidade-05.jpg,images/cic/identidade-06.jpg">
             <img src="images/cic/identidade-01.jpg" alt="Capa do manual de identidade visual do CIC" loading="lazy"><figcaption>CIC · Branding</figcaption><span class="contagem" aria-hidden="true">6 imagens</span><span class="ver" aria-hidden="true">+</span>
           </figure>
-          <figure class="peca video" tabindex="0" role="button" aria-label="Ver vídeo: Intro CIC"
+            <figure class="peca video" tabindex="0" role="button" aria-label="Ver vídeo: Intro CIC"
             data-tema="institucional"
             data-titulo="Intro CIC"
             data-descricao="Animação de abertura com o emblema do CIC em dourado, que termina na assinatura «Your future. Your choice»."
             data-video="videos/cic-intro.mp4">
             <video src="videos/cic-intro.mp4" poster="videos/cic-intro.jpg" muted loop playsinline preload="none" aria-label="Vídeo de abertura do CIC"></video><figcaption>CIC · Vídeo</figcaption><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
           </figure>
-          <figure class="peca video " tabindex="0" role="button" aria-label="Ver vídeo: Intro CIC Talks"
+            <figure class="peca video " tabindex="0" role="button" aria-label="Ver vídeo: Intro CIC Talks"
             data-tema="institucional"
             data-titulo="Intro CIC Talks"
             data-descricao="Animação de abertura do CIC Talks, o podcast do Católica Porto Investment Club: uma linha de gráfico em dourado dá lugar ao logótipo com o microfone."
             data-video="videos/cic-talks.mp4">
             <video src="videos/cic-talks.mp4" poster="videos/cic-talks.jpg" muted loop playsinline preload="none" aria-label="Vídeo de abertura do podcast CIC Talks"></video><figcaption>CIC · Vídeo</figcaption><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
           </figure>
-          <figure class="peca larga" tabindex="0" role="button" aria-label="Ampliar: Destaques do Instagram"
+            <figure class="peca larga" tabindex="0" role="button" aria-label="Ampliar: Destaques do Instagram"
             data-tema="institucional"
             data-titulo="Destaques do Instagram"
             data-descricao="Doze capas para os destaques do Instagram do CIC, com ícones dourados para eventos, recrutamento, podcast, workshops, departamentos e cada época do clube.">
             <img src="images/cic/destaques-instagram.jpg" alt="Capas dos destaques do Instagram do CIC" loading="lazy"><figcaption>CIC · Instagram</figcaption><span class="ver" aria-hidden="true">+</span>
           </figure>
-          <figure class="peca" tabindex="0" role="button" aria-label="Ampliar: Identidade visual"
+          </div>
+        </article>
+        <article class="projeto-bloco" data-temas="institucional">
+          <header class="bloco-cabeca">
+            <div>
+              <span class="bloco-tipo">Design gráfico e redes sociais · 2025–presente</span>
+              <h3>Ciência e Letras</h3>
+            </div>
+            <p>Cartazes e publicações para cursos de formação em inteligência artificial, programação e saúde digital.</p>
+          </header>
+          <div class="bloco-fila">
+            <figure class="peca" tabindex="0" role="button" aria-label="Ampliar: Cartaz de curso"
+            data-tema="institucional"
+            data-titulo="Cartaz de curso"
+            data-descricao="Descrição por adicionar.">
+            <div class="falta"><b>Cartaz de curso</b>images/cel-1.jpg</div><img src="images/cel-1.jpg" alt="Cartaz de curso da Ciência e Letras" onerror="this.remove()" loading="lazy"><figcaption>Ciência e Letras</figcaption><span class="ver" aria-hidden="true">+</span>
+          </figure>
+            <figure class="peca" tabindex="0" role="button" aria-label="Ampliar: Cartaz de evento"
+            data-tema="institucional"
+            data-titulo="Cartaz de evento"
+            data-descricao="Descrição por adicionar.">
+            <div class="falta"><b>Cartaz de evento</b>images/cel-2.jpg</div><img src="images/cel-2.jpg" alt="Cartaz de evento da Ciência e Letras" onerror="this.remove()" loading="lazy"><figcaption>Ciência e Letras</figcaption><span class="ver" aria-hidden="true">+</span>
+          </figure>
+          </div>
+        </article>
+        <article class="projeto-bloco" data-temas="branding">
+          <header class="bloco-cabeca">
+            <div>
+              <span class="bloco-tipo">Proposta de identidade visual · 2025</span>
+              <h3>Nexalyse</h3>
+            </div>
+            <p>Identidade minimalista e de forte contraste, pensada para transmitir sofisticação e solidez.</p>
+          </header>
+          <div class="bloco-fila">
+            <figure class="peca" tabindex="0" role="button" aria-label="Ampliar: Identidade visual"
             data-tema="branding"
             data-titulo="Identidade visual"
             data-descricao="Descrição por adicionar.">
             <div class="falta"><b>Identidade visual</b>images/nexalyse-1.jpg</div><img src="images/nexalyse-1.jpg" alt="Identidade visual da Nexalyse" onerror="this.remove()" loading="lazy"><figcaption>Nexalyse</figcaption><span class="ver" aria-hidden="true">+</span>
           </figure>
-          <figure class="peca" tabindex="0" role="button" aria-label="Ampliar: Personagem da marca"
+          </div>
+        </article>
+        <article class="projeto-bloco" data-temas="branding">
+          <header class="bloco-cabeca">
+            <div>
+              <span class="bloco-tipo">Projeto próprio · branding e produto</span>
+              <h3>RuptoWear</h3>
+            </div>
+            <p>Marca de streetwear com consciência social, com uma personagem que resume a atitude da marca.</p>
+          </header>
+          <div class="bloco-fila">
+            <figure class="peca" tabindex="0" role="button" aria-label="Ampliar: Personagem da marca"
             data-tema="branding"
             data-titulo="Personagem da marca"
             data-descricao="Descrição por adicionar.">
             <div class="falta"><b>Personagem da marca</b>images/rupto-1.jpg</div><img src="images/rupto-1.jpg" alt="Personagem da RuptoWear" onerror="this.remove()" loading="lazy"><figcaption>RuptoWear</figcaption><span class="ver" aria-hidden="true">+</span>
           </figure>
-        </div>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -767,7 +858,7 @@
   // Elementos que aparecem ao fazer scroll, com pequeno atraso em cascata
   const alvos = document.querySelectorAll('.pilula, .lista-exp li, .ferramenta, .peca, .sobre-grelha > div, .contacto h2, .contacto p, .botao-email, .redes');
   alvos.forEach(el => el.classList.add('revelar'));
-  document.querySelectorAll('.grelha, .lista-exp, .caixa-ferramentas').forEach(grupo => {
+  document.querySelectorAll('.bloco-destaque, .bloco-fila, .lista-exp, .caixa-ferramentas').forEach(grupo => {
     [...grupo.children].forEach((el, i) => el.style.setProperty('--atraso', (i % 5) * 0.08 + 's'));
   });
   if ('IntersectionObserver' in window && !semMovimento) {
@@ -937,13 +1028,26 @@
     marcador.style.transform = `translate(${botao.offsetLeft}px, ${botao.offsetTop}px)`;
   }
   let aFiltrar = false;
+  function atualizarBlocos() {
+    document.querySelectorAll('.projeto-bloco').forEach(bl => {
+      let algum = false;
+      bl.querySelectorAll('.bloco-destaque, .bloco-fila').forEach(z => {
+        const vazio = !z.querySelector('.peca:not(.escondida)');
+        z.classList.toggle('escondida', vazio);
+        if (z.previousElementSibling && z.previousElementSibling.classList.contains('bloco-rotulo')) z.previousElementSibling.classList.toggle('escondida', vazio);
+        if (!vazio) algum = true;
+      });
+      bl.classList.toggle('escondida', !algum);
+    });
+  }
   function filtrar(tema) {
     const vaiMostrar = p => tema === 'todos' || p.dataset.tema.split(' ').includes(tema);
-    if (semMovimento) { pecas.forEach(p => p.classList.toggle('escondida', !vaiMostrar(p))); return; }
+    if (semMovimento) { pecas.forEach(p => p.classList.toggle('escondida', !vaiMostrar(p))); atualizarBlocos(); return; }
     const saem = pecas.filter(p => !p.classList.contains('escondida') && !vaiMostrar(p));
     const reorganizar = () => {
       const antes = new Map(pecas.map(p => [p, p.classList.contains('escondida') ? null : p.getBoundingClientRect()]));
       pecas.forEach(p => { p.getAnimations().forEach(a => a.cancel()); p.classList.toggle('escondida', !vaiMostrar(p)); });
+      atualizarBlocos();
       let n = 0;
       pecas.forEach(p => {
         if (p.classList.contains('escondida')) return;
@@ -975,6 +1079,7 @@
   posicionarMarcador();
   // ao abrir a página mostra logo o tema ativo, sem animação
   pecas.forEach(p => p.classList.toggle('escondida', !p.dataset.tema.split(' ').includes(document.querySelector('.filtro.ativo').dataset.filtro)));
+  atualizarBlocos();
 
   // ===== Formas do fundo reagem ao rato (efeito de profundidade) =====
   (function () {
