@@ -83,20 +83,20 @@
   /* Abertura */
   .abertura { padding: 48px 0 0; }
   .abertura .contentor { display: grid; grid-template-columns: .9fr 1.1fr; gap: 40px; align-items: center; }
-  .foto { position: relative; aspect-ratio: 4 / 5; max-width: 330px; justify-self: center; width: 100%; }
-  /* quadrado roxo: a foto fica toda lá dentro, centrada */
+  .foto { position: relative; aspect-ratio: 1 / 1; max-width: 330px; justify-self: center; width: 100%; }
+  /* círculo roxo: a foto fica toda lá dentro, centrada */
   .foto::before {
     content: ""; position: absolute; inset: 0;
     background: linear-gradient(160deg, var(--roxo-escuro), #3E1590);
-    border-radius: 18px; box-shadow: 0 0 60px rgba(139,61,255,.55);
+    border-radius: 50%; box-shadow: 0 0 60px rgba(139,61,255,.55);
   }
   .foto .falta {
     position: absolute; inset: 0; display: grid; place-content: center;
     text-align: center; font-size: 13px; color: rgba(255,255,255,.75); padding: 16px;
   }
   .foto .falta b { display: block; font-size: 20px; color: var(--branco); }
-  .foto .moldura-foto { position: absolute; inset: 0; border-radius: 18px; overflow: hidden; }
-  .foto img { position: absolute; left: 50%; bottom: 0; height: 86%; width: auto; max-width: none; transform: translateX(-50%); }
+  .foto .moldura-foto { position: absolute; inset: 0; border-radius: 50%; overflow: hidden; }
+  .foto img { position: absolute; left: 50%; bottom: 0; height: 88%; width: auto; max-width: none; transform: translateX(-50%); }
   .titulo-principal h1 {
     font-family: var(--titulo); font-weight: 400; text-transform: uppercase;
     font-size: clamp(56px, 8.6vw, 124px); line-height: 1.15; margin: -.12em 0 -.08em; padding: .1em 0 0; white-space: nowrap;
@@ -214,7 +214,7 @@
   /* Ecrãs médios e pequenos */
   @media (max-width: 960px) {
     .abertura .contentor { grid-template-columns: 1fr; text-align: center; }
-    .foto { margin: 0 auto; width: 100%; max-width: 260px; }
+    .foto { margin: 0 auto; width: 100%; max-width: 240px; }
     .titulo-principal p { margin-left: auto; margin-right: auto; }
     .titulo-principal h1 { font-size: clamp(56px, 15vw, 140px); }
     .exp-grelha, .sobre-grelha { grid-template-columns: 1fr; }
