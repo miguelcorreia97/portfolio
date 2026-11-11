@@ -88,7 +88,11 @@
   /* quadrado roxo arredondado: a foto fica toda lá dentro, centrada */
   .foto::before {
     content: ""; position: absolute; inset: 0;
-    background: linear-gradient(160deg, var(--roxo-escuro), #3E1590);
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"),
+      radial-gradient(rgba(255,255,255,.16) 1.2px, transparent 1.4px) 0 0 / 14px 14px,
+      radial-gradient(circle at 30% 20%, rgba(255,255,255,.22), transparent 55%),
+      linear-gradient(160deg, var(--roxo-escuro), #3E1590);
     border-radius: 24px; box-shadow: 0 0 60px rgba(139,61,255,.55);
   }
   .foto .falta {
@@ -181,15 +185,17 @@
   .peca.futebol figcaption { background: var(--roxo); }
 
   /* Sobre */
-  .sobre-grelha { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 28px; }
+  .sobre-grelha { display: grid; grid-template-columns: 300px 1fr; gap: 56px; margin-top: 28px; align-items: start; }
+  .sobre-grelha .foto { margin: 0; max-width: 300px; }
+  .sobre-grelha p:last-child { margin-bottom: 0; }
   .sobre-grelha p { margin: 0 0 16px; color: var(--suave); max-width: 36em; }
   .sobre-abertura {
     font-family: var(--titulo); font-weight: 400; text-transform: uppercase; color: var(--branco) !important;
     font-size: clamp(36px, 4.4vw, 56px) !important; line-height: 1.08 !important; padding-top: .1em; margin-bottom: 28px !important;
   }
-  .numeros { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; }
-  .numeros li:first-child { border-top: 0; padding-top: 0; }
-  .numeros li { display: grid; grid-template-columns: 110px 1fr; gap: 18px; align-items: center; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.14); }
+  .numeros { list-style: none; margin: 48px 0 0; padding: 28px 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; border-top: 1px solid rgba(255,255,255,.14); }
+  
+  .numeros li { display: grid; gap: 8px; align-content: start; }
   .numeros b { font-family: var(--titulo); font-weight: 400; font-size: 48px; line-height: 1; color: var(--lilas); }
   .numeros span { color: var(--suave); line-height: 1.45; }
 
@@ -219,6 +225,9 @@
     .titulo-principal p { margin-left: auto; margin-right: auto; }
     .titulo-principal h1 { font-size: clamp(56px, 15vw, 140px); }
     .exp-grelha, .sobre-grelha { grid-template-columns: 1fr; }
+    .sobre-grelha .foto { margin: 0 auto; max-width: 260px; }
+    .numeros { grid-template-columns: 1fr; gap: 20px; }
+    .numeros li { grid-template-columns: 96px 1fr; align-items: center; gap: 16px; }
     .exp-colunas { grid-template-columns: 1fr 1fr; gap: 32px; }
     .exp-colunas .exp-grupo:last-child { grid-column: 1 / -1; }
     .caixa-ferramentas { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -844,15 +853,10 @@
     <div class="contentor">
       <span class="pilula">Sobre mim</span>
       <div class="sobre-grelha">
-        <div>
+        <div class="sobre-foto">
           <div class="foto">
             <div class="moldura-foto"><img src="images/foto.png" alt="Miguel Correia" onerror="this.parentElement.remove()"></div>
           </div>
-          <ul class="numeros">
-            <li><b>8</b><span>anos de ginástica artística federada no Sport Club do Porto</span></li>
-            <li><b>7</b><span>épocas de futebol federado no Geração Benfica e no Sport Clube Senhora da Hora</span></li>
-            <li><b>Sub-9</b><span>treinador adjunto no Senhora da Hora</span></li>
-          </ul>
         </div>
         <div>
           <p>Sou estudante do 2.º ano da licenciatura em Gestão na Católica Porto Business School e designer gráfico. Crio identidades visuais, conteúdos para redes sociais e vídeo, com foco na comunicação de clubes desportivos.</p>
@@ -861,6 +865,11 @@
           <p>Tenho formação em Gestão de Redes Sociais no Desporto e em Teoria de Design Gráfico (2026), e em Excel Avançado (2025). Falo português, inglês (B2) e espanhol (nível básico).</p>
         </div>
       </div>
+      <ul class="numeros">
+        <li><b>8</b><span>anos de ginástica artística federada no Sport Club do Porto</span></li>
+        <li><b>7</b><span>épocas de futebol federado no Geração Benfica e no Sport Clube Senhora da Hora</span></li>
+        <li><b>Sub-9</b><span>treinador adjunto no Senhora da Hora</span></li>
+      </ul>
     </div>
   </section>
 
