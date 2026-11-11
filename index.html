@@ -488,7 +488,7 @@
     font-size: 11px; font-weight: 700; background: rgba(0,0,0,.65); border: 1px solid rgba(255,255,255,.25);
   }
   .ampliar-caixa.com-video .ampliar-imagem img { object-fit: contain; }
-  .miniaturas { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; max-width: 30em; margin: -8px 0 26px; }
+  .miniaturas { display: grid; grid-template-columns: repeat(var(--n, 6), minmax(0, 1fr)); gap: 6px; max-width: 30em; margin: -8px 0 26px; }
   .miniaturas[hidden] { display: none; }
   .miniaturas button {
     width: 100%; aspect-ratio: 16 / 9; padding: 0; border-radius: 6px; overflow: hidden; cursor: pointer;
@@ -595,6 +595,13 @@
       </div>
       <div class="moldura-grelha">
         <div class="grelha">
+          <figure class="peca larga galeria futebol" tabindex="0" role="button" aria-label="Ver projeto: Proposta de identidade visual do Salgueiros"
+            data-tema="futebol branding"
+            data-titulo="Identidade visual do Salgueiros"
+            data-descricao="Proposta de identidade visual para a comunicação digital do Salgueiros SC na época 2026/27. Um sistema flexível, com a chama como textura, vermelho e amarelo mostarda e títulos em Bebas Neue, que funciona com fotografia, recorte de jogador ou só fundo gráfico. Aqui ficam 8 dos 11 diapositivos."
+            data-galeria="images/salgueiros/identidade-01.jpg,images/salgueiros/identidade-02.jpg,images/salgueiros/identidade-03.jpg,images/salgueiros/identidade-04.jpg,images/salgueiros/identidade-05.jpg,images/salgueiros/identidade-06.jpg,images/salgueiros/identidade-07.jpg,images/salgueiros/identidade-08.jpg">
+            <img src="images/salgueiros/identidade-01.jpg" alt="Capa da proposta de identidade visual do Salgueiros SC" loading="lazy"><figcaption>Futebol · Branding</figcaption><span class="contagem" aria-hidden="true">8 imagens</span><span class="ver" aria-hidden="true">+</span>
+          </figure>
           <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Matchday"
             data-tema="futebol"
             data-titulo="Matchday"
@@ -795,6 +802,7 @@
     const fotos = peca.dataset.galeria ? peca.dataset.galeria.split(',') : null;
     const mini = zonaTexto.querySelector('.miniaturas');
     mini.hidden = !fotos; mini.innerHTML = '';
+    if (fotos) mini.style.setProperty('--n', Math.min(fotos.length, 8));
     zonaImg.classList.toggle('galeria-ativa', !!fotos);
     zonaImg.onclick = null;
     if (ehVideo) {
