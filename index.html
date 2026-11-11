@@ -126,7 +126,7 @@
 
   /* Experiência e ferramentas */
   .exp-grelha { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 48px; align-items: start; }
-  .exp-colunas { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; margin-top: 28px; }
+  .exp-colunas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin-top: 28px; }
   .exp-grupo h3 {
     margin: 0 0 18px; padding-bottom: 10px; border-bottom: 2px solid var(--roxo);
     font-family: var(--titulo); font-weight: 400; text-transform: uppercase; font-size: 26px; line-height: 1.1; letter-spacing: .02em;
@@ -216,7 +216,8 @@
     .titulo-principal p { margin-left: auto; margin-right: auto; }
     .titulo-principal h1 { font-size: clamp(56px, 15vw, 140px); }
     .exp-grelha, .sobre-grelha { grid-template-columns: 1fr; }
-    .exp-colunas { grid-template-columns: 1.3fr 1fr; gap: 32px; }
+    .exp-colunas { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .exp-colunas .exp-grupo:last-child { grid-column: 1 / -1; }
     .caixa-ferramentas { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .grelha { grid-template-columns: repeat(3, 1fr); }
   }
@@ -649,6 +650,14 @@
             </ul>
           </div>
           <div class="exp-grupo">
+            <h3>Desporto</h3>
+            <ul class="lista-exp">
+              <li><b>Sport Clube Senhora da Hora</b><span>Treinador adjunto · Sub-9</span><small>Maio–setembro 2025</small><em>Preparação e condução de treinos e jogos, e comunicação com pais e equipa técnica.</em></li>
+              <li><b>Sport Clube Senhora da Hora</b><span>Atleta federado · futebol juvenil</span><small>2022–2025</small></li>
+              <li><b>Sport Club do Porto</b><span>Atleta federado · ginástica artística</span><small>2010–2018</small><em>Competições nacionais, com um 3.º lugar nacional em argolas.</em></li>
+            </ul>
+          </div>
+          <div class="exp-grupo">
             <h3>Formação</h3>
             <ul class="lista-exp">
               <li><b>Licenciatura em Gestão</b><span>Católica Porto Business School</span><small>2024–2027</small></li>
@@ -836,7 +845,7 @@
       <div class="sobre-grelha">
         <div>
           <ul class="numeros">
-            <li><b>8</b><span>anos de ginástica artística federada no Sport Club do Porto, com pódios nacionais</span></li>
+            <li><b>8</b><span>anos de ginástica artística federada no Sport Club do Porto, com um 3.º lugar nacional em argolas</span></li>
             <li><b>3</b><span>anos de futebol federado no Sport Clube Senhora da Hora</span></li>
             <li><b>Sub-9</b><span>treinador adjunto no Senhora da Hora</span></li>
           </ul>
