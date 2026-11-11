@@ -125,12 +125,19 @@
   @media (max-width: 600px) { .faixa-papel span { display: block; } .faixa-papel .ponto { display: none; } }
 
   /* Experiência e ferramentas */
-  .exp-grelha { display: grid; grid-template-columns: 1fr 300px; gap: 40px; align-items: start; }
-  .lista-exp { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 40px; list-style: none; padding: 0; margin: 28px 0 0; }
-  .lista-exp li { position: relative; padding-left: 18px; margin-bottom: 14px; }
+  .exp-grelha { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 48px; align-items: start; }
+  .exp-colunas { display: grid; grid-template-columns: 1.25fr 1fr 1fr; gap: 32px; margin-top: 28px; }
+  .exp-grupo h3 {
+    margin: 0 0 18px; padding-bottom: 10px; border-bottom: 2px solid var(--roxo);
+    font-family: var(--titulo); font-weight: 400; text-transform: uppercase; font-size: 26px; line-height: 1.1; letter-spacing: .02em;
+  }
+  .lista-exp { display: grid; gap: 4px; list-style: none; padding: 0; margin: 0; }
+  .lista-exp li { position: relative; padding-left: 18px; margin-bottom: 16px; }
   .lista-exp li::before { content: ""; position: absolute; left: 0; top: .6em; width: 7px; height: 7px; border-radius: 50%; background: var(--branco); }
   .lista-exp b { display: block; font-size: 18px; line-height: 1.3; }
-  .lista-exp span { color: var(--suave); }
+  .lista-exp span { display: block; color: var(--suave); line-height: 1.4; }
+  .lista-exp small { display: block; margin-top: 2px; color: var(--lilas); font-size: 13px; font-weight: 600; }
+  .lista-exp em { display: block; margin-top: 6px; font-style: normal; font-size: 14px; line-height: 1.5; color: rgba(255,255,255,.55); }
   .caixa-ferramentas {
     margin-top: 28px; padding: 22px; border-radius: 22px;
     background: rgba(255,255,255,.07); border: 2px solid rgba(255,255,255,.22);
@@ -201,15 +208,17 @@
     .titulo-principal p { margin-left: auto; margin-right: auto; }
     .titulo-principal h1 { font-size: clamp(56px, 15vw, 140px); }
     .exp-grelha, .sobre-grelha { grid-template-columns: 1fr; }
+    .exp-colunas { grid-template-columns: 1fr 1fr; }
+    .exp-colunas .exp-grupo:first-child { grid-column: 1 / -1; }
     .caixa-ferramentas { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .grelha { grid-template-columns: repeat(3, 1fr); }
   }
   @media (max-width: 600px) {
+    .exp-colunas { grid-template-columns: 1fr; gap: 28px; }
     .contentor { padding: 0 16px; }
     .nav a { padding: 8px 12px; font-size: 12px; }
     .nav a:nth-child(2) { display: none; }
     .marca .nome { display: none; }
-    .lista-exp { grid-template-columns: 1fr; }
     .caixa-ferramentas { padding: 14px; gap: 10px; }
     .ferramenta { font-size: 10px; padding: 4px; }
     .ferramenta b { font-size: 24px; }
@@ -623,12 +632,31 @@
     <div class="contentor exp-grelha">
       <div>
         <span class="pilula">A minha experiência</span>
-        <ul class="lista-exp">
-          <li><b>Ciência e Letras</b><span>Designer gráfico</span></li>
-          <li><b>Católica Investment Club</b><span>Designer e gestor de projetos</span></li>
-          <li><b>Licenciatura em Gestão</b><span>Católica Porto Business School · 2024–2027</span></li>
-          <li><b>Ensino secundário em Economia</b><span>Colégio Luso-Francês · 2021–2024</span></li>
-        </ul>
+        <div class="exp-colunas">
+          <div class="exp-grupo">
+            <h3>Design</h3>
+            <ul class="lista-exp">
+              <li><b>Ciência e Letras</b><span>Designer gráfico</span><small>2025–presente</small><em>Cartazes e publicações para cursos de IA, saúde digital e formação técnica.</em></li>
+              <li><b>Católica Porto Investment Club</b><span>Designer e gestor de projetos · Marketing</span><small>2025–presente</small><em>Manual de identidade, vídeos, destaques e conteúdo para as redes do clube.</em></li>
+              <li><b>Salgueiros SC</b><span>Proposta de identidade visual</span><small>2026</small><em>Sistema visual completo para a comunicação digital do clube.</em></li>
+            </ul>
+          </div>
+          <div class="exp-grupo">
+            <h3>Finanças</h3>
+            <ul class="lista-exp">
+              <li><b>Edmond de Rothschild</b><span>Estágio e job shadowing</span><small>Luxemburgo e Lisboa</small></li>
+              <li><b>Banco Carregosa</b><span>Estágio e job shadowing</span></li>
+              <li><b>Triple A – Capital &amp; Finance</b><span>Estágio e job shadowing</span></li>
+            </ul>
+          </div>
+          <div class="exp-grupo">
+            <h3>Formação</h3>
+            <ul class="lista-exp">
+              <li><b>Licenciatura em Gestão</b><span>Católica Porto Business School</span><small>2024–2027</small></li>
+              <li><b>Ensino secundário em Economia</b><span>Colégio Luso-Francês</span><small>2021–2024</small></li>
+            </ul>
+          </div>
+        </div>
       </div>
       <div>
         <span class="pilula">Ferramentas</span>
@@ -858,9 +886,9 @@
   const semMovimento = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Elementos que aparecem ao fazer scroll, com pequeno atraso em cascata
-  const alvos = document.querySelectorAll('.pilula, .lista-exp li, .ferramenta, .peca, .sobre-grelha > div, .contacto h2, .contacto p, .botao-email, .redes');
+  const alvos = document.querySelectorAll('.pilula, .exp-grupo h3, .lista-exp li, .ferramenta, .peca, .sobre-grelha > div, .contacto h2, .contacto p, .botao-email, .redes');
   alvos.forEach(el => el.classList.add('revelar'));
-  document.querySelectorAll('.bloco-destaque, .bloco-fila, .lista-exp, .caixa-ferramentas').forEach(grupo => {
+  document.querySelectorAll('.bloco-destaque, .bloco-fila, .lista-exp, .caixa-ferramentas, .exp-colunas').forEach(grupo => {
     [...grupo.children].forEach((el, i) => el.style.setProperty('--atraso', (i % 5) * 0.08 + 's'));
   });
   if ('IntersectionObserver' in window && !semMovimento) {
