@@ -83,18 +83,20 @@
   /* Abertura */
   .abertura { padding: 48px 0 0; }
   .abertura .contentor { display: grid; grid-template-columns: .9fr 1.1fr; gap: 40px; align-items: center; }
-  .foto { position: relative; aspect-ratio: 1 / 1; max-width: 460px; }
+  .foto { position: relative; aspect-ratio: 4 / 5; max-width: 420px; width: 100%; }
+  /* quadrado roxo: a foto fica toda lá dentro, centrada */
   .foto::before {
-    content: ""; position: absolute; left: 6%; right: 18%; top: 20%; bottom: 0;
+    content: ""; position: absolute; inset: 0;
     background: linear-gradient(160deg, var(--roxo-escuro), #3E1590);
-    border-radius: 18px 18px 0 0; box-shadow: 0 0 60px rgba(139,61,255,.55);
+    border-radius: 18px; box-shadow: 0 0 60px rgba(139,61,255,.55);
   }
   .foto .falta {
-    position: absolute; left: 6%; right: 18%; top: 20%; bottom: 0; display: grid; place-content: center;
+    position: absolute; inset: 0; display: grid; place-content: center;
     text-align: center; font-size: 13px; color: rgba(255,255,255,.75); padding: 16px;
   }
   .foto .falta b { display: block; font-size: 20px; color: var(--branco); }
-  .foto img { position: relative; width: 100%; height: 100%; object-fit: contain; object-position: bottom; }
+  .foto .moldura-foto { position: absolute; inset: 0; border-radius: 18px; overflow: hidden; }
+  .foto img { position: absolute; left: 50%; bottom: 0; height: 92%; width: auto; max-width: none; transform: translateX(-50%); }
   .titulo-principal h1 {
     font-family: var(--titulo); font-weight: 400; text-transform: uppercase;
     font-size: clamp(56px, 8.6vw, 124px); line-height: 1.15; margin: -.12em 0 -.08em; padding: .1em 0 0; white-space: nowrap;
@@ -356,9 +358,9 @@
 
   /* A foto reage ao rato */
   .foto::before { transition: transform .5s, box-shadow .5s; }
-  .foto:hover::before { transform: rotate(-2deg) scale(1.03); box-shadow: 0 0 90px rgba(169,112,255,.8); }
+  .foto:hover::before { box-shadow: 0 0 90px rgba(169,112,255,.8); }
   .foto img { transition: transform .5s; }
-  .foto:hover img { transform: translateY(-6px) scale(1.02); }
+  .foto:hover img { transform: translateX(-50%) translateY(-6px) scale(1.02); }
 
   /* Pílulas e menu */
   .pilula, .nav a, .redes a { transition: box-shadow .3s, background .3s, transform .3s; }
@@ -624,8 +626,7 @@
   <section class="abertura">
     <div class="contentor">
       <div class="foto">
-        <div class="falta"><b>A tua foto</b>images/foto.png<br>(fundo transparente)</div>
-        <img src="images/foto.png" alt="Miguel Correia" onerror="this.remove()">
+        <div class="moldura-foto"><img src="images/foto.png" alt="Miguel Correia" onerror="this.parentElement.remove()"></div>
       </div>
       <div class="titulo-principal">
         <h1>Portefólio</h1>
