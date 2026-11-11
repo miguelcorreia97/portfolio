@@ -85,15 +85,11 @@
   .abertura .contentor { display: grid; grid-template-columns: 1fr; justify-items: center; text-align: center; }
   .abertura .titulo-principal p { margin-left: auto; margin-right: auto; }
   .foto { position: relative; aspect-ratio: 1 / 1; max-width: 300px; width: 100%; margin: 0 0 36px; }
-  /* quadrado roxo arredondado: a foto fica toda lá dentro, centrada */
+  /* moldura com borda branca, sem preenchimento: a foto fica toda lá dentro, centrada */
   .foto::before {
     content: ""; position: absolute; inset: 0;
-    background:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"),
-      radial-gradient(rgba(255,255,255,.16) 1.2px, transparent 1.4px) 0 0 / 14px 14px,
-      radial-gradient(circle at 30% 20%, rgba(255,255,255,.22), transparent 55%),
-      linear-gradient(160deg, var(--roxo-escuro), #3E1590);
-    border-radius: 24px; box-shadow: 0 0 60px rgba(139,61,255,.55);
+    background: transparent; border: 2px solid rgba(255,255,255,.9);
+    border-radius: 24px; z-index: 1; pointer-events: none;
   }
   .foto .falta {
     position: absolute; inset: 0; display: grid; place-content: center;
@@ -101,7 +97,7 @@
   }
   .foto .falta b { display: block; font-size: 20px; color: var(--branco); }
   .foto .moldura-foto { position: absolute; inset: 0; border-radius: 24px; overflow: hidden; }
-  .foto img { position: absolute; left: 50%; bottom: 0; height: 88%; width: auto; max-width: none; transform: translateX(-50%); }
+  .foto img { position: absolute; left: 50%; bottom: 0; height: 88%; width: auto; max-width: none; transform: translateX(-50%); transform-origin: 50% 100%; }
   .titulo-principal h1 {
     font-family: var(--titulo); font-weight: 400; text-transform: uppercase;
     font-size: clamp(56px, 8.6vw, 124px); line-height: 1.15; margin: -.12em 0 -.08em; padding: .1em 0 0; white-space: nowrap;
@@ -368,9 +364,9 @@
 
   /* A foto reage ao rato */
   .foto::before { transition: transform .5s, box-shadow .5s; }
-  .foto:hover::before { box-shadow: 0 0 90px rgba(169,112,255,.8); }
+  .foto:hover::before { box-shadow: 0 0 36px rgba(255,255,255,.35); }
   .foto img { transition: transform .5s; }
-  .foto:hover img { transform: translateX(-50%) translateY(-6px) scale(1.02); }
+  .foto:hover img { transform: translateX(-50%) scale(1.03); }
 
   /* Pílulas e menu */
   .pilula, .nav a, .redes a { transition: box-shadow .3s, background .3s, transform .3s; }
