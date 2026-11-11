@@ -148,8 +148,6 @@
     background: rgba(7,5,11,.75);
   }
   .peca.futebol figcaption { background: var(--roxo); }
-  .video-desporto { margin-top: 18px; border-radius: 14px; overflow: hidden; }
-  .video-desporto video { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #000; }
 
   /* Sobre */
   .sobre-grelha { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 28px; }
@@ -459,6 +457,29 @@
     .filtro { padding: 10px 8px; font-size: 12px; }
   }
 
+
+  /* ===== Vídeos na grelha ===== */
+  .grelha { grid-auto-flow: row dense; }
+  .peca.video { grid-column: span 2; aspect-ratio: auto; align-self: stretch; min-height: 100%; cursor: pointer; }
+  .peca.video video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: #000; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+  .peca.video:hover video { transform: scale(1.04); }
+  .peca.video { min-height: 200px; }
+  .peca .play {
+    position: absolute; left: 50%; top: 50%; z-index: 3; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%;
+    display: grid; place-content: center; color: #fff;
+    background: rgba(139,61,255,.85); box-shadow: 0 0 0 8px rgba(139,61,255,.25), 0 0 30px rgba(139,61,255,.7);
+    transition: transform .4s cubic-bezier(.2,.7,.2,1), opacity .4s;
+  }
+  .peca .play svg { width: 28px; height: 28px; margin-left: 3px; }
+  .peca.video.a-tocar .play { opacity: 0; transform: scale(.6); }
+  .ampliar-caixa.com-video { grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr); width: min(1240px, 100%); }
+  .ampliar-caixa.com-video .ampliar-imagem { aspect-ratio: 16 / 9; height: auto; width: 100%; max-height: none; }
+  .ampliar-imagem video { width: 100%; height: 100%; display: block; background: #000; }
+  @media (max-width: 800px) {
+    .ampliar-caixa.com-video { grid-template-columns: 1fr; }
+    .ampliar-caixa.com-video .ampliar-imagem { height: auto; width: 100%; }
+  }
+
   /* Quem pediu menos movimento no sistema não vê animações */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -571,6 +592,13 @@
             data-descricao="Descrição por adicionar.">
             <div class="falta"><b>Resultado final</b>images/resultado.jpg</div><img src="images/resultado.jpg" alt="Publicação com o resultado final" onerror="this.remove()" loading="lazy"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
           </figure>
+          <figure class="peca video futebol" tabindex="0" role="button" aria-label="Ver vídeo: Intro Salgueiros"
+            data-tema="futebol"
+            data-titulo="Intro Salgueiros"
+            data-descricao="Animação de abertura com o emblema do Sport Comércio e Salgueiros, que ganha forma em néon vermelho até revelar o lema «Na Alma do Nosso Povo»."
+            data-video="videos/salgueiros.mp4">
+            <video src="videos/salgueiros.mp4" poster="videos/salgueiros.jpg" muted loop playsinline preload="none" aria-label="Vídeo de abertura com o emblema do Salgueiros"></video><figcaption>Futebol · Vídeo</figcaption><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
+          </figure>
           <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Peça de futebol"
             data-tema="futebol"
             data-titulo="Peça de futebol"
@@ -601,6 +629,13 @@
             data-descricao="Descrição por adicionar.">
             <div class="falta"><b>How to Start Saving</b>images/cic-1.jpg</div><img src="images/cic-1.jpg" alt="Carrossel do Católica Investment Club" onerror="this.remove()" loading="lazy"><figcaption>CIC</figcaption><span class="ver" aria-hidden="true">+</span>
           </figure>
+          <figure class="peca video " tabindex="0" role="button" aria-label="Ver vídeo: Intro CIC Talks"
+            data-tema="institucional"
+            data-titulo="Intro CIC Talks"
+            data-descricao="Animação de abertura do CIC Talks, o podcast do Católica Porto Investment Club: uma linha de gráfico em dourado dá lugar ao logótipo com o microfone."
+            data-video="videos/cic-talks.mp4">
+            <video src="videos/cic-talks.mp4" poster="videos/cic-talks.jpg" muted loop playsinline preload="none" aria-label="Vídeo de abertura do podcast CIC Talks"></video><figcaption>CIC · Vídeo</figcaption><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
+          </figure>
           <figure class="peca" tabindex="0" role="button" aria-label="Ampliar: Identidade visual"
             data-tema="branding"
             data-titulo="Identidade visual"
@@ -614,10 +649,6 @@
             <div class="falta"><b>Personagem da marca</b>images/rupto-1.jpg</div><img src="images/rupto-1.jpg" alt="Personagem da RuptoWear" onerror="this.remove()" loading="lazy"><figcaption>RuptoWear</figcaption><span class="ver" aria-hidden="true">+</span>
           </figure>
         </div>
-        <div class="video-desporto">
-          <video src="videos/desporto.mp4" controls muted playsinline preload="metadata" onerror="this.parentElement.remove()" aria-label="Vídeo de design desportivo"></video>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -675,7 +706,7 @@
   const semMovimento = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Elementos que aparecem ao fazer scroll, com pequeno atraso em cascata
-  const alvos = document.querySelectorAll('.pilula, .lista-exp li, .ferramenta, .peca, .video-desporto, .sobre-grelha > div, .contacto h2, .contacto p, .botao-email, .redes');
+  const alvos = document.querySelectorAll('.pilula, .lista-exp li, .ferramenta, .peca, .sobre-grelha > div, .contacto h2, .contacto p, .botao-email, .redes');
   alvos.forEach(el => el.classList.add('revelar'));
   document.querySelectorAll('.grelha, .lista-exp, .caixa-ferramentas').forEach(grupo => {
     [...grupo.children].forEach((el, i) => el.style.setProperty('--atraso', (i % 5) * 0.08 + 's'));
@@ -723,9 +754,16 @@
   function preencher(i) {
     const peca = pecas[i];
     const img = peca.querySelector('img');
-    zonaImg.innerHTML = img
-      ? `<img src="${img.getAttribute('src')}" alt="${img.alt}">`
-      : peca.querySelector('.falta').outerHTML;
+    const ehVideo = !!peca.dataset.video;
+    caixa.querySelector('.ampliar-caixa').classList.toggle('com-video', ehVideo);
+    if (ehVideo) {
+      const v = peca.querySelector('video');
+      zonaImg.innerHTML = `<video src="${peca.dataset.video}" poster="${v.getAttribute('poster')}" controls autoplay playsinline aria-label="${v.getAttribute('aria-label')}"></video>`;
+    } else {
+      zonaImg.innerHTML = img
+        ? `<img src="${img.getAttribute('src')}" alt="${img.alt}">`
+        : peca.querySelector('.falta').outerHTML;
+    }
     zonaTexto.querySelector('.categoria').textContent = peca.querySelector('figcaption').textContent;
     zonaTexto.querySelector('h3').textContent = peca.dataset.titulo;
     zonaTexto.querySelector('p').textContent = peca.dataset.descricao;
@@ -755,6 +793,7 @@
     if (caixa.hidden) return;
     const terminar = () => {
       caixa.hidden = true; document.body.classList.remove('sem-scroll');
+      zonaImg.innerHTML = ''; // pára o vídeo
       if (ultimoFoco) ultimoFoco.focus({ preventScroll: true });
     };
     if (semMovimento) return terminar();
@@ -860,6 +899,14 @@
       requestAnimationFrame(mexer);
     })();
   })();
+
+  // ===== Pré-visualização dos vídeos ao passar o rato =====
+  document.querySelectorAll('.peca.video').forEach(peca => {
+    const v = peca.querySelector('video');
+    if (semMovimento || !matchMedia('(hover: hover)').matches) return;
+    peca.addEventListener('mouseenter', () => { v.preload = 'auto'; v.play().then(() => peca.classList.add('a-tocar')).catch(() => {}); });
+    peca.addEventListener('mouseleave', () => { v.pause(); v.currentTime = 0; peca.classList.remove('a-tocar'); });
+  });
 </script>
 </body>
 </html>
