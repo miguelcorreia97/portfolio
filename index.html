@@ -351,7 +351,6 @@
   .peca:hover img { transform: scale(1.08); }
   .peca:hover::after { background-position: -30% 0; }
   .peca figcaption { transition: transform .3s; }
-  .peca:hover figcaption { transform: translateY(-3px); }
 
   /* Botão de email com brilho */
   .botao-email { position: relative; overflow: hidden; transition: transform .3s, box-shadow .3s; }
@@ -501,6 +500,12 @@
   .miniaturas button:focus-visible { outline: 3px solid var(--lilas); outline-offset: 2px; }
   .ampliar-imagem.galeria-ativa { cursor: e-resize; }
 
+
+  /* A etiqueta do tema só aparece ao passar o rato, para não tapar a arte */
+  .peca figcaption { opacity: 0; transform: translateY(6px); transition: opacity .3s, transform .3s; }
+  .peca:hover figcaption, .peca:focus-visible figcaption { opacity: 1; transform: none; }
+  @media (hover: none) { .peca figcaption { display: none; } }
+
   /* Quem pediu menos movimento no sistema não vê animações */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -602,23 +607,23 @@
             data-galeria="images/salgueiros/identidade-01.jpg,images/salgueiros/identidade-02.jpg,images/salgueiros/identidade-03.jpg,images/salgueiros/identidade-04.jpg,images/salgueiros/identidade-05.jpg,images/salgueiros/identidade-06.jpg,images/salgueiros/identidade-07.jpg,images/salgueiros/identidade-08.jpg">
             <img src="images/salgueiros/identidade-01.jpg" alt="Capa da proposta de identidade visual do Salgueiros SC" loading="lazy"><figcaption>Futebol · Branding</figcaption><span class="contagem" aria-hidden="true">8 imagens</span><span class="ver" aria-hidden="true">+</span>
           </figure>
-          <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Matchday"
+          <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Dia de jogo"
             data-tema="futebol"
-            data-titulo="Matchday"
-            data-descricao="Descrição por adicionar.">
-            <div class="falta"><b>Matchday</b>images/matchday.jpg</div><img src="images/matchday.jpg" alt="Cartaz de dia de jogo" onerror="this.remove()" loading="lazy"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
+            data-titulo="Dia de jogo"
+            data-descricao="Anúncio do Salgueiros vs. Alpendorada, com recorte do jogador sobre o fundo de chamas e data, hora e local num rodapé discreto. Faz parte da proposta de identidade visual para o clube.">
+            <img src="images/salgueiros/dia-de-jogo.jpg" alt="Cartaz de dia de jogo Salgueiros vs. Alpendorada" loading="lazy"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
           </figure>
           <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Onze inicial"
             data-tema="futebol"
             data-titulo="Onze inicial"
-            data-descricao="Descrição por adicionar.">
-            <div class="falta"><b>Onze inicial</b>images/onze-inicial.jpg</div><img src="images/onze-inicial.jpg" alt="Publicação com o onze inicial" onerror="this.remove()" loading="lazy"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
+            data-descricao="A equipa titular e os suplentes alinhados à direita, com o capitão assinalado e uma fotografia de jogador a ocupar o lado esquerdo.">
+            <img src="images/salgueiros/onze-inicial.jpg" alt="Publicação com o onze inicial do Salgueiros" loading="lazy"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
           </figure>
-          <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Resultado final"
+          <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Golo"
             data-tema="futebol"
-            data-titulo="Resultado final"
-            data-descricao="Descrição por adicionar.">
-            <div class="falta"><b>Resultado final</b>images/resultado.jpg</div><img src="images/resultado.jpg" alt="Publicação com o resultado final" onerror="this.remove()" loading="lazy"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
+            data-titulo="Golo"
+            data-descricao="Publicação para o momento do golo: o marcador, o minuto e o resultado atualizado, pensada para sair poucos segundos depois do lance.">
+            <img src="images/salgueiros/golo.jpg" alt="Publicação de golo de Caio Ribas aos 75 minutos" loading="lazy"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
           </figure>
           <figure class="peca video futebol" tabindex="0" role="button" aria-label="Ver vídeo: Intro Salgueiros"
             data-tema="futebol"
@@ -627,17 +632,29 @@
             data-video="videos/salgueiros.mp4">
             <video src="videos/salgueiros.mp4" poster="videos/salgueiros.jpg" muted loop playsinline preload="none" aria-label="Vídeo de abertura com o emblema do Salgueiros"></video><figcaption>Futebol · Vídeo</figcaption><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
           </figure>
-          <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Peça de futebol"
+          <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Resultado final"
             data-tema="futebol"
-            data-titulo="Peça de futebol"
-            data-descricao="Descrição por adicionar.">
-            <div class="falta"><b>Peça de futebol</b>images/futebol-4.jpg</div><img src="images/futebol-4.jpg" alt="Peça de design desportivo" onerror="this.remove()" loading="lazy"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
+            data-titulo="Resultado final"
+            data-descricao="Fotografia do jogo com o título em grande e o resultado numa barra com os emblemas dos dois clubes.">
+            <img src="images/salgueiros/resultado-final.jpg" alt="Publicação com o resultado final Salgueiros 2-0 Alpendorada" loading="lazy"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
           </figure>
-          <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Peça de futebol"
+          <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Calendário"
             data-tema="futebol"
-            data-titulo="Peça de futebol"
-            data-descricao="Descrição por adicionar.">
-            <div class="falta"><b>Peça de futebol</b>images/futebol-5.jpg</div><img src="images/futebol-5.jpg" alt="Peça de design desportivo" onerror="this.remove()" loading="lazy"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
+            data-titulo="Calendário"
+            data-descricao="Os jogos do mês sobre a fotografia de equipa, com local, dia, adversário e hora de cada jogo.">
+            <img src="images/salgueiros/calendario.jpg" alt="Calendário dos jogos de abril do Salgueiros" loading="lazy"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
+          </figure>
+          <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Contratação"
+            data-tema="futebol"
+            data-titulo="Contratação"
+            data-descricao="Apresentação de um reforço, com o nome em grande sobre o jogador e a mensagem de boas-vindas.">
+            <img src="images/salgueiros/contratacao.jpg" alt="Publicação de boas-vindas ao jogador Scottini" loading="lazy"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
+          </figure>
+          <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Comunicado oficial"
+            data-tema="futebol"
+            data-titulo="Comunicado oficial"
+            data-descricao="Peça só com fundo gráfico, para comunicados em que não há fotografia: emblema, título e a hashtag do clube.">
+            <img src="images/salgueiros/comunicado.jpg" alt="Capa de comunicado oficial do Salgueiros" loading="lazy"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
           </figure>
           <figure class="peca" tabindex="0" role="button" aria-label="Ampliar: Cartaz de curso"
             data-tema="institucional"
