@@ -1,0 +1,865 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Miguel Correia · Portefólio</title>
+<meta name="description" content="Portefólio de Miguel Correia: design gráfico para clubes de futebol, marcas e instituições. Porto.">
+<style>
+  @font-face { font-family: "Montserrat"; font-weight: 400; font-style: normal; font-display: swap; src: url("fonts/montserrat-latin-400-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Montserrat"; font-weight: 500; font-style: normal; font-display: swap; src: url("fonts/montserrat-latin-500-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Montserrat"; font-weight: 600; font-style: normal; font-display: swap; src: url("fonts/montserrat-latin-600-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Montserrat"; font-weight: 700; font-style: normal; font-display: swap; src: url("fonts/montserrat-latin-700-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Montserrat"; font-weight: 800; font-style: normal; font-display: swap; src: url("fonts/montserrat-latin-800-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Anton"; font-weight: 400; font-style: normal; font-display: swap; src: url("fonts/anton-latin-400-normal.woff2") format("woff2"); }
+  :root {
+    --preto: #000000;
+    --violeta: #1C0D33;
+    --roxo: #8B3DFF;
+    --roxo-escuro: #6E2BE0;
+    --lilas: #C9A7FF;
+    --branco: #FFFFFF;
+    --suave: rgba(255,255,255,.72);
+    --titulo: "Anton", "Impact", sans-serif;
+    --texto: "Montserrat", system-ui, sans-serif;
+    --largura: 1180px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0; color: var(--branco); font-family: var(--texto); font-size: 16px; line-height: 1.6;
+    background-color: var(--preto);
+    background-image: linear-gradient(180deg, #000000 0%, #05030A 50%, #000000 100%);
+  }
+  img, video { display: block; max-width: 100%; }
+  a { color: inherit; }
+  a:focus-visible { outline: 3px solid var(--lilas); outline-offset: 3px; border-radius: 6px; }
+  .contentor { max-width: var(--largura); margin: 0 auto; padding: 0 24px; }
+
+  /* Etiquetas em forma de pílula */
+  .pilula {
+    display: inline-block; padding: 10px 26px; border-radius: 999px;
+    background: rgba(139,61,255,.28); border: 2px solid rgba(255,255,255,.35);
+    box-shadow: inset 0 0 18px rgba(255,255,255,.12), 0 6px 24px rgba(0,0,0,.35);
+    font-weight: 700; font-size: 18px; letter-spacing: .04em; text-transform: uppercase;
+  }
+
+  /* Cabeçalho */
+  .cabecalho { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(10px); background: rgba(7,5,11,.6); }
+  .cabecalho .contentor { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 16px; }
+  .marca { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; line-height: 1.1; font-size: 15px; }
+  .marca .sigla {
+    width: 38px; height: 38px; border-radius: 50%; display: grid; place-content: center;
+    background: linear-gradient(135deg, var(--roxo), var(--roxo-escuro));
+    font-family: var(--titulo); font-size: 18px; letter-spacing: .02em;
+  }
+  .nav { display: flex; gap: 8px; }
+  .nav a {
+    text-decoration: none; font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: .05em;
+    padding: 8px 18px; border-radius: 999px;
+  }
+  .nav a:hover { background: rgba(255,255,255,.08); }
+  .nav a.ativo { background: var(--roxo); box-shadow: 0 0 20px rgba(139,61,255,.6); }
+
+  /* Abertura */
+  .abertura { padding: 48px 0 0; }
+  .abertura .contentor { display: grid; grid-template-columns: .9fr 1.1fr; gap: 40px; align-items: center; }
+  .foto { position: relative; aspect-ratio: 1 / 1; max-width: 460px; }
+  .foto::before {
+    content: ""; position: absolute; left: 6%; right: 18%; top: 20%; bottom: 0;
+    background: linear-gradient(160deg, var(--roxo-escuro), #3E1590);
+    border-radius: 18px 18px 0 0; box-shadow: 0 0 60px rgba(139,61,255,.55);
+  }
+  .foto .falta {
+    position: absolute; left: 6%; right: 18%; top: 20%; bottom: 0; display: grid; place-content: center;
+    text-align: center; font-size: 13px; color: rgba(255,255,255,.75); padding: 16px;
+  }
+  .foto .falta b { display: block; font-size: 20px; color: var(--branco); }
+  .foto img { position: relative; width: 100%; height: 100%; object-fit: contain; object-position: bottom; }
+  .titulo-principal h1 {
+    font-family: var(--titulo); font-weight: 400; text-transform: uppercase;
+    font-size: clamp(56px, 8.6vw, 124px); line-height: .9; margin: 0; padding-top: .16em; white-space: nowrap;
+    letter-spacing: .01em;
+    background: linear-gradient(180deg, #FFFFFF 55%, #E3D4FF 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter: drop-shadow(0 0 22px rgba(255,255,255,.25));
+  }
+  .faixa-papel {
+    display: inline-block; margin-top: 18px; padding: 10px 28px;
+    background: linear-gradient(90deg, var(--roxo), var(--roxo-escuro));
+    font-weight: 800; font-size: clamp(16px, 2vw, 22px); text-transform: uppercase; letter-spacing: .06em;
+    box-shadow: 0 0 30px rgba(139,61,255,.55);
+  }
+  .titulo-principal p { max-width: 32em; margin: 22px 0 0; color: var(--suave); }
+
+  .faixa-ola {
+    margin-top: 32px; padding: 18px 0;
+    background: linear-gradient(90deg, rgba(110,43,224,.15), rgba(110,43,224,.9) 30%, rgba(139,61,255,.9) 70%, rgba(110,43,224,.15));
+    border-top: 1px solid rgba(255,255,255,.25); border-bottom: 1px solid rgba(255,255,255,.25);
+    text-align: center; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .4em; font-size: clamp(12px, 1.6vw, 18px);
+  }
+
+  section { padding: 72px 0; }
+  .abertura .contentor > *, .exp-grelha > *, .sobre-grelha > * { min-width: 0; }
+  .faixa-papel { max-width: 100%; }
+
+  /* Experiência e ferramentas */
+  .exp-grelha { display: grid; grid-template-columns: 1fr 300px; gap: 40px; align-items: start; }
+  .lista-exp { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 40px; list-style: none; padding: 0; margin: 28px 0 0; }
+  .lista-exp li { position: relative; padding-left: 18px; margin-bottom: 14px; }
+  .lista-exp li::before { content: ""; position: absolute; left: 0; top: .6em; width: 7px; height: 7px; border-radius: 50%; background: var(--branco); }
+  .lista-exp b { display: block; font-size: 18px; line-height: 1.3; }
+  .lista-exp span { color: var(--suave); }
+  .caixa-ferramentas {
+    margin-top: 28px; padding: 22px; border-radius: 22px;
+    background: rgba(255,255,255,.07); border: 2px solid rgba(255,255,255,.22);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+  }
+  .ferramenta {
+    aspect-ratio: 1 / 1; border-radius: 16px; display: grid; place-content: center; text-align: center;
+    font-weight: 800; font-size: 13px; padding: 8px;
+  }
+  .ferramenta b { display: block; font-family: var(--titulo); font-weight: 400; font-size: 34px; line-height: 1; margin-bottom: 4px; }
+  .f-ps { background: #001E36; color: #31A8FF; }
+  .f-fg { background: #1E1E1E; color: #FFFFFF; box-shadow: inset 0 -4px 0 #A259FF, inset 0 4px 0 #F24E1E; }
+  .f-pr { background: #00005B; color: #9999FF; }
+  .f-cv { background: linear-gradient(135deg, #00C4CC, #7D2AE8); color: #fff; }
+
+  /* Trabalhos */
+  .cabeca-trabalhos { display: flex; align-items: center; gap: 24px; margin-bottom: 32px; }
+  .cabeca-trabalhos::after { content: ""; flex: 1; height: 2px; background: linear-gradient(90deg, rgba(255,255,255,.5), transparent); }
+  .moldura-grelha {
+    padding: 18px; border-radius: 24px;
+    background: rgba(255,255,255,.06); border: 2px solid rgba(255,255,255,.2);
+  }
+  .grelha { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+  .peca { margin: 0; position: relative; aspect-ratio: 4 / 5; border-radius: 10px; overflow: hidden; background: rgba(0,0,0,.35); }
+  .peca .falta {
+    position: absolute; inset: 0; display: grid; place-content: center; text-align: center;
+    padding: 10px; font-size: 11px; color: rgba(255,255,255,.6); border: 1px dashed rgba(255,255,255,.25); border-radius: 10px;
+  }
+  .peca .falta b { display: block; font-size: 15px; color: var(--branco); margin-bottom: 2px; }
+  .peca img { position: relative; width: 100%; height: 100%; object-fit: cover; }
+  .peca figcaption {
+    position: absolute; left: 8px; bottom: 8px; z-index: 1;
+    padding: 3px 10px; border-radius: 999px; font-size: 11px; font-weight: 700;
+    background: rgba(7,5,11,.75);
+  }
+  .peca.futebol figcaption { background: var(--roxo); }
+  .video-desporto { margin-top: 18px; border-radius: 14px; overflow: hidden; }
+  .video-desporto video { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #000; }
+
+  /* Sobre */
+  .sobre-grelha { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 28px; }
+  .sobre-grelha p { margin: 0 0 16px; color: var(--suave); max-width: 36em; }
+  .sobre-grelha p:first-child { color: var(--branco); font-size: 19px; font-weight: 600; }
+
+  /* Contacto */
+  .contacto { text-align: center; }
+  .contacto h2 {
+    font-family: var(--titulo); font-weight: 400; text-transform: uppercase;
+    font-size: clamp(52px, 9vw, 120px); line-height: .95; margin: 0 0 18px;
+    filter: drop-shadow(0 0 22px rgba(255,255,255,.2));
+  }
+  .contacto p { color: var(--suave); max-width: 32em; margin: 0 auto 28px; }
+  .botao-email {
+    display: inline-block; padding: 16px 34px; border-radius: 999px; text-decoration: none;
+    background: linear-gradient(90deg, var(--roxo-escuro), var(--roxo));
+    font-weight: 800; font-size: clamp(15px, 2.4vw, 20px);
+    box-shadow: 0 0 34px rgba(139,61,255,.6); word-break: break-all;
+  }
+  .redes { display: flex; justify-content: center; gap: 12px; margin-top: 24px; }
+  .redes a { text-decoration: none; font-weight: 700; padding: 10px 22px; border-radius: 999px; border: 2px solid rgba(255,255,255,.35); }
+  .redes a:hover { background: rgba(255,255,255,.1); }
+  footer { text-align: center; font-size: 13px; color: rgba(255,255,255,.5); padding: 32px 0 40px; }
+
+  /* Ecrãs médios e pequenos */
+  @media (max-width: 960px) {
+    .abertura .contentor { grid-template-columns: 1fr; text-align: center; }
+    .foto { margin: 0 auto; width: 100%; max-width: 340px; }
+    .titulo-principal p { margin-left: auto; margin-right: auto; }
+    .titulo-principal h1 { font-size: clamp(56px, 15vw, 140px); }
+    .exp-grelha, .sobre-grelha { grid-template-columns: 1fr; }
+    .caixa-ferramentas { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .grelha { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .contentor { padding: 0 16px; }
+    .nav a { padding: 8px 12px; font-size: 12px; }
+    .nav a:nth-child(2) { display: none; }
+    .marca .nome { display: none; }
+    .lista-exp { grid-template-columns: 1fr; }
+    .caixa-ferramentas { padding: 14px; gap: 10px; }
+    .ferramenta { font-size: 10px; padding: 4px; }
+    .ferramenta b { font-size: 24px; }
+    .grelha { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .moldura-grelha { padding: 10px; }
+    .faixa-ola { letter-spacing: .2em; }
+    .pilula { font-size: 15px; padding: 8px 20px; }
+    section { padding: 56px 0; }
+  }
+
+  /* ===== Animações ===== */
+
+  /* Luzes roxas de fundo que se mexem devagar */
+  .fundo { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+  .fundo .luz { position: absolute; border-radius: 50%; will-change: transform, opacity; mix-blend-mode: screen; }
+  .luz.l1 { width: 42vw; height: 42vw; right: -10vw; top: -14vw; background: radial-gradient(circle, rgba(139,61,255,.7), transparent 62%); animation: flutuar-1 13s ease-in-out infinite alternate, pulsar 5s ease-in-out infinite; }
+  .luz.l2 { width: 30vw; height: 30vw; left: -10vw; top: 35vh; background: radial-gradient(circle, rgba(201,167,255,.35), transparent 62%); animation: flutuar-2 11s ease-in-out infinite alternate, pulsar 7s 1s ease-in-out infinite; }
+  .luz.l3 { width: 50vw; height: 40vw; left: 25vw; bottom: -22vw; background: radial-gradient(circle, rgba(110,43,224,.6), transparent 62%); animation: flutuar-3 15s ease-in-out infinite alternate, pulsar 6s 2s ease-in-out infinite; }
+  .fundo .risco {
+    position: absolute; left: -50%; width: 200%; height: 110px;
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 50%, transparent); mask-image: linear-gradient(to bottom, transparent, #000 50%, transparent);
+    background: linear-gradient(90deg, transparent, rgba(139,61,255,.32), rgba(225,205,255,.22), transparent);
+    will-change: transform; mix-blend-mode: screen;
+  }
+  .risco.r1 { top: 28%; transform: rotate(-14deg); animation: varrer 8s ease-in-out infinite; }
+  .risco.r2 { top: 66%; height: 70px; transform: rotate(9deg); animation: varrer 11s ease-in-out infinite reverse; opacity: .7; }
+  @keyframes flutuar-1 { to { transform: translate(-20vw, 22vh) scale(1.25); } }
+  @keyframes flutuar-2 { to { transform: translate(30vw, -18vh) scale(1.3); } }
+  @keyframes flutuar-3 { to { transform: translate(-24vw, -16vh) scale(.85); } }
+  @keyframes orbitar { from { transform: rotate(0deg) translateX(18vw) rotate(0deg); } to { transform: rotate(360deg) translateX(18vw) rotate(-360deg); } }
+  @keyframes pulsar { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
+  /* Formas líquidas que mudam de forma */
+  .fundo .gota {
+    position: absolute; opacity: .28; will-change: transform, border-radius;
+    background: linear-gradient(135deg, #8B3DFF, #3B1585);
+    -webkit-mask-image: radial-gradient(circle, #000 35%, transparent 72%); mask-image: radial-gradient(circle, #000 35%, transparent 72%);
+  }
+  .gota.g1 { width: 34vw; height: 34vw; left: 8vw; top: 55vh; animation: derreter 16s ease-in-out infinite, deriva-1 20s ease-in-out infinite alternate; }
+  .gota.g2 { width: 26vw; height: 26vw; right: 6vw; top: 10vh; animation: derreter 13s 2s ease-in-out infinite reverse, deriva-2 17s ease-in-out infinite alternate; }
+  @keyframes derreter {
+    0%, 100% { border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%; transform: rotate(0deg); }
+    33% { border-radius: 63% 37% 39% 61% / 55% 63% 37% 45%; }
+    66% { border-radius: 36% 64% 52% 48% / 66% 35% 65% 34%; transform: rotate(180deg); }
+  }
+  @keyframes deriva-1 { to { translate: 14vw -20vh; } }
+  @keyframes deriva-2 { to { translate: -12vw 24vh; } }
+
+  /* Palavras gigantes em contorno a passar devagar */
+  .fundo .faixa-texto {
+    position: absolute; left: 0; white-space: nowrap; display: flex;
+    font-family: var(--titulo); text-transform: uppercase; font-size: clamp(110px, 16vw, 240px); line-height: 1;
+    color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,.07);
+    will-change: transform; transform-origin: 0 50%;
+  }
+  .faixa-texto span { padding-right: .4em; }
+  .texto-fundo {
+    position: absolute; inset: 0; overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, #000 0%, rgba(0,0,0,.25) 18%, transparent 30%, transparent 70%, rgba(0,0,0,.25) 82%, #000 100%);
+    mask-image: linear-gradient(90deg, #000 0%, rgba(0,0,0,.25) 18%, transparent 30%, transparent 70%, rgba(0,0,0,.25) 82%, #000 100%);
+  }
+  .faixa-texto.t1 { top: 18vh; rotate: -6deg; animation: deslizar 90s linear infinite; }
+  .faixa-texto.t2 { top: 62vh; rotate: -6deg; animation: deslizar 110s linear infinite reverse; -webkit-text-stroke-color: rgba(169,112,255,.12); }
+  @keyframes deslizar { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* Formas soltas que flutuam e seguem o rato */
+  .fundo .forma { position: absolute; will-change: transform; }
+  .forma svg { display: block; animation: flutuar-forma 9s ease-in-out infinite alternate; }
+  /* ficam nas margens, fora da zona do conteúdo */
+  .forma.f1 { left: 1vw; top: 24vh; width: 80px; }
+  .forma.f2 { right: 2vw; top: 42vh; width: 50px; }
+  .forma.f3 { left: 1vw; top: 62vh; width: 100px; }
+  .forma.f4 { right: 3vw; top: 14vh; width: 34px; }
+  .forma.f5 { left: 2.5vw; top: 86vh; width: 40px; }
+  .forma.f6 { right: 1vw; top: 74vh; width: 100px; }
+  .forma.f2 svg { animation: girar 14s linear infinite; }
+  .forma.f4 svg { animation: brilhar 3s ease-in-out infinite; }
+  .forma.f5 svg { animation: girar 20s linear infinite reverse; }
+  @keyframes flutuar-forma { to { transform: translateY(-26px) rotate(8deg); } }
+  @keyframes girar { to { transform: rotate(360deg); } }
+  @keyframes brilhar { 0%, 100% { transform: scale(.8); opacity: .5; } 50% { transform: scale(1.15) rotate(20deg); opacity: 1; } }
+
+  /* Grão de papel por cima de tudo, como num cartaz impresso */
+  .grao {
+    position: fixed; inset: -50%; z-index: 40; pointer-events: none; opacity: .09; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    animation: grao 1s steps(4) infinite;
+  }
+  @keyframes grao {
+    0% { transform: translate(0, 0); } 25% { transform: translate(-3%, 2%); }
+    50% { transform: translate(2%, -3%); } 75% { transform: translate(-2%, -1%); } 100% { transform: translate(0, 0); }
+  }
+  @media (max-width: 1200px) { .texto-fundo, .forma { display: none; } }
+  @keyframes varrer { from { translate: -25% 0; } to { translate: 25% 0; } }
+
+  /* Luz que segue o rato (só em computador) */
+  .luz-rato {
+    position: fixed; left: 0; top: 0; width: 520px; height: 520px; margin: -260px 0 0 -260px;
+    border-radius: 50%; pointer-events: none; z-index: 0; opacity: 0; transition: opacity .4s;
+    background: radial-gradient(circle, rgba(157,92,255,.22), transparent 60%); mix-blend-mode: screen;
+  }
+  body.com-rato .luz-rato { opacity: 1; }
+  main, footer { position: relative; z-index: 1; }
+
+  /* Entrada da abertura */
+  .titulo-principal h1 { animation: entrar-titulo 1s cubic-bezier(.2,.7,.2,1) both; }
+  .faixa-papel { animation: entrar-baixo .8s .35s cubic-bezier(.2,.7,.2,1) both; }
+  .titulo-principal p { animation: entrar-baixo .8s .5s cubic-bezier(.2,.7,.2,1) both; }
+  .foto { animation: entrar-foto 1s .15s cubic-bezier(.2,.7,.2,1) both; }
+  @keyframes entrar-titulo { from { opacity: 0; transform: translateY(30px) scale(1.06); filter: blur(10px); } }
+  @keyframes entrar-baixo { from { opacity: 0; transform: translateY(24px); } }
+  @keyframes entrar-foto { from { opacity: 0; transform: translateX(-40px); } }
+
+  /* Brilho que atravessa o título de vez em quando */
+  .titulo-principal h1 {
+    background-image:
+      linear-gradient(110deg, transparent 42%, rgba(220,200,255,.95) 50%, transparent 58%),
+      linear-gradient(180deg, #FFFFFF 55%, #E3D4FF 100%);
+    background-size: 250% 100%, 100% 100%;
+    background-repeat: no-repeat;
+    animation: entrar-titulo 1s cubic-bezier(.2,.7,.2,1) both, brilho 6s 1.2s ease-in-out infinite;
+  }
+  @keyframes brilho { 0%, 55% { background-position: 130% 0, 0 0; } 100% { background-position: -30% 0, 0 0; } }
+
+  /* Faixa "Olá" com cor em movimento */
+  .faixa-ola { background-size: 220% 100%; animation: correr-cor 10s linear infinite alternate; }
+  @keyframes correr-cor { to { background-position: 100% 0; } }
+
+  /* A foto reage ao rato */
+  .foto::before { transition: transform .5s, box-shadow .5s; }
+  .foto:hover::before { transform: rotate(-2deg) scale(1.03); box-shadow: 0 0 90px rgba(169,112,255,.8); }
+  .foto img { transition: transform .5s; }
+  .foto:hover img { transform: translateY(-6px) scale(1.02); }
+
+  /* Pílulas e menu */
+  .pilula, .nav a, .redes a { transition: box-shadow .3s, background .3s, transform .3s; }
+  .pilula:hover { box-shadow: inset 0 0 18px rgba(255,255,255,.2), 0 0 30px rgba(139,61,255,.7); transform: translateY(-2px); }
+  .nav a:hover { transform: translateY(-1px); }
+  .marca .sigla { transition: transform .5s; }
+  .marca:hover .sigla { transform: rotate(-12deg) scale(1.1); }
+
+  /* Experiência */
+  .lista-exp li { transition: transform .3s; }
+  .lista-exp li::before { transition: background .3s, box-shadow .3s; }
+  .lista-exp li:hover { transform: translateX(6px); }
+  .lista-exp li:hover::before { background: var(--lilas); box-shadow: 0 0 10px var(--lilas); }
+
+  /* Ferramentas */
+  .ferramenta { transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s; }
+  .ferramenta:hover { transform: translateY(-6px) rotate(-4deg) scale(1.06); box-shadow: 0 12px 30px rgba(0,0,0,.45), 0 0 24px rgba(157,92,255,.45); }
+
+  /* Trabalhos */
+  .peca { transition: transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s; }
+  .peca img { transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+  .peca::after {
+    content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 2;
+    background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.22) 50%, transparent 65%);
+    background-size: 250% 100%; background-position: 130% 0; transition: background-position .8s;
+  }
+  .peca:hover { transform: translateY(-8px) scale(1.03); box-shadow: 0 18px 40px rgba(0,0,0,.5), 0 0 30px rgba(139,61,255,.55); z-index: 3; }
+  .peca:hover img { transform: scale(1.08); }
+  .peca:hover::after { background-position: -30% 0; }
+  .peca figcaption { transition: transform .3s; }
+  .peca:hover figcaption { transform: translateY(-3px); }
+
+  /* Botão de email com brilho */
+  .botao-email { position: relative; overflow: hidden; transition: transform .3s, box-shadow .3s; }
+  .botao-email::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.45) 50%, transparent 65%);
+    background-size: 250% 100%; background-position: 130% 0; transition: background-position .7s;
+  }
+  .botao-email:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 0 50px rgba(157,92,255,.8); }
+  .botao-email:hover::after { background-position: -30% 0; }
+
+  /* Elementos que aparecem ao fazer scroll (só se o JavaScript estiver ativo) */
+  .js .revelar { opacity: 0; transform: translateY(28px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); transition-delay: var(--atraso, 0s); }
+  .js .revelar.visivel { opacity: 1; transform: none; }
+  .js .peca.revelar.visivel:hover { transform: translateY(-8px) scale(1.03); transition-delay: 0s; }
+
+
+  /* ===== Ver trabalho em grande ===== */
+  .peca { cursor: zoom-in; }
+  .peca .ver {
+    position: absolute; right: 10px; top: 10px; z-index: 3; width: 34px; height: 34px; border-radius: 50%;
+    display: grid; place-content: center; font-size: 22px; font-weight: 500; line-height: 1;
+    background: var(--roxo); box-shadow: 0 0 18px rgba(139,61,255,.7);
+    opacity: 0; transform: scale(.5) rotate(-90deg); transition: opacity .3s, transform .4s cubic-bezier(.2,.7,.2,1);
+  }
+  .peca:hover .ver, .peca:focus-visible .ver { opacity: 1; transform: none; }
+  .peca:focus-visible { outline: 3px solid var(--lilas); outline-offset: 3px; }
+
+  .ampliar { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 24px; }
+  .ampliar[hidden] { display: none; }
+  .ampliar-fundo {
+    position: absolute; inset: 0; background: rgba(5,3,9,.82); backdrop-filter: blur(14px);
+  }
+  .ampliar-caixa {
+    position: relative; width: min(1100px, 100%); max-height: calc(100vh - 48px);
+    display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 40px; align-items: center;
+  }
+  .ampliar-imagem {
+    position: relative; aspect-ratio: 4 / 5; height: min(calc(100vh - 48px), 680px); width: auto; max-width: 100%; justify-self: end;
+    border-radius: 14px; overflow: hidden; background: rgba(0,0,0,.4);
+    box-shadow: 0 30px 80px rgba(0,0,0,.6), 0 0 60px rgba(139,61,255,.45);
+    transform-origin: top left;
+  }
+  .ampliar-imagem img { width: 100%; height: 100%; object-fit: contain; background: #07050B; }
+  .ampliar-imagem .falta {
+    position: absolute; inset: 0; display: grid; place-content: center; text-align: center;
+    color: rgba(255,255,255,.6); font-size: 14px; border: 1px dashed rgba(255,255,255,.25); border-radius: 14px;
+  }
+  .ampliar-imagem .falta b { display: block; color: var(--branco); font-size: 22px; }
+  .ampliar-texto { min-width: 0; }
+  .ampliar-texto .categoria {
+    display: inline-block; padding: 5px 14px; border-radius: 999px; font-size: 12px; font-weight: 700;
+    background: var(--roxo); box-shadow: 0 0 18px rgba(139,61,255,.6); text-transform: uppercase; letter-spacing: .06em;
+  }
+  .ampliar-texto h3 {
+    font-family: var(--titulo); font-weight: 400; text-transform: uppercase;
+    font-size: clamp(40px, 5vw, 68px); line-height: .95; margin: 18px 0 16px;
+  }
+  .ampliar-texto p { color: var(--suave); font-size: 17px; margin: 0 0 28px; max-width: 30em; }
+  .ampliar-nav { display: flex; align-items: center; gap: 12px; }
+  .ampliar-nav button, .ampliar-fechar {
+    width: 48px; height: 48px; border-radius: 50%; border: 2px solid rgba(255,255,255,.35);
+    background: rgba(255,255,255,.06); color: var(--branco); font: inherit; font-size: 20px; cursor: pointer;
+    display: grid; place-content: center; transition: background .3s, transform .3s, box-shadow .3s;
+  }
+  .ampliar-nav button:hover, .ampliar-fechar:hover { background: var(--roxo); box-shadow: 0 0 20px rgba(139,61,255,.7); transform: scale(1.08); }
+  .ampliar-nav button:focus-visible, .ampliar-fechar:focus-visible { outline: 3px solid var(--lilas); outline-offset: 3px; }
+  .ampliar-contador { font-weight: 700; font-size: 14px; color: var(--suave); min-width: 56px; text-align: center; }
+  .ampliar-fechar { position: absolute; top: 20px; right: 20px; z-index: 2; }
+  body.sem-scroll { overflow: hidden; }
+
+  @media (max-width: 800px) {
+    .ampliar { padding: 16px; align-items: start; overflow-y: auto; }
+    .ampliar-caixa { grid-template-columns: 1fr; gap: 20px; margin-top: 56px; max-height: none; }
+    .ampliar-imagem { height: min(62vh, 520px); justify-self: center; }
+    .ampliar-texto h3 { margin-top: 12px; }
+    .ampliar-fechar { position: fixed; top: 14px; right: 14px; }
+  }
+
+
+  /* ===== Filtros por tema ===== */
+  .filtros {
+    position: relative; display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 6px; margin: -8px 0 24px;
+    border-radius: 999px; background: rgba(255,255,255,.06); border: 2px solid rgba(255,255,255,.18);
+  }
+  .filtro {
+    position: relative; z-index: 1; border: 0; background: none; color: var(--suave); cursor: pointer;
+    font: inherit; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: .05em;
+    padding: 10px 20px; border-radius: 999px; transition: color .3s;
+  }
+  .filtro:hover { color: var(--branco); }
+  .filtro.ativo { color: var(--branco); }
+  .filtro:focus-visible { outline: 3px solid var(--lilas); outline-offset: 2px; }
+  .filtro-marcador {
+    position: absolute; z-index: 0; top: 0; left: 0; height: 0; width: 0; border-radius: 999px;
+    background: linear-gradient(90deg, var(--roxo), var(--roxo-escuro)); box-shadow: 0 0 22px rgba(139,61,255,.7);
+    transition: transform .45s cubic-bezier(.2,.7,.2,1), width .45s cubic-bezier(.2,.7,.2,1), height .45s;
+  }
+  .peca.escondida { display: none; }
+  .grelha-vazia { grid-column: 1 / -1; text-align: center; color: var(--suave); padding: 40px 0; }
+  @media (max-width: 600px) {
+    .filtros { display: grid; grid-template-columns: 1fr 1fr; border-radius: 22px; }
+    .filtro { padding: 10px 8px; font-size: 12px; }
+  }
+
+  /* Quem pediu menos movimento no sistema não vê animações */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .luz-rato { display: none; }
+    .grao { display: none; }
+    .js .revelar { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+<div class="fundo" aria-hidden="true">
+  <span class="luz l1"></span><span class="luz l2"></span><span class="luz l3"></span>
+  <span class="gota g1"></span><span class="gota g2"></span>
+  <div class="texto-fundo">
+  <div class="faixa-texto t1"><span>Design ✦ Branding ✦ Futebol ✦ Identidade ✦</span><span>Design ✦ Branding ✦ Futebol ✦ Identidade ✦</span><span>Design ✦ Branding ✦ Futebol ✦ Identidade ✦</span><span>Design ✦ Branding ✦ Futebol ✦ Identidade ✦</span></div>
+  <div class="faixa-texto t2"><span>Design ✦ Branding ✦ Futebol ✦ Identidade ✦</span><span>Design ✦ Branding ✦ Futebol ✦ Identidade ✦</span><span>Design ✦ Branding ✦ Futebol ✦ Identidade ✦</span><span>Design ✦ Branding ✦ Futebol ✦ Identidade ✦</span></div>
+  </div>
+  <span class="forma f1" data-prof="30"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="none" stroke="#C9A7FF" stroke-opacity=".45" stroke-width="2"/></svg></span>
+  <span class="forma f2" data-prof="-40"><svg viewBox="0 0 100 100"><path d="M50 4 L58 42 L96 50 L58 58 L50 96 L42 58 L4 50 L42 42 Z" fill="#8B3DFF" fill-opacity=".7"/></svg></span>
+  <span class="forma f3" data-prof="20"><svg viewBox="0 0 200 40"><path d="M4 20 Q 29 0 54 20 T 104 20 T 154 20 T 196 20" fill="none" stroke="#8B3DFF" stroke-opacity=".6" stroke-width="5" stroke-linecap="round"/></svg></span>
+  <span class="forma f4" data-prof="-60"><svg viewBox="0 0 100 100"><path d="M50 0 C54 38 62 46 100 50 C62 54 54 62 50 100 C46 62 38 54 0 50 C38 46 46 38 50 0 Z" fill="#fff" fill-opacity=".85"/></svg></span>
+  <span class="forma f5" data-prof="45"><svg viewBox="0 0 100 100"><path d="M50 8 V92 M8 50 H92" stroke="#C9A7FF" stroke-opacity=".5" stroke-width="8" stroke-linecap="round"/></svg></span>
+  <span class="forma f6" data-prof="-25"><svg viewBox="0 0 120 60"><path d="M6 56 A54 54 0 0 1 114 56" fill="none" stroke="#fff" stroke-opacity=".18" stroke-width="3" stroke-dasharray="6 8"/></svg></span>
+  <span class="risco r1"></span><span class="risco r2"></span>
+</div>
+<div class="grao" aria-hidden="true"></div>
+<div class="luz-rato" aria-hidden="true"></div>
+
+<header class="cabecalho">
+  <div class="contentor">
+    <a class="marca" href="#topo"><span class="sigla">MC</span><span class="nome">Miguel<br>Correia</span></a>
+    <nav class="nav" aria-label="Navegação principal">
+      <a class="ativo" href="#topo">Portefólio</a>
+      <a href="#experiencia">Experiência</a>
+      <a href="#trabalhos">Design</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main id="topo">
+
+  <section class="abertura">
+    <div class="contentor">
+      <div class="foto">
+        <div class="falta"><b>A tua foto</b>images/foto.png<br>(fundo transparente)</div>
+        <img src="images/foto.png" alt="Miguel Correia" onerror="this.remove()">
+      </div>
+      <div class="titulo-principal">
+        <h1>Portefólio</h1>
+        <div class="faixa-papel">Designer gráfico · Desporto</div>
+        <p>Estudante de Gestão na Católica Porto Business School. Crio a comunicação visual de clubes, marcas e instituições: cartazes de jogo, redes sociais e identidades visuais.</p>
+      </div>
+    </div>
+    <div class="faixa-ola">Olá! Sou o Miguel Correia, designer gráfico</div>
+  </section>
+
+  <section id="experiencia">
+    <div class="contentor exp-grelha">
+      <div>
+        <span class="pilula">A minha experiência</span>
+        <ul class="lista-exp">
+          <li><b>Ciência e Letras</b><span>Designer gráfico e gestor de redes sociais</span></li>
+          <li><b>Católica Investment Club</b><span>Designer e gestor de projetos</span></li>
+          <li><b>RuptoWear</b><span>Fundador · branding e produto</span></li>
+          <li><b>Nexalyse</b><span>Proposta de identidade visual</span></li>
+          <li><b>Licenciatura em Gestão</b><span>Católica Porto Business School · 2024–2027</span></li>
+          <li><b>Ensino secundário em Economia</b><span>Colégio Luso-Francês · 2021–2024</span></li>
+        </ul>
+      </div>
+      <div>
+        <span class="pilula">Ferramentas</span>
+        <div class="caixa-ferramentas">
+          <div class="ferramenta f-fg"><b>Fg</b>Figma</div>
+          <div class="ferramenta f-ps"><b>Ps</b>Photoshop</div>
+          <div class="ferramenta f-pr"><b>Pr</b>Premiere Pro</div>
+          <div class="ferramenta f-cv"><b>Cv</b>Canva</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="trabalhos">
+    <div class="contentor">
+      <div class="cabeca-trabalhos"><span class="pilula">O meu trabalho</span></div>
+      <div class="filtros" role="group" aria-label="Filtrar trabalhos por tema">
+        <span class="filtro-marcador" aria-hidden="true"></span>
+        <button type="button" class="filtro ativo" data-filtro="todos" aria-pressed="true">Todos</button>
+        <button type="button" class="filtro" data-filtro="futebol" aria-pressed="false">Futebol</button>
+        <button type="button" class="filtro" data-filtro="institucional" aria-pressed="false">Institucional</button>
+        <button type="button" class="filtro" data-filtro="branding" aria-pressed="false">Branding</button>
+      </div>
+      <div class="moldura-grelha">
+        <div class="grelha">
+          <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Matchday"
+            data-tema="futebol"
+            data-titulo="Matchday"
+            data-descricao="Descrição por adicionar.">
+            <div class="falta"><b>Matchday</b>images/matchday.jpg</div><img src="images/matchday.jpg" alt="Cartaz de dia de jogo" onerror="this.remove()" loading="lazy"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
+          </figure>
+          <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Onze inicial"
+            data-tema="futebol"
+            data-titulo="Onze inicial"
+            data-descricao="Descrição por adicionar.">
+            <div class="falta"><b>Onze inicial</b>images/onze-inicial.jpg</div><img src="images/onze-inicial.jpg" alt="Publicação com o onze inicial" onerror="this.remove()" loading="lazy"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
+          </figure>
+          <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Resultado final"
+            data-tema="futebol"
+            data-titulo="Resultado final"
+            data-descricao="Descrição por adicionar.">
+            <div class="falta"><b>Resultado final</b>images/resultado.jpg</div><img src="images/resultado.jpg" alt="Publicação com o resultado final" onerror="this.remove()" loading="lazy"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
+          </figure>
+          <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Peça de futebol"
+            data-tema="futebol"
+            data-titulo="Peça de futebol"
+            data-descricao="Descrição por adicionar.">
+            <div class="falta"><b>Peça de futebol</b>images/futebol-4.jpg</div><img src="images/futebol-4.jpg" alt="Peça de design desportivo" onerror="this.remove()" loading="lazy"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
+          </figure>
+          <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Peça de futebol"
+            data-tema="futebol"
+            data-titulo="Peça de futebol"
+            data-descricao="Descrição por adicionar.">
+            <div class="falta"><b>Peça de futebol</b>images/futebol-5.jpg</div><img src="images/futebol-5.jpg" alt="Peça de design desportivo" onerror="this.remove()" loading="lazy"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
+          </figure>
+          <figure class="peca" tabindex="0" role="button" aria-label="Ampliar: Cartaz de curso"
+            data-tema="institucional"
+            data-titulo="Cartaz de curso"
+            data-descricao="Descrição por adicionar.">
+            <div class="falta"><b>Cartaz de curso</b>images/cel-1.jpg</div><img src="images/cel-1.jpg" alt="Cartaz de curso da Ciência e Letras" onerror="this.remove()" loading="lazy"><figcaption>Ciência e Letras</figcaption><span class="ver" aria-hidden="true">+</span>
+          </figure>
+          <figure class="peca" tabindex="0" role="button" aria-label="Ampliar: Cartaz de evento"
+            data-tema="institucional"
+            data-titulo="Cartaz de evento"
+            data-descricao="Descrição por adicionar.">
+            <div class="falta"><b>Cartaz de evento</b>images/cel-2.jpg</div><img src="images/cel-2.jpg" alt="Cartaz de evento da Ciência e Letras" onerror="this.remove()" loading="lazy"><figcaption>Ciência e Letras</figcaption><span class="ver" aria-hidden="true">+</span>
+          </figure>
+          <figure class="peca" tabindex="0" role="button" aria-label="Ampliar: How to Start Saving"
+            data-tema="institucional"
+            data-titulo="How to Start Saving"
+            data-descricao="Descrição por adicionar.">
+            <div class="falta"><b>How to Start Saving</b>images/cic-1.jpg</div><img src="images/cic-1.jpg" alt="Carrossel do Católica Investment Club" onerror="this.remove()" loading="lazy"><figcaption>CIC</figcaption><span class="ver" aria-hidden="true">+</span>
+          </figure>
+          <figure class="peca" tabindex="0" role="button" aria-label="Ampliar: Identidade visual"
+            data-tema="branding"
+            data-titulo="Identidade visual"
+            data-descricao="Descrição por adicionar.">
+            <div class="falta"><b>Identidade visual</b>images/nexalyse-1.jpg</div><img src="images/nexalyse-1.jpg" alt="Identidade visual da Nexalyse" onerror="this.remove()" loading="lazy"><figcaption>Nexalyse</figcaption><span class="ver" aria-hidden="true">+</span>
+          </figure>
+          <figure class="peca" tabindex="0" role="button" aria-label="Ampliar: Personagem da marca"
+            data-tema="branding"
+            data-titulo="Personagem da marca"
+            data-descricao="Descrição por adicionar.">
+            <div class="falta"><b>Personagem da marca</b>images/rupto-1.jpg</div><img src="images/rupto-1.jpg" alt="Personagem da RuptoWear" onerror="this.remove()" loading="lazy"><figcaption>RuptoWear</figcaption><span class="ver" aria-hidden="true">+</span>
+          </figure>
+        </div>
+        <div class="video-desporto">
+          <video src="videos/desporto.mp4" controls muted playsinline preload="metadata" onerror="this.parentElement.remove()" aria-label="Vídeo de design desportivo"></video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <div class="contentor">
+      <span class="pilula">Sobre mim</span>
+      <div class="sobre-grelha">
+        <div>
+          <p>Estudo Gestão, mas foi no design que encontrei a forma de juntar as coisas de que mais gosto: comunicação, estratégia e futebol.</p>
+        </div>
+        <div>
+          <p>Trabalho como designer na Ciência e Letras e no Católica Investment Club, e desenvolvo projetos próprios onde exploro identidade visual e produto.</p>
+          <p>Por estudar Gestão, penso cada peça a partir do objetivo: mais adeptos no estádio, mais seguidores, mais visibilidade para patrocinadores.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contacto" id="contacto">
+    <div class="contentor">
+      <h2>Vamos trabalhar juntos</h2>
+      <p>Procuro colaborar com clubes, marcas e projetos ligados ao desporto. Envie-me um email com o que precisa.</p>
+      <a class="botao-email" href="mailto:miguel.matias.correia@gmail.com">miguel.matias.correia@gmail.com</a>
+      <div class="redes">
+        <a href="https://www.linkedin.com/in/miguel-matias-correia-348351323/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.instagram.com/miguel_correiaa_" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>© 2026 Miguel Correia · Porto</footer>
+
+<div class="ampliar" role="dialog" aria-modal="true" aria-labelledby="ampliar-titulo" hidden>
+  <div class="ampliar-fundo"></div>
+  <button class="ampliar-fechar" type="button" aria-label="Fechar">✕</button>
+  <div class="ampliar-caixa">
+    <div class="ampliar-imagem"></div>
+    <div class="ampliar-texto">
+      <span class="categoria"></span>
+      <h3 id="ampliar-titulo"></h3>
+      <p></p>
+      <div class="ampliar-nav">
+        <button type="button" class="anterior" aria-label="Trabalho anterior">←</button>
+        <span class="ampliar-contador"></span>
+        <button type="button" class="seguinte" aria-label="Trabalho seguinte">→</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.documentElement.classList.add('js');
+  const semMovimento = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Elementos que aparecem ao fazer scroll, com pequeno atraso em cascata
+  const alvos = document.querySelectorAll('.pilula, .lista-exp li, .ferramenta, .peca, .video-desporto, .sobre-grelha > div, .contacto h2, .contacto p, .botao-email, .redes');
+  alvos.forEach(el => el.classList.add('revelar'));
+  document.querySelectorAll('.grelha, .lista-exp, .caixa-ferramentas').forEach(grupo => {
+    [...grupo.children].forEach((el, i) => el.style.setProperty('--atraso', (i % 5) * 0.08 + 's'));
+  });
+  if ('IntersectionObserver' in window && !semMovimento) {
+    const obs = new IntersectionObserver(entradas => {
+      entradas.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visivel'); obs.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    alvos.forEach(el => obs.observe(el));
+  } else {
+    alvos.forEach(el => el.classList.add('visivel'));
+  }
+
+  // Luz que segue o rato, só em ecrãs com rato
+  const luz = document.querySelector('.luz-rato');
+  if (matchMedia('(pointer: fine)').matches && !semMovimento) {
+    let x = innerWidth / 2, y = innerHeight / 2, lx = x, ly = y;
+    addEventListener('pointermove', e => { x = e.clientX; y = e.clientY; document.body.classList.add('com-rato'); });
+    document.addEventListener('pointerleave', () => document.body.classList.remove('com-rato'));
+    (function seguir() {
+      lx += (x - lx) * 0.12; ly += (y - ly) * 0.12;
+      luz.style.transform = `translate(${lx}px, ${ly}px)`;
+      requestAnimationFrame(seguir);
+    })();
+  }
+
+  // Menu: marca a secção que está no ecrã
+  const links = [...document.querySelectorAll('.nav a')];
+  const seccoes = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  addEventListener('scroll', () => {
+    let atual = links[0];
+    seccoes.forEach((s, i) => { if (s.getBoundingClientRect().top < innerHeight * 0.35) atual = links[i]; });
+    links.forEach(a => a.classList.toggle('ativo', a === atual));
+  }, { passive: true });
+
+  // ===== Ver trabalho em grande =====
+  const pecas = [...document.querySelectorAll('.peca')];
+  const caixa = document.querySelector('.ampliar');
+  const zonaImg = caixa.querySelector('.ampliar-imagem');
+  const zonaTexto = caixa.querySelector('.ampliar-texto');
+  const fundoAmpl = caixa.querySelector('.ampliar-fundo');
+  let atualIdx = -1, ultimoFoco = null;
+  const suave = 'cubic-bezier(.2,.7,.2,1)';
+
+  function preencher(i) {
+    const peca = pecas[i];
+    const img = peca.querySelector('img');
+    zonaImg.innerHTML = img
+      ? `<img src="${img.getAttribute('src')}" alt="${img.alt}">`
+      : peca.querySelector('.falta').outerHTML;
+    zonaTexto.querySelector('.categoria').textContent = peca.querySelector('figcaption').textContent;
+    zonaTexto.querySelector('h3').textContent = peca.dataset.titulo;
+    zonaTexto.querySelector('p').textContent = peca.dataset.descricao;
+    const visiveis = pecas.filter(x => !x.classList.contains('escondida'));
+    zonaTexto.querySelector('.ampliar-contador').textContent = `${visiveis.indexOf(peca) + 1} / ${visiveis.length}`;
+  }
+
+  // Calcula o movimento entre a miniatura e a imagem grande
+  function deslocamento(de, para) {
+    return `translate(${de.left - para.left}px, ${de.top - para.top}px) scale(${de.width / para.width}, ${de.height / para.height})`;
+  }
+
+  function abrir(i) {
+    atualIdx = i; ultimoFoco = document.activeElement;
+    preencher(i);
+    caixa.hidden = false; document.body.classList.add('sem-scroll');
+    caixa.querySelector('.ampliar-fechar').focus({ preventScroll: true });
+    if (semMovimento) return;
+    const de = pecas[i].getBoundingClientRect(), para = zonaImg.getBoundingClientRect();
+    fundoAmpl.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 400, easing: 'ease-out' });
+    zonaImg.animate([{ transform: deslocamento(de, para), borderRadius: '10px' }, { transform: 'none' }], { duration: 650, easing: suave });
+    zonaTexto.animate([{ opacity: 0, transform: 'translateX(40px)' }, { opacity: 1, transform: 'none' }], { duration: 600, delay: 250, easing: suave, fill: 'backwards' });
+    caixa.querySelector('.ampliar-fechar').animate([{ opacity: 0, transform: 'scale(.5) rotate(-90deg)' }, { opacity: 1, transform: 'none' }], { duration: 500, delay: 300, easing: suave, fill: 'backwards' });
+  }
+
+  function fechar() {
+    if (caixa.hidden) return;
+    const terminar = () => {
+      caixa.hidden = true; document.body.classList.remove('sem-scroll');
+      if (ultimoFoco) ultimoFoco.focus({ preventScroll: true });
+    };
+    if (semMovimento) return terminar();
+    const de = pecas[atualIdx].getBoundingClientRect(), para = zonaImg.getBoundingClientRect();
+    zonaTexto.animate([{ opacity: 1 }, { opacity: 0, transform: 'translateX(30px)' }], { duration: 250, easing: 'ease-in', fill: 'forwards' });
+    fundoAmpl.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 450, easing: 'ease-in', fill: 'forwards' });
+    const a = zonaImg.animate([{ transform: 'none' }, { transform: deslocamento(de, para) }], { duration: 500, easing: suave, fill: 'forwards' });
+    a.onfinish = () => { terminar(); caixa.getAnimations({ subtree: true }).forEach(x => x.cancel()); };
+  }
+
+  function mudar(direcao) {
+    const visiveis = pecas.filter(x => !x.classList.contains('escondida'));
+    const pos = visiveis.indexOf(pecas[atualIdx]);
+    const novo = pecas.indexOf(visiveis[(pos + direcao + visiveis.length) % visiveis.length]);
+    if (semMovimento) { atualIdx = novo; preencher(novo); return; }
+    const saida = [{ opacity: 1, transform: 'none' }, { opacity: 0, transform: `translateX(${-60 * direcao}px) scale(.96)` }];
+    const entrada = [{ opacity: 0, transform: `translateX(${60 * direcao}px) scale(.96)` }, { opacity: 1, transform: 'none' }];
+    zonaTexto.animate(saida, { duration: 220, easing: 'ease-in', fill: 'forwards' });
+    zonaImg.animate(saida, { duration: 220, easing: 'ease-in', fill: 'forwards' }).onfinish = () => {
+      atualIdx = novo; preencher(novo);
+      zonaImg.getAnimations().forEach(x => x.cancel()); zonaTexto.getAnimations().forEach(x => x.cancel());
+      zonaImg.animate(entrada, { duration: 420, easing: suave });
+      zonaTexto.animate(entrada, { duration: 420, delay: 80, easing: suave, fill: 'backwards' });
+    };
+  }
+
+  pecas.forEach((peca, i) => {
+    peca.addEventListener('click', () => abrir(i));
+    peca.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); abrir(i); } });
+  });
+  fundoAmpl.addEventListener('click', fechar);
+  caixa.querySelector('.ampliar-fechar').addEventListener('click', fechar);
+  caixa.querySelector('.anterior').addEventListener('click', () => mudar(-1));
+  caixa.querySelector('.seguinte').addEventListener('click', () => mudar(1));
+  document.addEventListener('keydown', e => {
+    if (caixa.hidden) return;
+    if (e.key === 'Escape') fechar();
+    if (e.key === 'ArrowRight') mudar(1);
+    if (e.key === 'ArrowLeft') mudar(-1);
+    if (e.key === 'Tab') { // mantém o foco dentro da janela
+      const focaveis = [...caixa.querySelectorAll('button')];
+      const i = focaveis.indexOf(document.activeElement);
+      if (e.shiftKey && i <= 0) { e.preventDefault(); focaveis.at(-1).focus(); }
+      else if (!e.shiftKey && i === focaveis.length - 1) { e.preventDefault(); focaveis[0].focus(); }
+    }
+  });
+
+  // ===== Filtros por tema =====
+  const botoesFiltro = [...document.querySelectorAll('.filtro')];
+  const marcador = document.querySelector('.filtro-marcador');
+  function moverMarcador(botao) {
+    marcador.style.width = botao.offsetWidth + 'px';
+    marcador.style.height = botao.offsetHeight + 'px';
+    marcador.style.transform = `translate(${botao.offsetLeft}px, ${botao.offsetTop}px)`;
+  }
+  let aFiltrar = false;
+  function filtrar(tema) {
+    const vaiMostrar = p => tema === 'todos' || p.dataset.tema === tema;
+    if (semMovimento) { pecas.forEach(p => p.classList.toggle('escondida', !vaiMostrar(p))); return; }
+    const saem = pecas.filter(p => !p.classList.contains('escondida') && !vaiMostrar(p));
+    const reorganizar = () => {
+      const antes = new Map(pecas.map(p => [p, p.classList.contains('escondida') ? null : p.getBoundingClientRect()]));
+      pecas.forEach(p => { p.getAnimations().forEach(a => a.cancel()); p.classList.toggle('escondida', !vaiMostrar(p)); });
+      let n = 0;
+      pecas.forEach(p => {
+        if (p.classList.contains('escondida')) return;
+        const de = antes.get(p), para = p.getBoundingClientRect();
+        if (de) { // já estava visível: desliza para o novo lugar
+          const dx = de.left - para.left, dy = de.top - para.top;
+          if (dx || dy) p.animate([{ transform: `translate(${dx}px, ${dy}px)` }, { transform: 'none' }], { duration: 550, easing: suave });
+        } else { // acabou de aparecer, em cascata
+          p.animate([{ opacity: 0, transform: 'scale(.85) translateY(20px)' }, { opacity: 1, transform: 'none' }],
+            { duration: 500, delay: 80 + n++ * 60, easing: suave, fill: 'backwards' });
+        }
+      });
+      aFiltrar = false;
+    };
+    aFiltrar = true;
+    if (!saem.length) return reorganizar();
+    const anims = saem.map(p => p.animate([{ opacity: 1, transform: 'none' }, { opacity: 0, transform: 'scale(.85)' }],
+      { duration: 220, easing: 'ease-in', fill: 'forwards' }));
+    anims[0].onfinish = reorganizar;
+  }
+  botoesFiltro.forEach(b => b.addEventListener('click', () => {
+    botoesFiltro.forEach(x => { x.classList.toggle('ativo', x === b); x.setAttribute('aria-pressed', x === b); });
+    moverMarcador(b);
+    filtrar(b.dataset.filtro);
+  }));
+  const posicionarMarcador = () => moverMarcador(document.querySelector('.filtro.ativo'));
+  addEventListener('resize', posicionarMarcador);
+  document.fonts.ready.then(posicionarMarcador);
+  posicionarMarcador();
+
+  // ===== Formas do fundo reagem ao rato (efeito de profundidade) =====
+  (function () {
+    if (semMovimento || !matchMedia('(pointer: fine)').matches) return;
+    const formas = [...document.querySelectorAll('.forma')];
+    let mx = 0, my = 0, ax = 0, ay = 0;
+    addEventListener('pointermove', e => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5; });
+    (function mexer() {
+      ax += (mx - ax) * .06; ay += (my - ay) * .06;
+      formas.forEach(f => { const p = +f.dataset.prof; f.style.transform = `translate(${ax * p}px, ${ay * p}px)`; });
+      requestAnimationFrame(mexer);
+    })();
+  })();
+</script>
+</body>
+</html>
