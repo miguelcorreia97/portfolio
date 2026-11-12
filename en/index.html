@@ -210,7 +210,13 @@
     font-weight: 800; font-size: clamp(15px, 2.4vw, 20px);
     box-shadow: 0 0 34px rgba(139,61,255,.6); word-break: break-all;
   }
-  .redes { display: flex; justify-content: center; gap: 12px; margin-top: 24px; }
+  .botao-cv { display: inline-flex; align-items: center; gap: 10px; margin-top: 26px; text-decoration: none; font-weight: 700; font-size: 14px; letter-spacing: .06em; text-transform: uppercase;
+    padding: 12px 24px; border-radius: 999px; border: 2px solid rgba(255,255,255,.35); transition: background .3s, box-shadow .3s, transform .3s; animation: entrar-baixo .8s .65s cubic-bezier(.2,.7,.2,1) both; }
+  .botao-cv svg { width: 18px; height: 18px; }
+  .botao-cv:hover { background: rgba(255,255,255,.1); box-shadow: 0 0 26px rgba(255,255,255,.25); transform: translateY(-2px); }
+  .redes { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 24px; }
+  .redes a { white-space: nowrap; }
+  @media (max-width: 600px) { .redes a { padding: 10px 18px; } }
   .redes a { text-decoration: none; font-weight: 700; padding: 10px 22px; border-radius: 999px; border: 2px solid rgba(255,255,255,.35); }
   .redes a:hover { background: rgba(255,255,255,.1); }
   footer { text-align: center; font-size: 13px; color: rgba(255,255,255,.5); padding: 32px 0 40px; }
@@ -646,6 +652,7 @@
         <h1>Portfolio</h1>
         <div class="faixa-papel"><span>Graphic designer</span><span class="ponto"> · </span><span>Sport</span></div>
         <p>Management student at Católica Porto Business School. I create visual communication for clubs, brands and institutions: matchday posters, social media and visual identities.</p>
+        <a class="botao-cv" href="../cv/Miguel-Correia-CV-EN.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Download CV</a>
       </div>
     </div>
     <div class="faixa-ola">Hi! I'm Miguel Correia, a graphic designer</div>
@@ -887,6 +894,7 @@
       <div class="redes">
         <a href="https://www.linkedin.com/in/miguel-matias-correia-348351323/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://www.instagram.com/miguel_correiaa_" target="_blank" rel="noopener">Instagram</a>
+        <a href="../cv/Miguel-Correia-CV-EN.pdf" target="_blank" rel="noopener">CV</a>
       </div>
     </div>
   </section>
