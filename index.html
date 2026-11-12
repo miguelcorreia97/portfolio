@@ -38,7 +38,7 @@
     --roxo-escuro: #6E2BE0;
     --lilas: #C9A7FF;
     --branco: #FFFFFF;
-    --suave: rgba(255,255,255,.72);
+    --suave: rgba(255,255,255,.8);
     --titulo: "Anton", "Impact", sans-serif;
     --texto: "Montserrat", system-ui, sans-serif;
     --largura: 1180px;
@@ -53,7 +53,11 @@
   }
   img, video { display: block; max-width: 100%; }
   a { color: inherit; }
+  button:focus-visible, [role="button"]:focus-visible { outline: 3px solid var(--lilas); outline-offset: 3px; }
   a:focus-visible { outline: 3px solid var(--lilas); outline-offset: 3px; border-radius: 6px; }
+  .saltar { position: fixed; left: 16px; top: -60px; z-index: 100; padding: 12px 20px; border-radius: 999px; background: var(--roxo); color: #fff; font-weight: 700; text-decoration: none; }
+  .saltar:focus { top: 16px; }
+  #conteudo { position: absolute; }
   .contentor { max-width: var(--largura); margin: 0 auto; padding: 0 24px; }
 
   /* Etiquetas em forma de pílula */
@@ -63,6 +67,7 @@
     box-shadow: inset 0 0 18px rgba(255,255,255,.12), 0 6px 24px rgba(0,0,0,.35);
     font-weight: 700; font-size: 18px; letter-spacing: .04em; text-transform: uppercase;
   }
+  h2.pilula, h3.pilula { margin-top: 0; margin-bottom: 0; line-height: normal; font-family: var(--texto); }
 
   /* Cabeçalho */
   .cabecalho { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(10px); background: rgba(7,5,11,.6); }
@@ -157,7 +162,7 @@
   .f-pr { background: #00005B; color: #9999FF; }
   .f-ae { background: #00005B; color: #D291FF; }
   .f-cc { background: #000000; color: #FFFFFF; box-shadow: inset 0 0 0 2px rgba(255,255,255,.18); }
-  .f-cv { background: linear-gradient(135deg, #00C4CC, #7D2AE8); color: #fff; }
+  .f-cv { background: linear-gradient(135deg, #00868C, #7D2AE8); color: #fff; }
 
   /* Trabalhos */
   .cabeca-trabalhos { display: flex; align-items: center; gap: 24px; margin-bottom: 32px; }
@@ -200,13 +205,13 @@
   .contacto { text-align: center; }
   .contacto h2 {
     font-family: var(--titulo); font-weight: 400; text-transform: uppercase;
-    font-size: clamp(52px, 9vw, 120px); line-height: .95; margin: 0 0 18px;
+    font-size: clamp(48px, 7.5vw, 100px); line-height: .95; margin: 0 0 18px;
     filter: drop-shadow(0 0 22px rgba(255,255,255,.2));
   }
   .contacto p { color: var(--suave); max-width: 32em; margin: 0 auto 28px; }
   .botao-email {
     display: inline-block; padding: 16px 34px; border-radius: 999px; text-decoration: none;
-    background: linear-gradient(90deg, var(--roxo-escuro), var(--roxo));
+    background: var(--roxo);
     font-weight: 800; font-size: clamp(15px, 2.4vw, 20px);
     box-shadow: 0 0 34px rgba(139,61,255,.6); word-break: break-all;
   }
@@ -417,7 +422,7 @@
 
   /* Elementos que aparecem ao fazer scroll (só se o JavaScript estiver ativo) */
   .js .revelar { opacity: 0; transform: translateY(28px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); transition-delay: var(--atraso, 0s); }
-  .js .revelar.visivel { opacity: 1; transform: none; }
+  .js .revelar.visivel, .js .revelar:focus, .js .revelar:focus-within { opacity: 1; transform: none; transition-delay: 0s; }
   .js .peca.revelar.visivel:hover { transform: translateY(-8px) scale(1.03); transition-delay: 0s; }
 
 
@@ -607,10 +612,16 @@
   .lingua a:hover { color: #fff; background: rgba(255,255,255,.08); }
   .lingua a.atual { color: #fff; background: rgba(255,255,255,.14); }
   .cabecalho .contentor > .direita { display: flex; align-items: center; gap: 12px; }
-  @media (max-width: 600px) { .lingua { padding: 2px; } .lingua a { padding: 6px 9px; font-size: 11px; } .lingua a.atual { display: none; } .cabecalho .contentor > .direita { gap: 6px; } .nav { gap: 0; } .nav a { padding: 8px 8px; letter-spacing: .03em; } }
+  @media (max-width: 600px) { .lingua { padding: 2px; } .lingua a { padding: 6px 9px; font-size: 11px; } .lingua a.atual { display: none; } .cabecalho .contentor > .direita { gap: 6px; } .nav { gap: 0; } .nav a { padding: 8px 8px; letter-spacing: .03em; }
+    .nav a, .lingua a { min-height: 44px; display: inline-flex; align-items: center; }
+    .marca .sigla { width: 44px; height: 44px; }
+    .filtro, .redes a, .botao-cv { min-height: 44px; }
+    .redes a { display: inline-flex; align-items: center; } }
+  @media (max-width: 380px) { .nav a:first-child { display: none; } .filtro { font-size: 11px; letter-spacing: .02em; padding: 10px 4px; } }
 </style>
 </head>
 <body>
+<a class="saltar" href="#conteudo">Saltar para o conteúdo</a>
 <div class="fundo" aria-hidden="true">
   <span class="luz l1"></span><span class="luz l2"></span><span class="luz l3"></span>
   <span class="gota g1"></span><span class="gota g2"></span>
@@ -645,6 +656,7 @@
 </header>
 
 <main id="topo">
+<span id="conteudo" tabindex="-1"></span>
 
   <section class="abertura">
     <div class="contentor">
@@ -661,7 +673,7 @@
   <section id="experiencia">
     <div class="contentor exp-grelha">
       <div>
-        <span class="pilula">A minha experiência</span>
+        <h2 class="pilula">A minha experiência</h2>
         <div class="exp-colunas">
           <div class="exp-grupo">
             <h3>Design</h3>
@@ -690,7 +702,7 @@
         </div>
       </div>
       <div>
-        <span class="pilula">Ferramentas</span>
+        <h3 class="pilula">Ferramentas</h3>
         <div class="caixa-ferramentas">
           <div class="ferramenta f-fg"><b>Fg</b>Figma</div>
           <div class="ferramenta f-ps"><b>Ps</b>Photoshop</div>
@@ -705,7 +717,7 @@
 
   <section id="trabalhos">
     <div class="contentor">
-      <div class="cabeca-trabalhos"><span class="pilula">O meu trabalho</span></div>
+      <div class="cabeca-trabalhos"><h2 class="pilula">O meu trabalho</h2></div>
       <div class="filtros" role="group" aria-label="Filtrar trabalhos por tema">
         <span class="filtro-marcador" aria-hidden="true"></span>
         <button type="button" class="filtro ativo" data-filtro="futebol" aria-pressed="true">Futebol</button>
@@ -727,7 +739,7 @@
             data-titulo="Identidade visual do Salgueiros"
             data-descricao="Proposta de identidade visual para a comunicação digital do Salgueiros SC na época 2026/27. Um sistema flexível, com a chama como textura, vermelho e amarelo mostarda e títulos em Bebas Neue, que funciona com fotografia, recorte de jogador ou só fundo gráfico. Aqui ficam 8 dos 11 diapositivos."
             data-galeria="images/salgueiros/identidade-01.jpg,images/salgueiros/identidade-02.jpg,images/salgueiros/identidade-03.jpg,images/salgueiros/identidade-04.jpg,images/salgueiros/identidade-05.jpg,images/salgueiros/identidade-06.jpg,images/salgueiros/identidade-07.jpg,images/salgueiros/identidade-08.jpg">
-            <img src="images/salgueiros/identidade-01.jpg" alt="Capa da proposta de identidade visual do Salgueiros SC" loading="lazy"><figcaption>Futebol · Branding</figcaption><span class="contagem" aria-hidden="true">8 imagens</span><span class="ver" aria-hidden="true">+</span>
+            <img src="images/salgueiros/identidade-01.jpg" alt="Capa da proposta de identidade visual do Salgueiros SC" loading="lazy" width="1920" height="1200"><figcaption>Futebol · Branding</figcaption><span class="contagem" aria-hidden="true">8 imagens</span><span class="ver" aria-hidden="true">+</span>
           </figure>
             <figure class="peca video futebol" tabindex="0" role="button" aria-label="Ver vídeo: Intro Salgueiros"
             data-tema="futebol"
@@ -743,43 +755,43 @@
             data-tema="futebol"
             data-titulo="Dia de jogo"
             data-descricao="Anúncio do Salgueiros vs. Alpendorada, com recorte do jogador sobre o fundo de chamas e data, hora e local num rodapé discreto. Faz parte da proposta de identidade visual para o clube.">
-            <img src="images/salgueiros/dia-de-jogo.jpg" alt="Cartaz de dia de jogo Salgueiros vs. Alpendorada" loading="lazy"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
+            <img src="images/salgueiros/dia-de-jogo.jpg" alt="Cartaz de dia de jogo Salgueiros vs. Alpendorada" loading="lazy" width="1080" height="1350"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
           </figure>
             <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Onze inicial"
             data-tema="futebol"
             data-titulo="Onze inicial"
             data-descricao="A equipa titular e os suplentes alinhados à direita, com o capitão assinalado e uma fotografia de jogador a ocupar o lado esquerdo.">
-            <img src="images/salgueiros/onze-inicial.jpg" alt="Publicação com o onze inicial do Salgueiros" loading="lazy"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
+            <img src="images/salgueiros/onze-inicial.jpg" alt="Publicação com o onze inicial do Salgueiros" loading="lazy" width="1080" height="1350"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
           </figure>
             <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Golo"
             data-tema="futebol"
             data-titulo="Golo"
             data-descricao="Publicação para o momento do golo: o marcador, o minuto e o resultado atualizado, pensada para sair poucos segundos depois do lance.">
-            <img src="images/salgueiros/golo.jpg" alt="Publicação de golo de Caio Ribas aos 75 minutos" loading="lazy"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
+            <img src="images/salgueiros/golo.jpg" alt="Publicação de golo de Caio Ribas aos 75 minutos" loading="lazy" width="1080" height="1350"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
           </figure>
             <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Resultado final"
             data-tema="futebol"
             data-titulo="Resultado final"
             data-descricao="Fotografia do jogo com o título em grande e o resultado numa barra com os emblemas dos dois clubes.">
-            <img src="images/salgueiros/resultado-final.jpg" alt="Publicação com o resultado final Salgueiros 2-0 Alpendorada" loading="lazy"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
+            <img src="images/salgueiros/resultado-final.jpg" alt="Publicação com o resultado final Salgueiros 2-0 Alpendorada" loading="lazy" width="1080" height="1350"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
           </figure>
             <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Calendário"
             data-tema="futebol"
             data-titulo="Calendário"
             data-descricao="Os jogos do mês sobre a fotografia de equipa, com local, dia, adversário e hora de cada jogo.">
-            <img src="images/salgueiros/calendario.jpg" alt="Calendário dos jogos de abril do Salgueiros" loading="lazy"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
+            <img src="images/salgueiros/calendario.jpg" alt="Calendário dos jogos de abril do Salgueiros" loading="lazy" width="1080" height="1350"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
           </figure>
             <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Contratação"
             data-tema="futebol"
             data-titulo="Contratação"
             data-descricao="Apresentação de um reforço, com o nome em grande sobre o jogador e a mensagem de boas-vindas.">
-            <img src="images/salgueiros/contratacao.jpg" alt="Publicação de boas-vindas ao jogador Scottini" loading="lazy"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
+            <img src="images/salgueiros/contratacao.jpg" alt="Publicação de boas-vindas ao jogador Scottini" loading="lazy" width="1080" height="1350"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
           </figure>
             <figure class="peca futebol" tabindex="0" role="button" aria-label="Ampliar: Comunicado oficial"
             data-tema="futebol"
             data-titulo="Comunicado oficial"
             data-descricao="Peça só com fundo gráfico, para comunicados em que não há fotografia: emblema, título e a hashtag do clube.">
-            <img src="images/salgueiros/comunicado.jpg" alt="Capa de comunicado oficial do Salgueiros" loading="lazy"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
+            <img src="images/salgueiros/comunicado.jpg" alt="Capa de comunicado oficial do Salgueiros" loading="lazy" width="1080" height="1350"><figcaption>Futebol</figcaption><span class="ver" aria-hidden="true">+</span>
           </figure>
           </div>
         </article>
@@ -797,7 +809,7 @@
             data-titulo="Identidade visual do CIC"
             data-descricao="Manual de marca e comunicação do Católica Porto Investment Club, pensado para a equipa de marketing: logótipo, cores, tipografia e regras de aplicação. Aqui ficam 6 dos 15 diapositivos."
             data-galeria="images/cic/identidade-01.jpg,images/cic/identidade-02.jpg,images/cic/identidade-03.jpg,images/cic/identidade-04.jpg,images/cic/identidade-05.jpg,images/cic/identidade-06.jpg">
-            <img src="images/cic/identidade-01.jpg" alt="Capa do manual de identidade visual do CIC" loading="lazy"><figcaption>CIC · Branding</figcaption><span class="contagem" aria-hidden="true">6 imagens</span><span class="ver" aria-hidden="true">+</span>
+            <img src="images/cic/identidade-01.jpg" alt="Capa do manual de identidade visual do CIC" loading="lazy" width="1920" height="1080"><figcaption>CIC · Branding</figcaption><span class="contagem" aria-hidden="true">6 imagens</span><span class="ver" aria-hidden="true">+</span>
           </figure>
             <figure class="peca video" tabindex="0" role="button" aria-label="Ver vídeo: Intro CIC"
             data-tema="institucional"
@@ -817,7 +829,7 @@
             data-tema="institucional"
             data-titulo="Destaques do Instagram"
             data-descricao="Doze capas para os destaques do Instagram do CIC, com ícones dourados para eventos, recrutamento, podcast, workshops, departamentos e cada época do clube.">
-            <img src="images/cic/destaques-instagram.jpg" alt="Capas dos destaques do Instagram do CIC" loading="lazy"><figcaption>CIC · Instagram</figcaption><span class="ver" aria-hidden="true">+</span>
+            <img src="images/cic/destaques-instagram.jpg" alt="Capas dos destaques do Instagram do CIC" loading="lazy" width="1920" height="1357"><figcaption>CIC · Instagram</figcaption><span class="ver" aria-hidden="true">+</span>
           </figure>
           </div>
         </article>
@@ -834,27 +846,27 @@
             data-tema="institucional"
             data-titulo="Chatbots em Saúde"
             data-descricao="Publicação de última chamada para um curso online, com as datas, o formato e o certificado destacados numa barra própria.">
-            <img src="images/cel/chatbots-saude.jpg" alt="Publicação de última chamada para o curso de Chatbots em Saúde" loading="lazy"><figcaption>Ciência e Letras</figcaption><span class="ver" aria-hidden="true">+</span>
+            <img src="images/cel/chatbots-saude.jpg" alt="Publicação de última chamada para o curso de Chatbots em Saúde" loading="lazy" width="1080" height="1350"><figcaption>Ciência e Letras</figcaption><span class="ver" aria-hidden="true">+</span>
           </figure>
             <figure class="peca" tabindex="0" role="button" aria-label="Ampliar: GenAI para enfermeiros"
             data-tema="institucional"
             data-titulo="GenAI para enfermeiros"
             data-descricao="Anúncio de abertura de inscrições para um curso de inteligência artificial dirigido a profissionais de saúde.">
-            <img src="images/cel/genai-enfermeiros.jpg" alt="Anúncio do curso de GenAI para enfermeiros" loading="lazy"><figcaption>Ciência e Letras</figcaption><span class="ver" aria-hidden="true">+</span>
+            <img src="images/cel/genai-enfermeiros.jpg" alt="Anúncio do curso de GenAI para enfermeiros" loading="lazy" width="1080" height="1350"><figcaption>Ciência e Letras</figcaption><span class="ver" aria-hidden="true">+</span>
           </figure>
             <figure class="peca a4" tabindex="0" role="button" aria-label="Ampliar: Formação técnica · AEFEUP"
             data-tema="institucional"
             data-titulo="Formação técnica · AEFEUP"
             data-descricao="Cartaz A4 da formação técnica em parceria com a associação de estudantes da FEUP, com a tabela de cursos, horários e preços."
             data-proporcao="1200 / 1697">
-            <img src="images/cel/formacao-aefeup.jpg" alt="Cartaz de formação técnica em parceria com a AEFEUP" loading="lazy"><figcaption>Ciência e Letras</figcaption><span class="ver" aria-hidden="true">+</span>
+            <img src="images/cel/formacao-aefeup.jpg" alt="Cartaz de formação técnica em parceria com a AEFEUP" loading="lazy" width="1200" height="1697"><figcaption>Ciência e Letras</figcaption><span class="ver" aria-hidden="true">+</span>
           </figure>
             <figure class="peca a4" tabindex="0" role="button" aria-label="Ampliar: Formação técnica · AEISEP"
             data-tema="institucional"
             data-titulo="Formação técnica · AEISEP"
             data-descricao="O mesmo cartaz adaptado à parceria com a associação de estudantes do ISEP, com outra cor e outros cursos."
             data-proporcao="1200 / 1697">
-            <img src="images/cel/formacao-aeisep.jpg" alt="Cartaz de formação técnica em parceria com a AEISEP" loading="lazy"><figcaption>Ciência e Letras</figcaption><span class="ver" aria-hidden="true">+</span>
+            <img src="images/cel/formacao-aeisep.jpg" alt="Cartaz de formação técnica em parceria com a AEISEP" loading="lazy" width="1200" height="1697"><figcaption>Ciência e Letras</figcaption><span class="ver" aria-hidden="true">+</span>
           </figure>
           </div>
         </article>
@@ -864,11 +876,11 @@
 
   <section id="sobre">
     <div class="contentor">
-      <span class="pilula">Sobre mim</span>
+      <h2 class="pilula">Sobre mim</h2>
       <div class="sobre-grelha">
         <div class="sobre-foto">
           <div class="foto">
-            <div class="moldura-foto"><img src="images/foto.png" alt="Miguel Correia" onerror="this.parentElement.remove()"></div>
+            <div class="moldura-foto"><img src="images/foto.webp" alt="Miguel Correia" loading="lazy" onerror="this.parentElement.remove()" width="1000" height="1353"></div>
           </div>
         </div>
         <div>
