@@ -11,6 +11,7 @@
 <!-- Pré-visualização ao partilhar o link (WhatsApp, LinkedIn, email…) -->
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_PT">
+<link rel="alternate" hreflang="en" href="https://miguelcorreia97.github.io/portfolio/en/">
 <meta property="og:site_name" content="Miguel Correia">
 <meta property="og:title" content="Miguel Correia · Designer gráfico de desporto">
 <meta property="og:description" content="Design gráfico para clubes de futebol, marcas e instituições: identidades visuais, publicações de jogo e vídeo. Porto.">
@@ -594,6 +595,13 @@
     .grao { display: none; }
     .js .revelar { opacity: 1; transform: none; }
   }
+
+  .lingua { display: flex; gap: 2px; padding: 3px; border: 1px solid rgba(255,255,255,.18); border-radius: 999px; flex: none; }
+  .lingua a { padding: 6px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: .06em; color: rgba(255,255,255,.65); text-decoration: none; transition: background .3s, color .3s; }
+  .lingua a:hover { color: #fff; background: rgba(255,255,255,.08); }
+  .lingua a.atual { color: #fff; background: rgba(255,255,255,.14); }
+  .cabecalho .contentor > .direita { display: flex; align-items: center; gap: 12px; }
+  @media (max-width: 600px) { .lingua { padding: 2px; } .lingua a { padding: 6px 9px; font-size: 11px; } .lingua a.atual { display: none; } .cabecalho .contentor > .direita { gap: 6px; } .nav { gap: 0; } .nav a { padding: 8px 8px; letter-spacing: .03em; } }
 </style>
 </head>
 <body>
@@ -618,12 +626,15 @@
 <header class="cabecalho">
   <div class="contentor">
     <a class="marca" href="#topo"><span class="sigla">MC</span><span class="nome">Miguel<br>Correia</span></a>
+    <div class="direita">
     <nav class="nav" aria-label="Navegação principal">
-      <a class="ativo" href="#topo">Portefólio</a>
-      <a href="#experiencia">Experiência</a>
-      <a href="#trabalhos">Design</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
+        <a class="ativo" href="#topo">Portefólio</a>
+        <a href="#experiencia">Experiência</a>
+        <a href="#trabalhos">Design</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <div class="lingua" aria-label="Idioma"><a class="atual" href="./" hreflang="pt" lang="pt">PT</a><a href="en/" hreflang="en" lang="en">EN</a></div>
+    </div>
   </div>
 </header>
 
