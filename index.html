@@ -6,7 +6,7 @@
 <title>Miguel Correia · Designer gráfico de desporto</title>
 <meta name="description" content="Design gráfico para clubes de futebol, marcas e instituições: identidades visuais, publicações de jogo e vídeo. Porto.">
 <link rel="canonical" href="https://miguelcorreia97.github.io/portfolio/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23F4F0E8'/%3E%3Cstop offset='1' stop-color='%23D9D1C2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='32' fill='url(%23g)'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Impact,Arial Narrow,sans-serif' font-size='28' fill='white'%3EMC%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232F5BFF'/%3E%3Cstop offset='1' stop-color='%231F3FD1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='32' fill='url(%23g)'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Impact,Arial Narrow,sans-serif' font-size='28' fill='white'%3EMC%3C/text%3E%3C/svg%3E">
 <meta name="theme-color" content="#000000">
 <!-- Pré-visualização ao partilhar o link (WhatsApp, LinkedIn, email…) -->
 <meta property="og:type" content="website">
@@ -33,10 +33,10 @@
   @font-face { font-family: "Anton"; font-weight: 400; font-style: normal; font-display: swap; src: url("fonts/anton-latin-400-normal.woff2") format("woff2"); }
   :root {
     --preto: #000000;
-    --violeta: #1A1814;
-    --roxo: #F4F0E8;
-    --roxo-escuro: #E2DACB;
-    --lilas: #E6DCC8;
+    --azul-noite: #0B1433;
+    --azul: #2F5BFF;
+    --azul-escuro: #1F3FD1;
+    --azul-claro: #9DB4FF;
     --branco: #FFFFFF;
     --suave: rgba(255,255,255,.8);
     --titulo: "Anton", "Impact", sans-serif;
@@ -49,13 +49,13 @@
   body {
     margin: 0; color: var(--branco); font-family: var(--texto); font-size: 16px; line-height: 1.6;
     background-color: var(--preto);
-    background-image: linear-gradient(180deg, #000000 0%, #080807 50%, #000000 100%);
+    background-image: linear-gradient(180deg, #000000 0%, #03040A 50%, #000000 100%);
   }
   img, video { display: block; max-width: 100%; }
   a { color: inherit; }
-  button:focus-visible, [role="button"]:focus-visible { outline: 3px solid var(--lilas); outline-offset: 3px; }
-  a:focus-visible { outline: 3px solid var(--lilas); outline-offset: 3px; border-radius: 6px; }
-  .saltar { position: fixed; left: 16px; top: -60px; z-index: 100; padding: 12px 20px; border-radius: 999px; background: var(--roxo); color: #fff; font-weight: 700; text-decoration: none; }
+  button:focus-visible, [role="button"]:focus-visible { outline: 3px solid var(--azul-claro); outline-offset: 3px; }
+  a:focus-visible { outline: 3px solid var(--azul-claro); outline-offset: 3px; border-radius: 6px; }
+  .saltar { position: fixed; left: 16px; top: -60px; z-index: 100; padding: 12px 20px; border-radius: 999px; background: var(--azul); color: #fff; font-weight: 700; text-decoration: none; }
   .saltar:focus { top: 16px; }
   #conteudo { position: absolute; }
   .contentor { max-width: var(--largura); margin: 0 auto; padding: 0 24px; }
@@ -63,19 +63,19 @@
   /* Etiquetas em forma de pílula */
   .pilula {
     display: inline-block; padding: 10px 26px; border-radius: 999px;
-    background: rgba(244,240,232,0.13); border: 2px solid rgba(255,255,255,.35);
+    background: rgba(47,91,255,.28); border: 2px solid rgba(255,255,255,.35);
     box-shadow: inset 0 0 18px rgba(255,255,255,.12), 0 6px 24px rgba(0,0,0,.35);
     font-weight: 700; font-size: 18px; letter-spacing: .04em; text-transform: uppercase;
   }
   h2.pilula, h3.pilula { margin-top: 0; margin-bottom: 0; line-height: normal; font-family: var(--texto); }
 
   /* Cabeçalho */
-  .cabecalho { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(10px); background: rgba(10,10,9,0.6); }
+  .cabecalho { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(10px); background: rgba(5,6,11,.6); }
   .cabecalho .contentor { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 16px; }
   .marca { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; line-height: 1.1; font-size: 15px; }
   .marca .sigla {
     width: 38px; height: 38px; border-radius: 50%; display: grid; place-content: center;
-    background: linear-gradient(135deg, var(--roxo), var(--roxo-escuro));
+    background: linear-gradient(135deg, var(--azul), var(--azul-escuro));
     font-family: var(--titulo); font-size: 18px; letter-spacing: .02em;
   }
   .nav { display: flex; gap: 8px; }
@@ -84,7 +84,7 @@
     padding: 8px 18px; border-radius: 999px;
   }
   .nav a:hover { background: rgba(255,255,255,.08); }
-  .nav a.ativo { background: var(--roxo); box-shadow: 0 0 20px rgba(244,240,232,0.21); }
+  .nav a.ativo { background: var(--azul); box-shadow: 0 0 20px rgba(47,91,255,.6); }
 
   /* Abertura */
   .abertura { padding: 48px 0 0; }
@@ -108,21 +108,21 @@
     font-family: var(--titulo); font-weight: 400; text-transform: uppercase;
     font-size: clamp(56px, 8.6vw, 124px); line-height: 1.15; margin: -.12em 0 -.08em; padding: .1em 0 0; white-space: nowrap;
     letter-spacing: .01em;
-    background: linear-gradient(180deg, #FFFFFF 55%, #E9E2D4 100%);
+    background: linear-gradient(180deg, #FFFFFF 55%, #D6E0FF 100%);
     -webkit-background-clip: text; background-clip: text; color: transparent;
     filter: drop-shadow(0 0 22px rgba(255,255,255,.25));
   }
   .faixa-papel {
     display: inline-block; margin-top: 18px; padding: 10px 28px;
-    background: linear-gradient(90deg, var(--roxo), var(--roxo-escuro));
+    background: linear-gradient(90deg, var(--azul), var(--azul-escuro));
     font-weight: 800; font-size: clamp(16px, 2vw, 22px); text-transform: uppercase; letter-spacing: .06em;
-    box-shadow: 0 0 30px rgba(244,240,232,0.19);
+    box-shadow: 0 0 30px rgba(47,91,255,.55);
   }
   .titulo-principal p { max-width: 32em; margin: 22px 0 0; color: var(--suave); }
 
   .faixa-ola {
     margin-top: 32px; padding: 18px 0;
-    background: linear-gradient(90deg, rgba(244,240,232,0.07), rgba(244,240,232,0.32) 30%, rgba(244,240,232,0.32) 70%, rgba(244,240,232,0.07));
+    background: linear-gradient(90deg, rgba(31,63,209,.15), rgba(31,63,209,.9) 30%, rgba(47,91,255,.9) 70%, rgba(31,63,209,.15));
     border-top: 1px solid rgba(255,255,255,.25); border-bottom: 1px solid rgba(255,255,255,.25);
     text-align: center; font-weight: 700; text-transform: uppercase;
     letter-spacing: .4em; font-size: clamp(12px, 1.6vw, 18px);
@@ -137,7 +137,7 @@
   .exp-grelha { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 48px; align-items: start; }
   .exp-colunas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin-top: 28px; }
   .exp-grupo h3 {
-    margin: 0 0 18px; padding-bottom: 10px; border-bottom: 2px solid var(--roxo);
+    margin: 0 0 18px; padding-bottom: 10px; border-bottom: 2px solid var(--azul);
     font-family: var(--titulo); font-weight: 400; text-transform: uppercase; font-size: 26px; line-height: 1.1; letter-spacing: .02em;
   }
   .lista-exp { display: grid; gap: 4px; list-style: none; padding: 0; margin: 0; }
@@ -145,7 +145,7 @@
   .lista-exp li::before { content: ""; position: absolute; left: 0; top: .6em; width: 7px; height: 7px; border-radius: 50%; background: var(--branco); }
   .lista-exp b { display: block; font-size: 18px; line-height: 1.3; }
   .lista-exp span { display: block; color: var(--suave); line-height: 1.4; }
-  .lista-exp small { display: block; margin-top: 2px; color: var(--lilas); font-size: 13px; font-weight: 600; }
+  .lista-exp small { display: block; margin-top: 2px; color: var(--azul-claro); font-size: 13px; font-weight: 600; }
   .lista-exp em { display: block; margin-top: 6px; font-style: normal; font-size: 14px; line-height: 1.5; color: rgba(255,255,255,.55); }
   .caixa-ferramentas {
     margin-top: 28px; padding: 22px; border-radius: 22px;
@@ -182,9 +182,9 @@
   .peca figcaption {
     position: absolute; left: 8px; bottom: 8px; z-index: 1;
     padding: 3px 10px; border-radius: 999px; font-size: 11px; font-weight: 700;
-    background: rgba(10,10,9,0.75);
+    background: rgba(5,6,11,.75);
   }
-  .peca.futebol figcaption { background: var(--roxo); }
+  .peca.futebol figcaption { background: var(--azul); }
 
   /* Sobre */
   .sobre-grelha { display: grid; grid-template-columns: 300px 1fr; gap: 56px; margin-top: 28px; align-items: start; }
@@ -198,7 +198,7 @@
   .numeros { list-style: none; margin: 48px 0 0; padding: 28px 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; border-top: 1px solid rgba(255,255,255,.14); }
   
   .numeros li { display: grid; gap: 8px; align-content: start; }
-  .numeros b { font-family: var(--titulo); font-weight: 400; font-size: 48px; line-height: 1; color: var(--lilas); }
+  .numeros b { font-family: var(--titulo); font-weight: 400; font-size: 48px; line-height: 1; color: var(--azul-claro); }
   .numeros span { color: var(--suave); line-height: 1.45; }
 
   /* Contacto */
@@ -211,9 +211,9 @@
   .contacto p { color: var(--suave); max-width: 32em; margin: 0 auto 28px; }
   .botao-email {
     display: inline-block; padding: 16px 34px; border-radius: 999px; text-decoration: none;
-    background: var(--roxo);
+    background: var(--azul);
     font-weight: 800; font-size: clamp(15px, 2.4vw, 20px);
-    box-shadow: 0 0 34px rgba(244,240,232,0.21); word-break: break-all;
+    box-shadow: 0 0 34px rgba(47,91,255,.6); word-break: break-all;
   }
   .botao-cv { display: inline-flex; align-items: center; gap: 10px; margin-top: 26px; text-decoration: none; font-weight: 700; font-size: 14px; letter-spacing: .06em; text-transform: uppercase;
     padding: 12px 24px; border-radius: 999px; border: 2px solid rgba(255,255,255,.35); transition: background .3s, box-shadow .3s, transform .3s; animation: entrar-baixo .8s .65s cubic-bezier(.2,.7,.2,1) both; }
@@ -262,13 +262,13 @@
   /* Luzes roxas de fundo que se mexem devagar */
   .fundo { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
   .fundo .luz { position: absolute; border-radius: 50%; will-change: transform, opacity; mix-blend-mode: screen; }
-  .luz.l1 { width: 42vw; height: 42vw; right: -10vw; top: -14vw; background: radial-gradient(circle, rgba(244,240,232,0.24), transparent 62%); animation: flutuar-1 13s ease-in-out infinite alternate, pulsar 5s ease-in-out infinite; }
-  .luz.l2 { width: 30vw; height: 30vw; left: -10vw; top: 35vh; background: radial-gradient(circle, rgba(244,240,232,0.16), transparent 62%); animation: flutuar-2 11s ease-in-out infinite alternate, pulsar 7s 1s ease-in-out infinite; }
-  .luz.l3 { width: 50vw; height: 40vw; left: 25vw; bottom: -22vw; background: radial-gradient(circle, rgba(244,240,232,0.21), transparent 62%); animation: flutuar-3 15s ease-in-out infinite alternate, pulsar 6s 2s ease-in-out infinite; }
+  .luz.l1 { width: 42vw; height: 42vw; right: -10vw; top: -14vw; background: radial-gradient(circle, rgba(47,91,255,.7), transparent 62%); animation: flutuar-1 13s ease-in-out infinite alternate, pulsar 5s ease-in-out infinite; }
+  .luz.l2 { width: 30vw; height: 30vw; left: -10vw; top: 35vh; background: radial-gradient(circle, rgba(157,180,255,.35), transparent 62%); animation: flutuar-2 11s ease-in-out infinite alternate, pulsar 7s 1s ease-in-out infinite; }
+  .luz.l3 { width: 50vw; height: 40vw; left: 25vw; bottom: -22vw; background: radial-gradient(circle, rgba(31,63,209,.6), transparent 62%); animation: flutuar-3 15s ease-in-out infinite alternate, pulsar 6s 2s ease-in-out infinite; }
   .fundo .risco {
     position: absolute; left: -50%; width: 200%; height: 110px;
     -webkit-mask-image: linear-gradient(to bottom, transparent, #000 50%, transparent); mask-image: linear-gradient(to bottom, transparent, #000 50%, transparent);
-    background: linear-gradient(90deg, transparent, rgba(244,240,232,0.14), rgba(244,240,232,0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(47,91,255,.32), rgba(205,216,255,.22), transparent);
     will-change: transform; mix-blend-mode: screen;
   }
   .risco.r1 { top: 28%; transform: rotate(-14deg); animation: varrer 8s ease-in-out infinite; }
@@ -281,7 +281,7 @@
   /* Formas líquidas que mudam de forma */
   .fundo .gota {
     position: absolute; opacity: .28; will-change: transform, border-radius;
-    background: linear-gradient(135deg, #F4F0E8, #5A5448);
+    background: linear-gradient(135deg, #2F5BFF, #14267A);
     -webkit-mask-image: radial-gradient(circle, #000 35%, transparent 72%); mask-image: radial-gradient(circle, #000 35%, transparent 72%);
   }
   .gota.g1 { width: 34vw; height: 34vw; left: 8vw; top: 55vh; animation: derreter 16s ease-in-out infinite, deriva-1 20s ease-in-out infinite alternate; }
@@ -308,7 +308,7 @@
     mask-image: linear-gradient(90deg, #000 0%, rgba(0,0,0,.25) 18%, transparent 30%, transparent 70%, rgba(0,0,0,.25) 82%, #000 100%);
   }
   .faixa-texto.t1 { top: 18vh; rotate: -6deg; animation: deslizar 90s linear infinite; }
-  .faixa-texto.t2 { top: 62vh; rotate: -6deg; animation: deslizar 110s linear infinite reverse; -webkit-text-stroke-color: rgba(244,240,232,0.05); }
+  .faixa-texto.t2 { top: 62vh; rotate: -6deg; animation: deslizar 110s linear infinite reverse; -webkit-text-stroke-color: rgba(112,142,255,.12); }
   @keyframes deslizar { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
   /* Formas soltas que flutuam e seguem o rato */
@@ -345,7 +345,7 @@
   .luz-rato {
     position: fixed; left: 0; top: 0; width: 520px; height: 520px; margin: -260px 0 0 -260px;
     border-radius: 50%; pointer-events: none; z-index: 0; opacity: 0; transition: opacity .4s;
-    background: radial-gradient(circle, rgba(244,240,232,0.1), transparent 60%); mix-blend-mode: screen;
+    background: radial-gradient(circle, rgba(90,125,255,.22), transparent 60%); mix-blend-mode: screen;
   }
   body.com-rato .luz-rato { opacity: 1; }
   main, footer { position: relative; z-index: 1; }
@@ -362,8 +362,8 @@
   /* Brilho que atravessa o título de vez em quando */
   .titulo-principal h1 {
     background-image:
-      linear-gradient(110deg, transparent 42%, rgba(244,240,232,0.33) 50%, transparent 58%),
-      linear-gradient(180deg, #FFFFFF 55%, #E9E2D4 100%);
+      linear-gradient(110deg, transparent 42%, rgba(200,212,255,.95) 50%, transparent 58%),
+      linear-gradient(180deg, #FFFFFF 55%, #D6E0FF 100%);
     background-size: 250% 100%, 100% 100%;
     background-repeat: no-repeat;
     animation: entrar-titulo 1s cubic-bezier(.2,.7,.2,1) both, brilho 6s 1.2s ease-in-out infinite;
@@ -382,7 +382,7 @@
 
   /* Pílulas e menu */
   .pilula, .nav a, .redes a { transition: box-shadow .3s, background .3s, transform .3s; }
-  .pilula:hover { box-shadow: inset 0 0 18px rgba(255,255,255,.2), 0 0 30px rgba(244,240,232,0.24); transform: translateY(-2px); }
+  .pilula:hover { box-shadow: inset 0 0 18px rgba(255,255,255,.2), 0 0 30px rgba(47,91,255,.7); transform: translateY(-2px); }
   .nav a:hover { transform: translateY(-1px); }
   .marca .sigla { transition: transform .5s; }
   .marca:hover .sigla { transform: rotate(-12deg) scale(1.1); }
@@ -391,11 +391,11 @@
   .lista-exp li { transition: transform .3s; }
   .lista-exp li::before { transition: background .3s, box-shadow .3s; }
   .lista-exp li:hover { transform: translateX(6px); }
-  .lista-exp li:hover::before { background: var(--lilas); box-shadow: 0 0 10px var(--lilas); }
+  .lista-exp li:hover::before { background: var(--azul-claro); box-shadow: 0 0 10px var(--azul-claro); }
 
   /* Ferramentas */
   .ferramenta { transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s; }
-  .ferramenta:hover { transform: translateY(-6px) rotate(-4deg) scale(1.06); box-shadow: 0 12px 30px rgba(0,0,0,.45), 0 0 24px rgba(244,240,232,0.2); }
+  .ferramenta:hover { transform: translateY(-6px) rotate(-4deg) scale(1.06); box-shadow: 0 12px 30px rgba(0,0,0,.45), 0 0 24px rgba(90,125,255,.45); }
 
   /* Trabalhos */
   .peca { transition: transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s; }
@@ -417,7 +417,7 @@
     background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.45) 50%, transparent 65%);
     background-size: 250% 100%; background-position: 130% 0; transition: background-position .7s;
   }
-  .botao-email:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 0 50px rgba(244,240,232,0.28); }
+  .botao-email:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 0 50px rgba(90,125,255,.8); }
   .botao-email:hover::after { background-position: -30% 0; }
 
   /* Elementos que aparecem ao fazer scroll (só se o JavaScript estiver ativo) */
@@ -431,16 +431,16 @@
   .peca .ver {
     position: absolute; right: 10px; top: 10px; z-index: 3; width: 34px; height: 34px; border-radius: 50%;
     display: grid; place-content: center; font-size: 22px; font-weight: 500; line-height: 1;
-    background: var(--roxo); box-shadow: 0 0 18px rgba(244,240,232,0.24);
+    background: var(--azul); box-shadow: 0 0 18px rgba(47,91,255,.7);
     opacity: 0; transform: scale(.5) rotate(-90deg); transition: opacity .3s, transform .4s cubic-bezier(.2,.7,.2,1);
   }
   .peca:hover .ver, .peca:focus-visible .ver { opacity: 1; transform: none; }
-  .peca:focus-visible { outline: 3px solid var(--lilas); outline-offset: 3px; }
+  .peca:focus-visible { outline: 3px solid var(--azul-claro); outline-offset: 3px; }
 
   .ampliar { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 24px; }
   .ampliar[hidden] { display: none; }
   .ampliar-fundo {
-    position: absolute; inset: 0; background: rgba(8,8,7,0.82); backdrop-filter: blur(14px);
+    position: absolute; inset: 0; background: rgba(3,4,9,.82); backdrop-filter: blur(14px);
   }
   .ampliar-caixa {
     position: relative; width: min(1100px, 100%); max-height: calc(100vh - 48px);
@@ -452,7 +452,7 @@
     box-shadow: 0 30px 80px rgba(0,0,0,.6), 0 0 60px rgba(255,255,255,.22);
     transform-origin: top left;
   }
-  .ampliar-imagem img { width: 100%; height: 100%; object-fit: contain; background: #0A0A09; }
+  .ampliar-imagem img { width: 100%; height: 100%; object-fit: contain; background: #05060B; }
   .ampliar-imagem .falta {
     position: absolute; inset: 0; display: grid; place-content: center; text-align: center;
     color: rgba(255,255,255,.6); font-size: 14px; border: 1px dashed rgba(255,255,255,.25); border-radius: 14px;
@@ -461,7 +461,7 @@
   .ampliar-texto { min-width: 0; }
   .ampliar-texto .categoria {
     display: inline-block; padding: 5px 14px; border-radius: 999px; font-size: 12px; font-weight: 700;
-    background: var(--roxo); box-shadow: 0 0 18px rgba(244,240,232,0.21); text-transform: uppercase; letter-spacing: .06em;
+    background: var(--azul); box-shadow: 0 0 18px rgba(47,91,255,.6); text-transform: uppercase; letter-spacing: .06em;
   }
   .ampliar-texto h3 {
     font-family: var(--titulo); font-weight: 400; text-transform: uppercase;
@@ -474,8 +474,8 @@
     background: rgba(255,255,255,.06); color: var(--branco); font: inherit; font-size: 20px; cursor: pointer;
     display: grid; place-content: center; transition: background .3s, transform .3s, box-shadow .3s;
   }
-  .ampliar-nav button:hover, .ampliar-fechar:hover { background: var(--roxo); box-shadow: 0 0 20px rgba(244,240,232,0.24); transform: scale(1.08); }
-  .ampliar-nav button:focus-visible, .ampliar-fechar:focus-visible { outline: 3px solid var(--lilas); outline-offset: 3px; }
+  .ampliar-nav button:hover, .ampliar-fechar:hover { background: var(--azul); box-shadow: 0 0 20px rgba(47,91,255,.7); transform: scale(1.08); }
+  .ampliar-nav button:focus-visible, .ampliar-fechar:focus-visible { outline: 3px solid var(--azul-claro); outline-offset: 3px; }
   .ampliar-contador { font-weight: 700; font-size: 14px; color: var(--suave); min-width: 56px; text-align: center; }
   .ampliar-fechar { position: absolute; top: 20px; right: 20px; z-index: 2; }
   body.sem-scroll { overflow: hidden; }
@@ -501,10 +501,10 @@
   }
   .filtro:hover { color: var(--branco); }
   .filtro.ativo { color: var(--branco); }
-  .filtro:focus-visible { outline: 3px solid var(--lilas); outline-offset: 2px; }
+  .filtro:focus-visible { outline: 3px solid var(--azul-claro); outline-offset: 2px; }
   .filtro-marcador {
     position: absolute; z-index: 0; top: 0; left: 0; height: 0; width: 0; border-radius: 999px;
-    background: linear-gradient(90deg, var(--roxo), var(--roxo-escuro)); box-shadow: 0 0 22px rgba(244,240,232,0.24);
+    background: linear-gradient(90deg, var(--azul), var(--azul-escuro)); box-shadow: 0 0 22px rgba(47,91,255,.7);
     transition: transform .45s cubic-bezier(.2,.7,.2,1), width .45s cubic-bezier(.2,.7,.2,1), height .45s;
   }
   .peca.escondida { display: none; }
@@ -523,7 +523,7 @@
   .peca .play {
     position: absolute; left: 50%; top: 50%; z-index: 3; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%;
     display: grid; place-content: center; color: #fff;
-    background: rgba(244,240,232,0.3); box-shadow: 0 0 0 8px rgba(244,240,232,0.11), 0 0 30px rgba(244,240,232,0.24);
+    background: rgba(47,91,255,.85); box-shadow: 0 0 0 8px rgba(47,91,255,.25), 0 0 30px rgba(47,91,255,.7);
     transition: transform .4s cubic-bezier(.2,.7,.2,1), opacity .4s;
   }
   .peca .play svg { width: 28px; height: 28px; margin-left: 3px; }
@@ -554,8 +554,8 @@
   }
   .miniaturas button img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .miniaturas button:hover { opacity: .9; transform: translateY(-2px); }
-  .miniaturas button.ativa { opacity: 1; border-color: var(--roxo); box-shadow: 0 0 14px rgba(244,240,232,0.24); }
-  .miniaturas button:focus-visible { outline: 3px solid var(--lilas); outline-offset: 2px; }
+  .miniaturas button.ativa { opacity: 1; border-color: var(--azul); box-shadow: 0 0 14px rgba(47,91,255,.7); }
+  .miniaturas button:focus-visible { outline: 3px solid var(--azul-claro); outline-offset: 2px; }
   .ampliar-imagem.galeria-ativa { cursor: e-resize; }
 
 
@@ -570,7 +570,7 @@
   .projeto-bloco { border-top: 1px solid rgba(255,255,255,.16); padding-top: 28px; }
   .projeto-bloco.escondida { display: none; }
   .bloco-cabeca { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: end; margin-bottom: 24px; }
-  .bloco-tipo { display: block; color: var(--lilas); font-size: 13px; font-weight: 700; letter-spacing: .04em; margin-bottom: 4px; }
+  .bloco-tipo { display: block; color: var(--azul-claro); font-size: 13px; font-weight: 700; letter-spacing: .04em; margin-bottom: 4px; }
   .bloco-cabeca h3 { font-family: var(--titulo); font-weight: 400; text-transform: uppercase; font-size: clamp(36px, 4.6vw, 58px); line-height: 1.08; margin: 0; padding-top: .12em; }
   .bloco-cabeca p { margin: 0; color: var(--suave); max-width: 32em; justify-self: end; }
   .bloco-rotulo { margin: 28px 0 12px; font-size: 13px; font-weight: 700; color: var(--suave); }
@@ -618,12 +618,6 @@
     .filtro, .redes a, .botao-cv { min-height: 44px; }
     .redes a { display: inline-flex; align-items: center; } }
   @media (max-width: 380px) { .nav a:first-child { display: none; } .filtro { font-size: 11px; letter-spacing: .02em; padding: 10px 4px; } }
-
-  /* Paleta creme: texto escuro sobre fundos creme */
-  .saltar, .marca .sigla, .nav a.ativo, .faixa-papel, .peca.futebol figcaption, .botao-email, .peca .ver,
-  .ampliar-texto .categoria, .ampliar-nav button:hover, .ampliar-fechar:hover, .filtro.ativo, .peca .play { color: #0B0B0A; }
-  .faixa-ola { background: linear-gradient(90deg, #DCD4C4, #F4F0E8 50%, #DCD4C4); color: #0B0B0A; border-color: transparent; }
-  .faixa-papel, .botao-email { text-shadow: none; }
 </style>
 </head>
 <body>
@@ -635,11 +629,11 @@
   <div class="faixa-texto t1"><span>Design ✦ Branding ✦ Futebol ✦ Identidade ✦</span><span>Design ✦ Branding ✦ Futebol ✦ Identidade ✦</span><span>Design ✦ Branding ✦ Futebol ✦ Identidade ✦</span><span>Design ✦ Branding ✦ Futebol ✦ Identidade ✦</span></div>
   <div class="faixa-texto t2"><span>Design ✦ Branding ✦ Futebol ✦ Identidade ✦</span><span>Design ✦ Branding ✦ Futebol ✦ Identidade ✦</span><span>Design ✦ Branding ✦ Futebol ✦ Identidade ✦</span><span>Design ✦ Branding ✦ Futebol ✦ Identidade ✦</span></div>
   </div>
-  <span class="forma f1" data-prof="30"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="none" stroke="#E6DCC8" stroke-opacity=".45" stroke-width="2"/></svg></span>
-  <span class="forma f2" data-prof="-40"><svg viewBox="0 0 100 100"><path d="M50 4 L58 42 L96 50 L58 58 L50 96 L42 58 L4 50 L42 42 Z" fill="#F4F0E8" fill-opacity=".35"/></svg></span>
-  <span class="forma f3" data-prof="20"><svg viewBox="0 0 200 40"><path d="M4 20 Q 29 0 54 20 T 104 20 T 154 20 T 196 20" fill="none" stroke="#F4F0E8" stroke-opacity=".3" stroke-width="5" stroke-linecap="round"/></svg></span>
+  <span class="forma f1" data-prof="30"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="none" stroke="#9DB4FF" stroke-opacity=".45" stroke-width="2"/></svg></span>
+  <span class="forma f2" data-prof="-40"><svg viewBox="0 0 100 100"><path d="M50 4 L58 42 L96 50 L58 58 L50 96 L42 58 L4 50 L42 42 Z" fill="#2F5BFF" fill-opacity=".7"/></svg></span>
+  <span class="forma f3" data-prof="20"><svg viewBox="0 0 200 40"><path d="M4 20 Q 29 0 54 20 T 104 20 T 154 20 T 196 20" fill="none" stroke="#2F5BFF" stroke-opacity=".6" stroke-width="5" stroke-linecap="round"/></svg></span>
   <span class="forma f4" data-prof="-60"><svg viewBox="0 0 100 100"><path d="M50 0 C54 38 62 46 100 50 C62 54 54 62 50 100 C46 62 38 54 0 50 C38 46 46 38 50 0 Z" fill="#fff" fill-opacity=".85"/></svg></span>
-  <span class="forma f5" data-prof="45"><svg viewBox="0 0 100 100"><path d="M50 8 V92 M8 50 H92" stroke="#E6DCC8" stroke-opacity=".5" stroke-width="8" stroke-linecap="round"/></svg></span>
+  <span class="forma f5" data-prof="45"><svg viewBox="0 0 100 100"><path d="M50 8 V92 M8 50 H92" stroke="#9DB4FF" stroke-opacity=".5" stroke-width="8" stroke-linecap="round"/></svg></span>
   <span class="forma f6" data-prof="-25"><svg viewBox="0 0 120 60"><path d="M6 56 A54 54 0 0 1 114 56" fill="none" stroke="#fff" stroke-opacity=".18" stroke-width="3" stroke-dasharray="6 8"/></svg></span>
   <span class="risco r1"></span><span class="risco r2"></span>
 </div>
