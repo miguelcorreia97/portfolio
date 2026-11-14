@@ -36,7 +36,7 @@
     --violeta: #1A0B33;
     --roxo: #7F3AED;
     --roxo-escuro: #6326C9;
-    --lima: #C6FF34;
+    --lima: #C6FF34; /* só para informação: datas, rótulos de projeto, números, e o contorno de foco do teclado */
     --branco: #FFFFFF;
     --suave: rgba(255,255,255,.8);
     --titulo: "Anton", "Impact", sans-serif;
@@ -263,7 +263,7 @@
   .fundo { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
   .fundo .luz { position: absolute; border-radius: 50%; will-change: transform, opacity; mix-blend-mode: screen; }
   .luz.l1 { width: 42vw; height: 42vw; right: -10vw; top: -14vw; background: radial-gradient(circle, rgba(127,58,237,.7), transparent 62%); animation: flutuar-1 13s ease-in-out infinite alternate, pulsar 5s ease-in-out infinite; }
-  .luz.l2 { width: 30vw; height: 30vw; left: -10vw; top: 35vh; background: radial-gradient(circle, rgba(198,255,52,.16), transparent 62%); animation: flutuar-2 11s ease-in-out infinite alternate, pulsar 7s 1s ease-in-out infinite; }
+  .luz.l2 { width: 30vw; height: 30vw; left: -10vw; top: 35vh; background: radial-gradient(circle, rgba(160,110,248,.18), transparent 62%); animation: flutuar-2 11s ease-in-out infinite alternate, pulsar 7s 1s ease-in-out infinite; }
   .luz.l3 { width: 50vw; height: 40vw; left: 25vw; bottom: -22vw; background: radial-gradient(circle, rgba(99,38,201,.6), transparent 62%); animation: flutuar-3 15s ease-in-out infinite alternate, pulsar 6s 2s ease-in-out infinite; }
   .fundo .risco {
     position: absolute; left: -50%; width: 200%; height: 110px;
@@ -391,7 +391,7 @@
   .lista-exp li { transition: transform .3s; }
   .lista-exp li::before { transition: background .3s, box-shadow .3s; }
   .lista-exp li:hover { transform: translateX(6px); }
-  .lista-exp li:hover::before { background: var(--lima); box-shadow: 0 0 10px var(--lima); }
+  .lista-exp li:hover::before { background: var(--roxo); box-shadow: 0 0 10px var(--roxo); }
 
   /* Ferramentas */
   .ferramenta { transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s; }
@@ -629,11 +629,11 @@
   <div class="faixa-texto t1"><span>Design ✦ Branding ✦ Futebol ✦ Identidade ✦</span><span>Design ✦ Branding ✦ Futebol ✦ Identidade ✦</span><span>Design ✦ Branding ✦ Futebol ✦ Identidade ✦</span><span>Design ✦ Branding ✦ Futebol ✦ Identidade ✦</span></div>
   <div class="faixa-texto t2"><span>Design ✦ Branding ✦ Futebol ✦ Identidade ✦</span><span>Design ✦ Branding ✦ Futebol ✦ Identidade ✦</span><span>Design ✦ Branding ✦ Futebol ✦ Identidade ✦</span><span>Design ✦ Branding ✦ Futebol ✦ Identidade ✦</span></div>
   </div>
-  <span class="forma f1" data-prof="30"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="none" stroke="#C6FF34" stroke-opacity=".45" stroke-width="2"/></svg></span>
+  <span class="forma f1" data-prof="30"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="none" stroke="#7F3AED" stroke-opacity=".45" stroke-width="2"/></svg></span>
   <span class="forma f2" data-prof="-40"><svg viewBox="0 0 100 100"><path d="M50 4 L58 42 L96 50 L58 58 L50 96 L42 58 L4 50 L42 42 Z" fill="#7F3AED" fill-opacity=".7"/></svg></span>
   <span class="forma f3" data-prof="20"><svg viewBox="0 0 200 40"><path d="M4 20 Q 29 0 54 20 T 104 20 T 154 20 T 196 20" fill="none" stroke="#7F3AED" stroke-opacity=".6" stroke-width="5" stroke-linecap="round"/></svg></span>
   <span class="forma f4" data-prof="-60"><svg viewBox="0 0 100 100"><path d="M50 0 C54 38 62 46 100 50 C62 54 54 62 50 100 C46 62 38 54 0 50 C38 46 46 38 50 0 Z" fill="#fff" fill-opacity=".85"/></svg></span>
-  <span class="forma f5" data-prof="45"><svg viewBox="0 0 100 100"><path d="M50 8 V92 M8 50 H92" stroke="#C6FF34" stroke-opacity=".5" stroke-width="8" stroke-linecap="round"/></svg></span>
+  <span class="forma f5" data-prof="45"><svg viewBox="0 0 100 100"><path d="M50 8 V92 M8 50 H92" stroke="#7F3AED" stroke-opacity=".5" stroke-width="8" stroke-linecap="round"/></svg></span>
   <span class="forma f6" data-prof="-25"><svg viewBox="0 0 120 60"><path d="M6 56 A54 54 0 0 1 114 56" fill="none" stroke="#fff" stroke-opacity=".18" stroke-width="3" stroke-dasharray="6 8"/></svg></span>
   <span class="risco r1"></span><span class="risco r2"></span>
 </div>
