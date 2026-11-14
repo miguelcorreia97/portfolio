@@ -6,7 +6,7 @@
 <title>Miguel Correia · Designer gráfico de desporto</title>
 <meta name="description" content="Design gráfico para clubes de futebol, marcas e instituições: identidades visuais, publicações de jogo e vídeo. Porto.">
 <link rel="canonical" href="https://miguelcorreia97.github.io/portfolio/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23D7192D'/%3E%3Cstop offset='1' stop-color='%23A8101F'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='32' fill='url(%23g)'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Impact,Arial Narrow,sans-serif' font-size='28' fill='white'%3EMC%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23F4F0E8'/%3E%3Cstop offset='1' stop-color='%23D9D1C2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='32' fill='url(%23g)'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Impact,Arial Narrow,sans-serif' font-size='28' fill='white'%3EMC%3C/text%3E%3C/svg%3E">
 <meta name="theme-color" content="#000000">
 <!-- Pré-visualização ao partilhar o link (WhatsApp, LinkedIn, email…) -->
 <meta property="og:type" content="website">
@@ -33,10 +33,10 @@
   @font-face { font-family: "Anton"; font-weight: 400; font-style: normal; font-display: swap; src: url("fonts/anton-latin-400-normal.woff2") format("woff2"); }
   :root {
     --preto: #000000;
-    --vinho: #2A0A0F;
-    --roxo: #D7192D;
-    --roxo-escuro: #A8101F;
-    --lilas: #FF9AA3;
+    --violeta: #1A1814;
+    --roxo: #F4F0E8;
+    --roxo-escuro: #E2DACB;
+    --lilas: #E6DCC8;
     --branco: #FFFFFF;
     --suave: rgba(255,255,255,.8);
     --titulo: "Anton", "Impact", sans-serif;
@@ -49,7 +49,7 @@
   body {
     margin: 0; color: var(--branco); font-family: var(--texto); font-size: 16px; line-height: 1.6;
     background-color: var(--preto);
-    background-image: linear-gradient(180deg, #000000 0%, #0A0304 50%, #000000 100%);
+    background-image: linear-gradient(180deg, #000000 0%, #080807 50%, #000000 100%);
   }
   img, video { display: block; max-width: 100%; }
   a { color: inherit; }
@@ -63,14 +63,14 @@
   /* Etiquetas em forma de pílula */
   .pilula {
     display: inline-block; padding: 10px 26px; border-radius: 999px;
-    background: rgba(215,25,45,.28); border: 2px solid rgba(255,255,255,.35);
+    background: rgba(244,240,232,0.13); border: 2px solid rgba(255,255,255,.35);
     box-shadow: inset 0 0 18px rgba(255,255,255,.12), 0 6px 24px rgba(0,0,0,.35);
     font-weight: 700; font-size: 18px; letter-spacing: .04em; text-transform: uppercase;
   }
   h2.pilula, h3.pilula { margin-top: 0; margin-bottom: 0; line-height: normal; font-family: var(--texto); }
 
   /* Cabeçalho */
-  .cabecalho { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(10px); background: rgba(11,5,6,.6); }
+  .cabecalho { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(10px); background: rgba(10,10,9,0.6); }
   .cabecalho .contentor { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 16px; }
   .marca { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; line-height: 1.1; font-size: 15px; }
   .marca .sigla {
@@ -84,7 +84,7 @@
     padding: 8px 18px; border-radius: 999px;
   }
   .nav a:hover { background: rgba(255,255,255,.08); }
-  .nav a.ativo { background: var(--roxo); box-shadow: 0 0 20px rgba(215,25,45,.6); }
+  .nav a.ativo { background: var(--roxo); box-shadow: 0 0 20px rgba(244,240,232,0.21); }
 
   /* Abertura */
   .abertura { padding: 48px 0 0; }
@@ -108,7 +108,7 @@
     font-family: var(--titulo); font-weight: 400; text-transform: uppercase;
     font-size: clamp(56px, 8.6vw, 124px); line-height: 1.15; margin: -.12em 0 -.08em; padding: .1em 0 0; white-space: nowrap;
     letter-spacing: .01em;
-    background: linear-gradient(180deg, #FFFFFF 55%, #FFD6DA 100%);
+    background: linear-gradient(180deg, #FFFFFF 55%, #E9E2D4 100%);
     -webkit-background-clip: text; background-clip: text; color: transparent;
     filter: drop-shadow(0 0 22px rgba(255,255,255,.25));
   }
@@ -116,13 +116,13 @@
     display: inline-block; margin-top: 18px; padding: 10px 28px;
     background: linear-gradient(90deg, var(--roxo), var(--roxo-escuro));
     font-weight: 800; font-size: clamp(16px, 2vw, 22px); text-transform: uppercase; letter-spacing: .06em;
-    box-shadow: 0 0 30px rgba(215,25,45,.55);
+    box-shadow: 0 0 30px rgba(244,240,232,0.19);
   }
   .titulo-principal p { max-width: 32em; margin: 22px 0 0; color: var(--suave); }
 
   .faixa-ola {
     margin-top: 32px; padding: 18px 0;
-    background: linear-gradient(90deg, rgba(168,16,31,.15), rgba(168,16,31,.9) 30%, rgba(215,25,45,.9) 70%, rgba(168,16,31,.15));
+    background: linear-gradient(90deg, rgba(244,240,232,0.07), rgba(244,240,232,0.32) 30%, rgba(244,240,232,0.32) 70%, rgba(244,240,232,0.07));
     border-top: 1px solid rgba(255,255,255,.25); border-bottom: 1px solid rgba(255,255,255,.25);
     text-align: center; font-weight: 700; text-transform: uppercase;
     letter-spacing: .4em; font-size: clamp(12px, 1.6vw, 18px);
@@ -182,7 +182,7 @@
   .peca figcaption {
     position: absolute; left: 8px; bottom: 8px; z-index: 1;
     padding: 3px 10px; border-radius: 999px; font-size: 11px; font-weight: 700;
-    background: rgba(11,5,6,.75);
+    background: rgba(10,10,9,0.75);
   }
   .peca.futebol figcaption { background: var(--roxo); }
 
@@ -213,7 +213,7 @@
     display: inline-block; padding: 16px 34px; border-radius: 999px; text-decoration: none;
     background: var(--roxo);
     font-weight: 800; font-size: clamp(15px, 2.4vw, 20px);
-    box-shadow: 0 0 34px rgba(215,25,45,.6); word-break: break-all;
+    box-shadow: 0 0 34px rgba(244,240,232,0.21); word-break: break-all;
   }
   .botao-cv { display: inline-flex; align-items: center; gap: 10px; margin-top: 26px; text-decoration: none; font-weight: 700; font-size: 14px; letter-spacing: .06em; text-transform: uppercase;
     padding: 12px 24px; border-radius: 999px; border: 2px solid rgba(255,255,255,.35); transition: background .3s, box-shadow .3s, transform .3s; animation: entrar-baixo .8s .65s cubic-bezier(.2,.7,.2,1) both; }
@@ -262,13 +262,13 @@
   /* Luzes roxas de fundo que se mexem devagar */
   .fundo { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
   .fundo .luz { position: absolute; border-radius: 50%; will-change: transform, opacity; mix-blend-mode: screen; }
-  .luz.l1 { width: 42vw; height: 42vw; right: -10vw; top: -14vw; background: radial-gradient(circle, rgba(215,25,45,.7), transparent 62%); animation: flutuar-1 13s ease-in-out infinite alternate, pulsar 5s ease-in-out infinite; }
-  .luz.l2 { width: 30vw; height: 30vw; left: -10vw; top: 35vh; background: radial-gradient(circle, rgba(255,154,163,.35), transparent 62%); animation: flutuar-2 11s ease-in-out infinite alternate, pulsar 7s 1s ease-in-out infinite; }
-  .luz.l3 { width: 50vw; height: 40vw; left: 25vw; bottom: -22vw; background: radial-gradient(circle, rgba(168,16,31,.6), transparent 62%); animation: flutuar-3 15s ease-in-out infinite alternate, pulsar 6s 2s ease-in-out infinite; }
+  .luz.l1 { width: 42vw; height: 42vw; right: -10vw; top: -14vw; background: radial-gradient(circle, rgba(244,240,232,0.24), transparent 62%); animation: flutuar-1 13s ease-in-out infinite alternate, pulsar 5s ease-in-out infinite; }
+  .luz.l2 { width: 30vw; height: 30vw; left: -10vw; top: 35vh; background: radial-gradient(circle, rgba(244,240,232,0.16), transparent 62%); animation: flutuar-2 11s ease-in-out infinite alternate, pulsar 7s 1s ease-in-out infinite; }
+  .luz.l3 { width: 50vw; height: 40vw; left: 25vw; bottom: -22vw; background: radial-gradient(circle, rgba(244,240,232,0.21), transparent 62%); animation: flutuar-3 15s ease-in-out infinite alternate, pulsar 6s 2s ease-in-out infinite; }
   .fundo .risco {
     position: absolute; left: -50%; width: 200%; height: 110px;
     -webkit-mask-image: linear-gradient(to bottom, transparent, #000 50%, transparent); mask-image: linear-gradient(to bottom, transparent, #000 50%, transparent);
-    background: linear-gradient(90deg, transparent, rgba(215,25,45,.32), rgba(255,214,218,.22), transparent);
+    background: linear-gradient(90deg, transparent, rgba(244,240,232,0.14), rgba(244,240,232,0.1), transparent);
     will-change: transform; mix-blend-mode: screen;
   }
   .risco.r1 { top: 28%; transform: rotate(-14deg); animation: varrer 8s ease-in-out infinite; }
@@ -281,7 +281,7 @@
   /* Formas líquidas que mudam de forma */
   .fundo .gota {
     position: absolute; opacity: .28; will-change: transform, border-radius;
-    background: linear-gradient(135deg, #D7192D, #5C0714);
+    background: linear-gradient(135deg, #F4F0E8, #5A5448);
     -webkit-mask-image: radial-gradient(circle, #000 35%, transparent 72%); mask-image: radial-gradient(circle, #000 35%, transparent 72%);
   }
   .gota.g1 { width: 34vw; height: 34vw; left: 8vw; top: 55vh; animation: derreter 16s ease-in-out infinite, deriva-1 20s ease-in-out infinite alternate; }
@@ -308,7 +308,7 @@
     mask-image: linear-gradient(90deg, #000 0%, rgba(0,0,0,.25) 18%, transparent 30%, transparent 70%, rgba(0,0,0,.25) 82%, #000 100%);
   }
   .faixa-texto.t1 { top: 18vh; rotate: -6deg; animation: deslizar 90s linear infinite; }
-  .faixa-texto.t2 { top: 62vh; rotate: -6deg; animation: deslizar 110s linear infinite reverse; -webkit-text-stroke-color: rgba(240,92,106,.12); }
+  .faixa-texto.t2 { top: 62vh; rotate: -6deg; animation: deslizar 110s linear infinite reverse; -webkit-text-stroke-color: rgba(244,240,232,0.05); }
   @keyframes deslizar { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
   /* Formas soltas que flutuam e seguem o rato */
@@ -345,7 +345,7 @@
   .luz-rato {
     position: fixed; left: 0; top: 0; width: 520px; height: 520px; margin: -260px 0 0 -260px;
     border-radius: 50%; pointer-events: none; z-index: 0; opacity: 0; transition: opacity .4s;
-    background: radial-gradient(circle, rgba(232,58,74,.22), transparent 60%); mix-blend-mode: screen;
+    background: radial-gradient(circle, rgba(244,240,232,0.1), transparent 60%); mix-blend-mode: screen;
   }
   body.com-rato .luz-rato { opacity: 1; }
   main, footer { position: relative; z-index: 1; }
@@ -362,8 +362,8 @@
   /* Brilho que atravessa o título de vez em quando */
   .titulo-principal h1 {
     background-image:
-      linear-gradient(110deg, transparent 42%, rgba(255,208,212,.95) 50%, transparent 58%),
-      linear-gradient(180deg, #FFFFFF 55%, #FFD6DA 100%);
+      linear-gradient(110deg, transparent 42%, rgba(244,240,232,0.33) 50%, transparent 58%),
+      linear-gradient(180deg, #FFFFFF 55%, #E9E2D4 100%);
     background-size: 250% 100%, 100% 100%;
     background-repeat: no-repeat;
     animation: entrar-titulo 1s cubic-bezier(.2,.7,.2,1) both, brilho 6s 1.2s ease-in-out infinite;
@@ -382,7 +382,7 @@
 
   /* Pílulas e menu */
   .pilula, .nav a, .redes a { transition: box-shadow .3s, background .3s, transform .3s; }
-  .pilula:hover { box-shadow: inset 0 0 18px rgba(255,255,255,.2), 0 0 30px rgba(215,25,45,.7); transform: translateY(-2px); }
+  .pilula:hover { box-shadow: inset 0 0 18px rgba(255,255,255,.2), 0 0 30px rgba(244,240,232,0.24); transform: translateY(-2px); }
   .nav a:hover { transform: translateY(-1px); }
   .marca .sigla { transition: transform .5s; }
   .marca:hover .sigla { transform: rotate(-12deg) scale(1.1); }
@@ -395,7 +395,7 @@
 
   /* Ferramentas */
   .ferramenta { transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s; }
-  .ferramenta:hover { transform: translateY(-6px) rotate(-4deg) scale(1.06); box-shadow: 0 12px 30px rgba(0,0,0,.45), 0 0 24px rgba(232,58,74,.45); }
+  .ferramenta:hover { transform: translateY(-6px) rotate(-4deg) scale(1.06); box-shadow: 0 12px 30px rgba(0,0,0,.45), 0 0 24px rgba(244,240,232,0.2); }
 
   /* Trabalhos */
   .peca { transition: transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s; }
@@ -417,7 +417,7 @@
     background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.45) 50%, transparent 65%);
     background-size: 250% 100%; background-position: 130% 0; transition: background-position .7s;
   }
-  .botao-email:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 0 50px rgba(232,58,74,.8); }
+  .botao-email:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 0 50px rgba(244,240,232,0.28); }
   .botao-email:hover::after { background-position: -30% 0; }
 
   /* Elementos que aparecem ao fazer scroll (só se o JavaScript estiver ativo) */
@@ -431,7 +431,7 @@
   .peca .ver {
     position: absolute; right: 10px; top: 10px; z-index: 3; width: 34px; height: 34px; border-radius: 50%;
     display: grid; place-content: center; font-size: 22px; font-weight: 500; line-height: 1;
-    background: var(--roxo); box-shadow: 0 0 18px rgba(215,25,45,.7);
+    background: var(--roxo); box-shadow: 0 0 18px rgba(244,240,232,0.24);
     opacity: 0; transform: scale(.5) rotate(-90deg); transition: opacity .3s, transform .4s cubic-bezier(.2,.7,.2,1);
   }
   .peca:hover .ver, .peca:focus-visible .ver { opacity: 1; transform: none; }
@@ -440,7 +440,7 @@
   .ampliar { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 24px; }
   .ampliar[hidden] { display: none; }
   .ampliar-fundo {
-    position: absolute; inset: 0; background: rgba(9,3,4,.82); backdrop-filter: blur(14px);
+    position: absolute; inset: 0; background: rgba(8,8,7,0.82); backdrop-filter: blur(14px);
   }
   .ampliar-caixa {
     position: relative; width: min(1100px, 100%); max-height: calc(100vh - 48px);
@@ -452,7 +452,7 @@
     box-shadow: 0 30px 80px rgba(0,0,0,.6), 0 0 60px rgba(255,255,255,.22);
     transform-origin: top left;
   }
-  .ampliar-imagem img { width: 100%; height: 100%; object-fit: contain; background: #0B0506; }
+  .ampliar-imagem img { width: 100%; height: 100%; object-fit: contain; background: #0A0A09; }
   .ampliar-imagem .falta {
     position: absolute; inset: 0; display: grid; place-content: center; text-align: center;
     color: rgba(255,255,255,.6); font-size: 14px; border: 1px dashed rgba(255,255,255,.25); border-radius: 14px;
@@ -461,7 +461,7 @@
   .ampliar-texto { min-width: 0; }
   .ampliar-texto .categoria {
     display: inline-block; padding: 5px 14px; border-radius: 999px; font-size: 12px; font-weight: 700;
-    background: var(--roxo); box-shadow: 0 0 18px rgba(215,25,45,.6); text-transform: uppercase; letter-spacing: .06em;
+    background: var(--roxo); box-shadow: 0 0 18px rgba(244,240,232,0.21); text-transform: uppercase; letter-spacing: .06em;
   }
   .ampliar-texto h3 {
     font-family: var(--titulo); font-weight: 400; text-transform: uppercase;
@@ -474,7 +474,7 @@
     background: rgba(255,255,255,.06); color: var(--branco); font: inherit; font-size: 20px; cursor: pointer;
     display: grid; place-content: center; transition: background .3s, transform .3s, box-shadow .3s;
   }
-  .ampliar-nav button:hover, .ampliar-fechar:hover { background: var(--roxo); box-shadow: 0 0 20px rgba(215,25,45,.7); transform: scale(1.08); }
+  .ampliar-nav button:hover, .ampliar-fechar:hover { background: var(--roxo); box-shadow: 0 0 20px rgba(244,240,232,0.24); transform: scale(1.08); }
   .ampliar-nav button:focus-visible, .ampliar-fechar:focus-visible { outline: 3px solid var(--lilas); outline-offset: 3px; }
   .ampliar-contador { font-weight: 700; font-size: 14px; color: var(--suave); min-width: 56px; text-align: center; }
   .ampliar-fechar { position: absolute; top: 20px; right: 20px; z-index: 2; }
@@ -504,7 +504,7 @@
   .filtro:focus-visible { outline: 3px solid var(--lilas); outline-offset: 2px; }
   .filtro-marcador {
     position: absolute; z-index: 0; top: 0; left: 0; height: 0; width: 0; border-radius: 999px;
-    background: linear-gradient(90deg, var(--roxo), var(--roxo-escuro)); box-shadow: 0 0 22px rgba(215,25,45,.7);
+    background: linear-gradient(90deg, var(--roxo), var(--roxo-escuro)); box-shadow: 0 0 22px rgba(244,240,232,0.24);
     transition: transform .45s cubic-bezier(.2,.7,.2,1), width .45s cubic-bezier(.2,.7,.2,1), height .45s;
   }
   .peca.escondida { display: none; }
@@ -523,7 +523,7 @@
   .peca .play {
     position: absolute; left: 50%; top: 50%; z-index: 3; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%;
     display: grid; place-content: center; color: #fff;
-    background: rgba(215,25,45,.85); box-shadow: 0 0 0 8px rgba(215,25,45,.25), 0 0 30px rgba(215,25,45,.7);
+    background: rgba(244,240,232,0.3); box-shadow: 0 0 0 8px rgba(244,240,232,0.11), 0 0 30px rgba(244,240,232,0.24);
     transition: transform .4s cubic-bezier(.2,.7,.2,1), opacity .4s;
   }
   .peca .play svg { width: 28px; height: 28px; margin-left: 3px; }
@@ -554,7 +554,7 @@
   }
   .miniaturas button img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .miniaturas button:hover { opacity: .9; transform: translateY(-2px); }
-  .miniaturas button.ativa { opacity: 1; border-color: var(--roxo); box-shadow: 0 0 14px rgba(215,25,45,.7); }
+  .miniaturas button.ativa { opacity: 1; border-color: var(--roxo); box-shadow: 0 0 14px rgba(244,240,232,0.24); }
   .miniaturas button:focus-visible { outline: 3px solid var(--lilas); outline-offset: 2px; }
   .ampliar-imagem.galeria-ativa { cursor: e-resize; }
 
@@ -618,6 +618,12 @@
     .filtro, .redes a, .botao-cv { min-height: 44px; }
     .redes a { display: inline-flex; align-items: center; } }
   @media (max-width: 380px) { .nav a:first-child { display: none; } .filtro { font-size: 11px; letter-spacing: .02em; padding: 10px 4px; } }
+
+  /* Paleta creme: texto escuro sobre fundos creme */
+  .saltar, .marca .sigla, .nav a.ativo, .faixa-papel, .peca.futebol figcaption, .botao-email, .peca .ver,
+  .ampliar-texto .categoria, .ampliar-nav button:hover, .ampliar-fechar:hover, .filtro.ativo, .peca .play { color: #0B0B0A; }
+  .faixa-ola { background: linear-gradient(90deg, #DCD4C4, #F4F0E8 50%, #DCD4C4); color: #0B0B0A; border-color: transparent; }
+  .faixa-papel, .botao-email { text-shadow: none; }
 </style>
 </head>
 <body>
@@ -629,11 +635,11 @@
   <div class="faixa-texto t1"><span>Design ✦ Branding ✦ Futebol ✦ Identidade ✦</span><span>Design ✦ Branding ✦ Futebol ✦ Identidade ✦</span><span>Design ✦ Branding ✦ Futebol ✦ Identidade ✦</span><span>Design ✦ Branding ✦ Futebol ✦ Identidade ✦</span></div>
   <div class="faixa-texto t2"><span>Design ✦ Branding ✦ Futebol ✦ Identidade ✦</span><span>Design ✦ Branding ✦ Futebol ✦ Identidade ✦</span><span>Design ✦ Branding ✦ Futebol ✦ Identidade ✦</span><span>Design ✦ Branding ✦ Futebol ✦ Identidade ✦</span></div>
   </div>
-  <span class="forma f1" data-prof="30"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="none" stroke="#FF9AA3" stroke-opacity=".45" stroke-width="2"/></svg></span>
-  <span class="forma f2" data-prof="-40"><svg viewBox="0 0 100 100"><path d="M50 4 L58 42 L96 50 L58 58 L50 96 L42 58 L4 50 L42 42 Z" fill="#D7192D" fill-opacity=".7"/></svg></span>
-  <span class="forma f3" data-prof="20"><svg viewBox="0 0 200 40"><path d="M4 20 Q 29 0 54 20 T 104 20 T 154 20 T 196 20" fill="none" stroke="#D7192D" stroke-opacity=".6" stroke-width="5" stroke-linecap="round"/></svg></span>
+  <span class="forma f1" data-prof="30"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="none" stroke="#E6DCC8" stroke-opacity=".45" stroke-width="2"/></svg></span>
+  <span class="forma f2" data-prof="-40"><svg viewBox="0 0 100 100"><path d="M50 4 L58 42 L96 50 L58 58 L50 96 L42 58 L4 50 L42 42 Z" fill="#F4F0E8" fill-opacity=".35"/></svg></span>
+  <span class="forma f3" data-prof="20"><svg viewBox="0 0 200 40"><path d="M4 20 Q 29 0 54 20 T 104 20 T 154 20 T 196 20" fill="none" stroke="#F4F0E8" stroke-opacity=".3" stroke-width="5" stroke-linecap="round"/></svg></span>
   <span class="forma f4" data-prof="-60"><svg viewBox="0 0 100 100"><path d="M50 0 C54 38 62 46 100 50 C62 54 54 62 50 100 C46 62 38 54 0 50 C38 46 46 38 50 0 Z" fill="#fff" fill-opacity=".85"/></svg></span>
-  <span class="forma f5" data-prof="45"><svg viewBox="0 0 100 100"><path d="M50 8 V92 M8 50 H92" stroke="#FF9AA3" stroke-opacity=".5" stroke-width="8" stroke-linecap="round"/></svg></span>
+  <span class="forma f5" data-prof="45"><svg viewBox="0 0 100 100"><path d="M50 8 V92 M8 50 H92" stroke="#E6DCC8" stroke-opacity=".5" stroke-width="8" stroke-linecap="round"/></svg></span>
   <span class="forma f6" data-prof="-25"><svg viewBox="0 0 120 60"><path d="M6 56 A54 54 0 0 1 114 56" fill="none" stroke="#fff" stroke-opacity=".18" stroke-width="3" stroke-dasharray="6 8"/></svg></span>
   <span class="risco r1"></span><span class="risco r2"></span>
 </div>
